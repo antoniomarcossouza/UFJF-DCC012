@@ -1,0 +1,37 @@
+Algoritmo: Quick Sort
+Simulaçao de N: 10000 Valores
+Media Comparaçoes: 191317
+Media Movimentaçoes: 32827
+Media Tempo: 0.00757549
+
+Algoritmo: Quick Sort
+Simulaçao de N: 50000 Valores
+Media Comparaçoes: 1076349
+Media Movimentaçoes: 192923
+Media Tempo: 0.0411578
+
+Algoritmo: Quick Sort
+Simulaçao de N: 100000 Valores
+Media Comparaçoes: 2440105
+Media Movimentaçoes: 407028
+Media Tempo: 0.0895567
+
+Algoritmo: Quick Sort
+Simulaçao de N: 500000 Valores
+Media Comparaçoes: 12911515
+Media Movimentaçoes: 2344408
+Media Tempo: 0.48335
+
+Algoritmo: Quick Sort
+Simulaçao de N: 1000000 Valores
+Media Comparaçoes: 28166796
+Media Movimentaçoes: 4896368
+Media Tempo: 1.03643
+
+Algoritmo: Quick Sort
+Media Total dos Testes
+Media Comparaçoes: 9023115
+Media Movimentaçoes: 1573929
+Media Tempo: 0.334112
+
+---------------------------------------
