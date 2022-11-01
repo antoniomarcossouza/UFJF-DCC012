@@ -15,6 +15,11 @@ using namespace std;
 using namespace std::chrono;
 namespace fs = std::filesystem;
 
+void ManipulandoArquivo::setPath(string path)
+{
+    this->path = path;
+}
+
 vector<string> ManipulandoArquivo::getFileName(string path)
 {
     string val;
@@ -35,7 +40,6 @@ void ManipulandoArquivo::fileCSVtoBIN(string path)
     cout << "PRE-PROCESSANDO OS DADOS" << endl;
 
     string csvPath = path + ".csv";
-    string binPath = path + ".bin";
 
     ifstream inFile(csvPath, ios::in);
     if (!inFile)
@@ -43,7 +47,7 @@ void ManipulandoArquivo::fileCSVtoBIN(string path)
         cout << "ERRO ao abrir o aquivo: " << csvPath << endl;
         exit(1);
     }
-    ofstream outFile(binPath, ios::out | ios_base::binary);
+    ofstream outFile(this->binPath, ios::out | ios_base::binary);
     if (!outFile)
     {
         cout << "ERRO ao abrir o arquibo: " << binPath << ".bin" << endl;
@@ -86,11 +90,11 @@ void ManipulandoArquivo::fileCSVtoBIN(string path)
 ProductReview ManipulandoArquivo::findRegistryPosition(int i)
 {
     // Procura o registro na posicao i passada
-    string path = "./files/ratings_Electronics.bin";
-    ifstream inFile(path, ios::in | ios_base::binary);
+    // string path = "./files/ratings_Electronics.bin";
+    ifstream inFile(this->binPath, ios::in | ios_base::binary);
     if (!inFile)
     {
-        cout << "ERRO ao abrir o arquivo " << path << endl;
+        cout << "ERRO ao abrir o arquivo " << this->binPath << endl;
         exit(1);
     }
 
@@ -161,7 +165,7 @@ int* ManipulandoArquivo::readInput(int& size)
 {
     // Le os dados de input do arquivo .dat e retorna um vetor com os dados.
     int* N;
-    ifstream inFile("./files/input.dat", ios::binary);
+    ifstream inFile(this->datPath, ios::binary);
     if (!inFile)
     {
         cout << "ERRO ao abrir ./files/input.dat" << endl;
@@ -319,6 +323,8 @@ void ManipulandoArquivo::preProcessamento(string path)
         cout << "ERRO Faltando arquivo input.dat" << endl;
         exit(1);
     }
+    else
+        this->datPath = datName + ".dat";
     
     if (csvName != "")
         // Analisa se existe arquivo .BIN no diretorio
@@ -331,9 +337,15 @@ void ManipulandoArquivo::preProcessamento(string path)
             }
         }   
     else 
-        cout << "ERRO arquivo .csv nao localisado" << endl;
+        {
+            cout << "ERRO arquivo .csv nao localisado" << endl;
+            exit(1);
+        }
     
     if (binName == "")
         fileCSVtoBIN(csvName);
+    else 
+        this->binPath = binName + ".bin";
 
+    cout << this->binPath << " " << this->datPath << endl;
 }

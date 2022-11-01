@@ -43,17 +43,14 @@ void printArray(int* arr, int tam)
     retorna um vetor contendo estes registros.
 */
 
-
+ManipulandoArquivo arq;
 void createBinary(string path)
 {
-    ManipulandoArquivo arq;
     arq.preProcessamento(path);
-    system("clear");
 }
 
 void getReview(int i)
 {
-    ManipulandoArquivo arq;
     ProductReview prod;
 
     prod = arq.findRegistryPosition(i);
@@ -62,7 +59,6 @@ void getReview(int i)
 
 ProductReview* import(int n)
 {
-    ManipulandoArquivo arq;
     ProductReview* produtos = new ProductReview[n];
 
     // CHAVE RANDOMICA
@@ -128,7 +124,6 @@ void sort(ProductReview *vet, int n, int methodId)
 
 void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
 {
-    ManipulandoArquivo arq;
     ProductReview* vet;
     string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Algum Algoritmo"};
 
@@ -156,10 +151,8 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
 
 void etapaOrdenacao(int M)
 {
-    system("clear");
     cout << "EXECTANDO ETAPA DE ORDENACAO" << endl;
 
-    ManipulandoArquivo arq;
     int size;
     int* N = arq.readInput(size);
     
@@ -179,7 +172,6 @@ void etapaOrdenacao(int M)
 
 void etapaHash()
 {
-    system("clear");
     cout << "EXECUTANDO ETAPA DE HASH" << endl;
 }
 
@@ -188,7 +180,6 @@ void interface()
     int option;
     do
     {
-        system("clear");
         cout << "Escolha qual etapa sera executada: " << endl <<
                 "1. Ordenacao" << endl <<
                 "2. Hash" << endl <<
@@ -206,11 +197,11 @@ void interface()
 int main(int argc, char* arg[])
 {
     string PATH;
-    ManipulandoArquivo arq;
 
     if (argc == 2) 
         PATH = arg[1];
 
+    arq.setBinPath(PATH); 
     createBinary(PATH);
     interface();
 

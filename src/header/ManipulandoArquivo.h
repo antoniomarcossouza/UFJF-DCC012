@@ -19,9 +19,13 @@ class ManipulandoArquivo
         void gerarResultado(int N, int methodId, int M, bool parcial);
         void clearOutputFile();
         void preProcessamento(string path);
-    
+        void setPath(string path);
+
     private:
         vector<string> getFileName(string path);
+        string path;
+        string datPath;
+        string binPath;
 };
 
 #endif
