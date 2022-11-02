@@ -348,7 +348,7 @@ void ManipulandoArquivo::preProcessamento(string path)
         fileCSVtoBIN(csvName);
     }
     else 
-        this->binPath = binName + ".bin";
+        this->binPath = binName;
 
     cout << this->binPath << " " << this->datPath << " " << this->path << endl;
 }
