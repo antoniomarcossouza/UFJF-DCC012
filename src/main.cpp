@@ -10,7 +10,7 @@
 
 using namespace std;
 
-//// Funcoes de Teste
+// Funcoes de Teste
 
 void printArrayProd(ProductReview* arr, int tam)
 {
@@ -24,24 +24,8 @@ void printArray(int* arr, int tam)
         cout << arr[i] << endl;
 }
 
-//// Etapa 1: Processamento dos dados
-
+// Etapa 1: Processamento dos dados
 // https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews
-
-/*
-    void ProductReview::print(): imprime os dados de um registro do tipo ProductReview.
-    
-    void createBinary(std::string& path): gera o arquivo binário correspondente ao arquivo 
-    CSV armazenado no caminho passado como parâmetro. O arquivo binário deve ser gerado no 
-    mesmo diretório do arquivo CSV.
-
-    void getReview(int i): acessa diretamente o i-ésimo registro do arquivo binário e o 
-    imprime na tela. O valor de i deve ser recebido via parâmetro. Considere i = 0 como o 
-    índice do primeiro registro.
-
-    ProductReview* import(int n): importa n registros aleatórios do arquivo binário e 
-    retorna um vetor contendo estes registros.
-*/
 
 ManipulandoArquivo arq;
 void createBinary(string path)
@@ -72,37 +56,7 @@ ProductReview* import(int n)
     return produtos;
 }
 
-//// Etapa 2: Análise de algoritmos de ordenação
-
-/*
-    Nesta etapa, você irá comparar o desempenho de diferentes algoritmos de ordenação 
-    quando aplicados sobre os dados pré-processados. O seu programa deverá seguir os 
-    seguintes passos:
-
-    1. importar conjuntos de N registros aleatórios do arquivo binário gerado pelo 
-       pré-processamento
-
-    2. realizar a ordenação desses registros, utilizando como chave de ordenação userId. 
-       Durante a ordenação, deverão ser computados o total de comparações de chaves e o 
-       total de movimentações de chaves. Além disso, o tempo de execução do algoritmo 
-       deverá ser medido.
-    
-    Para gerar as estatísticas de desempenho, você deverá executar os passos acima para M 
-    diferentes conjuntos de N registros aleatórios. Minimamente, utilize M=3. Ao final, 
-    compute as médias de cada uma das métricas (comparações, movimentações e tempo). 
-    Salve todos os resultados obtidos em um arquivo saida.txt, contendo tanto os resultados 
-    individuais quanto a média final.
-
-    Você deverá realizar a simulação descrita acima para os seguintes valores de N:
-
-        10.000
-        50.000
-        100.000
-        500.000
-        1.000.000
-    
-    Faça a leitura dessas informações a partir de um arquivo chamado input.dat.
-*/
+// Etapa 2: Análise de algoritmos de ordenação
 
 void sort(ProductReview *vet, int n, int methodId)
 {
@@ -201,7 +155,7 @@ int main(int argc, char* arg[])
     if (argc == 2) 
         PATH = arg[1];
 
-    arq.setBinPath(PATH); 
+    arq.setPath(PATH); 
     createBinary(PATH);
     interface();
 

@@ -168,7 +168,7 @@ int* ManipulandoArquivo::readInput(int& size)
     ifstream inFile(this->datPath, ios::binary);
     if (!inFile)
     {
-        cout << "ERRO ao abrir ./files/input.dat" << endl;
+        cout << "ERRO ao abrir " << this->datPath << endl;
         exit(1);
     }
 
@@ -231,10 +231,10 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
     mediaMov /= total;
     mediaTempo /= total;
 
-    ofstream outFileResults("./files/saida.txt", ios::app);
+    ofstream outFileResults(this->path + "/saida.txt", ios::app);
     if (!outFileResults) 
     {
-        cout << "ERRO ao abrir ./files/saida.txt" << endl;
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
         exit(1);
     }
 
@@ -274,10 +274,10 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
 void ManipulandoArquivo::clearOutputFile()
 {
     // Limpa o arquivo de saida.txt
-    ofstream outFile("./files/saida.txt");
+    ofstream outFile(this->path + "/saida.txt");
     if (!outFile) 
     {
-        cout << "ERRO ao abrir ./files/saida.txt" << endl;
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
         exit(1);
     }
     outFile.close();
@@ -343,9 +343,12 @@ void ManipulandoArquivo::preProcessamento(string path)
         }
     
     if (binName == "")
+    {
+        this->binPath = csvName + ".bin";
         fileCSVtoBIN(csvName);
+    }
     else 
         this->binPath = binName + ".bin";
 
-    cout << this->binPath << " " << this->datPath << endl;
+    cout << this->binPath << " " << this->datPath << " " << this->path << endl;
 }
