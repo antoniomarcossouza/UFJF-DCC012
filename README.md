@@ -1,7 +1,9 @@
 # ED2
-## Comando
+# Comando
 `g++ main.cpp header/*.cpp -I header -o main && ./main ./files/`<br>
-- No argumento ./main passar o local do arquivo .csv ./{local_do_aquivo}<br><br>
+- No argumento ./main passar o local do arquivo .csv ./{local_do_aquivo}
+# RELATÓRIO
+<a href="">https://docs.google.com/document/d/19g9uwIkStjVOPfbnRkWuc7Q4zaOtmVJ6BP_dn87qpRE/edit?usp=sharing</a>
 # TODO
 ## ETAPA 1 - Processamento dos dados
 - [x] void ProductReview::print()
