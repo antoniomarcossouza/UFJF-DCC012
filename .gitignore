@@ -3,3 +3,6 @@ ratings_Electronics.bin
 .vscode/
 build/
 saida.txt
+src/main
+src/testeHash
+src/files/temp.bin
