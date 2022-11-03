@@ -13,15 +13,15 @@
 - [x] Salve todos os resultados obtidos em um arquivo saida.txt, contendo tanto os resultados individuais quanto a média final.
 ### ALGORITMOS
 - [x] QuickSort
-- [] HeapSort
-- [] Um terceiro algoritmo à sua escolha que seja O(nlogn) (ou melhor) no caso médio (não escolher o shell sort nem qualquer outro algoritmo trabalhado na disciplina)
+- [ ] HeapSort
+- [ ] Um terceiro algoritmo à sua escolha que seja O(nlogn) (ou melhor) no caso médio (não escolher o shell sort nem qualquer outro algoritmo trabalhado na disciplina)
 ### Funções obrigatorias
 - [x] void sort(ProductReview *vet, int n, int methodId)
 ## ETAPA 3 - Produtos mais avaliados
-- [] ProductReview* createTable(int n)
+- [ ] ProductReview* createTable(int n)
 ## ETAPA 4 - Programa principal
 - [x] Escolha de qual operação executar
 - [x] O programa desenvolvido deve permitir que o usuário entre com o caminho do diretório que contém os arquivos de dados como um argumento na linha de comando
 - [x] O programa deve procurar pela existência dos  arquivos binários dentro da pasta. Se não existir, deve pré-processá-los (etapa 1) antes de seguir para as etapas seguintes.
 ## RELATÓRIO PARCIAL
-- [] detalhamento das atividades realizadas por cada membro do grupo; decisões de implementação; toda e qualquer referência utilizada no desenvolvimento do trabalho.
+- [ ] detalhamento das atividades realizadas por cada membro do grupo; decisões de implementação; toda e qualquer referência utilizada no desenvolvimento do trabalho.
