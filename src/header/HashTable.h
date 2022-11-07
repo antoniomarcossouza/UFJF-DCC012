@@ -2,22 +2,36 @@
 #define HASHTABLE_H
 
 #include "ProductReview.h"
+#include "Bucket.h"
+#include <vector>
 
 using namespace std;
 
 class HashTable
 {   
     private:
-        ProductReview *info;
-        int *next;
-        int tamanho;
-        int hash(ProductReview productReview);
+        vector<Bucket*> bucketList;
+        int listSize;
+        int bucketSize;
+        int overflow;
+        float maxLoadFactor;
+        int g;
+        int n; // numero original de baldes no nível g (antes de qualquer divisão)
+
+        int itemCount;
+        int splitPointer;
+
+        int hash(string productId);
+        void split();
+
     public:
-        HashTable(int tamanho);
+        HashTable();
+        HashTable(int listSize, int bucketSize, float maxLoadFactor);
         ~HashTable();
-        // Insere um ProductReview na tabela
+
+        float loadFactor();
         void insere(ProductReview productReview);
-        ProductReview busca(string productId);
+        int getProductCount(string productId);
 
     // PARA TESTES
 

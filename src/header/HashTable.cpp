@@ -1,104 +1,105 @@
 #include "HashTable.h"
 #include <math.h>
 
-#include <iostream> // TESTE
-#include <iomanip>  // TESTE
-
-HashTable::HashTable(int tamanho)
+HashTable::HashTable(int listSize, int bucketSize, float maxLoadFactor)
 {
-    this->tamanho = tamanho;
-    info = new ProductReview[tamanho];
-    next = new int[tamanho];
+    this->listSize = listSize;
+    this->bucketSize = bucketSize;
+    this->maxLoadFactor = maxLoadFactor;
+    this->overflow = 2;
+    n = listSize;
+    g = 0;
+    splitPointer = 0;
+    itemCount = 0;
 
-    for (int i = 0; i < tamanho; i++)
+    for (int i = 0; i < listSize; i++)
     {
-        next[i] = -2;
+        bucketList.push_back(new Bucket(bucketSize));
     }
     
 }
 
 HashTable::~HashTable()
 {
-    delete [] info;
-    delete [] next;
+    for(int i = 0; i < bucketList.size(); ++i)
+        delete bucketList[i];
 }
 
-int HashTable::hash(ProductReview productReview)
-{
-    string key = productReview.getProductId();
-    int sum = 0;
 
-    for (int i = 0; i < key.length(); i++)
+int HashTable::hash(string productId)
+{
+    int key = 0;
+    for (int i = 0; i < productId.length(); i++)
     {
-        sum += key.at(i);
+        key += productId.at(i);
     }
-    
 
-    cout << endl << " >>> >>> " << (int)key.at(0) << " % " << tamanho << " = " << key.at(0) % tamanho << endl;
 
-    return sum % tamanho;   
+    int hashValue = key % ((int)pow(2, g) * n);
+
+    if (hashValue < splitPointer)
+    {
+        hashValue = key % ((int)pow(2, g+1) * n);
+    }
+
+    return hashValue;   
 }
 
-void HashTable::insere(ProductReview productReview)
+float HashTable::loadFactor()
 {
-    int key = hash(productReview);
-    int previousKey;
-    cout << "inserindo PR na posicao: " << key << endl; 
-    int contColisoes = 0;               // TESTE
-
-    if (next[key] != -2)
-    {   
-        previousKey = key;
-        key = tamanho-1;
-        contColisoes++;                 // TESTE
-        while (next[key] != -2)
-        {
-            key--;
-            contColisoes++;             // TESTE
-        }
-        std::cout << contColisoes << " colisoes" << endl;         // TESTE
-        next[previousKey] = key;
-    }
-    else {std::cout << "Nenhuma colisao" << endl; }     // TESTE
-
-    info[key] = productReview;
-    next[key] = -1;
+    return (float)itemCount / (bucketList.size() * (bucketSize)); // nao levando em conta o overflow por enquanto
 }
 
-int HashTable::insereCount(ProductReview productReview)
+void HashTable::insere(ProductReview pr)
 {
-    int key = hash(productReview);
-    int previousKey;
-    cout << "inserindo PR na posicao: " << key << endl; 
-    int contColisoes = 0;               // TESTE
+    int hashValue = hash(pr.getProductId());
+    itemCount += bucketList[hashValue]->addItem(pr.getProductId());
 
-    if (next[key] != -2)
-    {   
-        previousKey = key;
-        key = tamanho-1;
-        contColisoes++;                 // TESTE
-        while (next[key] != -2)
+    if(loadFactor() > maxLoadFactor)
+        split();
+
+}
+
+void HashTable::split()
+{
+    Bucket* newBucket = new Bucket(bucketSize);
+    bucketList.push_back(newBucket);
+    listSize++;
+    Bucket* splitBucket = bucketList[splitPointer];
+    splitPointer++;
+
+    while (splitBucket != NULL)
+    {
+        for (int i = 0; i < splitBucket->getItemCount(); i++)
         {
-            key--;
-            contColisoes++;             // TESTE
+            string productId = splitBucket->getItem(i);
+            int hashValue = hash(productId);
+
+            if (hashValue != splitPointer-1)
+            {
+                splitBucket->removeItem(i);
+                newBucket->addItem(productId);
+                i--;
+            }
         }
-        std::cout << contColisoes << " colisoes" << endl;         // TESTE
-        next[previousKey] = key;
+        splitBucket = splitBucket->getOverflowBucket();
     }
-    else {std::cout << "Nenhuma colisao" << endl; }     // TESTE
 
-    info[key] = productReview;
-    next[key] = -1;
-
-    return contColisoes;
+    if (splitPointer == n*g)
+    {
+        splitPointer = 0;
+        g++;    
+    }
 }
 
 void HashTable::print()
 {
-    for (int i = 0; i < tamanho; i++)
+    cout << endl << "loadFactor: " << (float)loadFactor() << endl;
+    for(int i = 0; i < bucketList.size(); i++)
     {
-        std::cout << std::setw(4) << i << "| " << std::setw(15) << info[i].getProductId() << " | " << std::setw(5) << next[i] << " |" << endl;
+        Bucket *b = bucketList[i];
+        cout << "balde " << i << endl;
+        b->print();
+        cout << endl;
     }
-
-    std::cout << endl;
 }
