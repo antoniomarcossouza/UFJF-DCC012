@@ -13,7 +13,6 @@ class HashTable
         vector<Bucket*> bucketList;
         int listSize;
         int bucketSize;
-        int overflow;
         float maxLoadFactor;
         int g;
         int n; // numero original de baldes no nível g (antes de qualquer divisão)
@@ -36,8 +35,6 @@ class HashTable
     // PARA TESTES
 
         void print();
-        //Retorna o numero de colisoes
-        int insereCount(ProductReview productReview);
 };
 
 #endif

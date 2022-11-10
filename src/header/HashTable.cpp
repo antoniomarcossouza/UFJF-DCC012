@@ -6,7 +6,6 @@ HashTable::HashTable(int listSize, int bucketSize, float maxLoadFactor)
     this->listSize = listSize;
     this->bucketSize = bucketSize;
     this->maxLoadFactor = maxLoadFactor;
-    this->overflow = 2;
     n = listSize;
     g = 0;
     splitPointer = 0;
@@ -47,7 +46,7 @@ int HashTable::hash(string productId)
 
 float HashTable::loadFactor()
 {
-    return (float)itemCount / (bucketList.size() * (bucketSize)); // nao levando em conta o overflow por enquanto
+    return (float)itemCount / (bucketList.size() * (bucketSize));
 }
 
 void HashTable::insere(ProductReview pr)
@@ -57,7 +56,6 @@ void HashTable::insere(ProductReview pr)
 
     if(loadFactor() > maxLoadFactor)
         split();
-
 }
 
 void HashTable::split()

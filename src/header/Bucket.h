@@ -2,14 +2,14 @@
 #define BUCKET_H
 
 #include "ProductReview.h"
+#include "RegistroHash.h"
 
 using namespace std;
 
 class Bucket
 {   
     private:
-        string *items;
-        int *repeatedItemCount;
+        RegistroHash *items;
         int size;
         int itemCount;
         Bucket *overflowBucket;

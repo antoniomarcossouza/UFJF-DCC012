@@ -4,12 +4,11 @@
 Bucket::Bucket(int size)
 {
     this->size = size;
-    items = new string[size];
-    repeatedItemCount = new int[size];
+    items = new RegistroHash[size];
 
     for (int i = 0; i < size; i++)
     {
-        repeatedItemCount[i] = 0;
+        items[i].qtdReviews = 0;
     }
     
     
@@ -28,7 +27,7 @@ Bucket::~Bucket()
 // Retorna a string no index
 string Bucket::getItem(int index) 
 { 
-    return items[index]; 
+    return items[index].productId; 
 }
 
 /*
@@ -36,7 +35,7 @@ string Bucket::getItem(int index)
 */
 int Bucket::addItem(string productId)
 {
-    // sem itens repitidos
+    // retorna 0 se o item já está no balde ou no overflow
     Bucket* bucket = this;
     while (bucket)
     {
@@ -44,7 +43,7 @@ int Bucket::addItem(string productId)
         {
             if (bucket->getItem(i) == productId)
             {
-                repeatedItemCount[i]++;
+                items[i].qtdReviews++;
                 return 0;
             }
         }
@@ -54,20 +53,21 @@ int Bucket::addItem(string productId)
 
     if (itemCount < size)
     {
-        items[itemCount] = productId;
-        repeatedItemCount[itemCount]++;
+        items[itemCount].productId = productId;
+        items[itemCount].qtdReviews++;
         itemCount++;
+        return 1;
     }
     else
     {
-        // insercao com overflow
+        // insercao no overflow
         if (!overflowBucket)
         {
             overflowBucket = new Bucket(size);
         }
         overflowBucket->addItem(productId);
+        return 0;
     }
-    return 1;
 }
 
 /* 
@@ -79,11 +79,11 @@ void Bucket::removeItem(int index)
     for (int i = index; i < itemCount-1; i++)
     {
         items[i] = items[i+1];
-        repeatedItemCount[i] = repeatedItemCount[i+1];
+        items[i].qtdReviews = items[i+1].qtdReviews;
     }
 
-    items[itemCount-1] = "";
-    repeatedItemCount[itemCount] = 0;
+    items[itemCount-1].productId = "";
+    items[itemCount-1].qtdReviews = 0;
     itemCount--;
 }
 
@@ -95,7 +95,7 @@ void Bucket::removeItem(string productId)
     bool itemFound = false;
     for (int i = 0; i < itemCount; i++)
     {
-        if(items[i] == productId)
+        if(items[i].productId == productId)
         {
             itemFound = true;
             removeItem(i);
@@ -135,7 +135,7 @@ void Bucket::print()
 {
     for (int i = 0; i < size; i++)
     {
-        cout <<"|" << std::setw(15) << items[i] << "|" << std::setw(4) << repeatedItemCount[i] << "|" << endl;
+        cout <<"|" << std::setw(15) << items[i].productId << "|" << std::setw(4) << items[i].qtdReviews << "|" << endl;
     }
 
     if (overflowBucket)
