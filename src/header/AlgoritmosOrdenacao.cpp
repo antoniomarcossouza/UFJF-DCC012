@@ -43,6 +43,7 @@ void AlgoritmosOrdenacao::quickSortEncaps(ProductReview* vet, int lo, int hi, in
     }
 }
 
+
 void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size)
 {
     ManipulandoArquivo arq;
@@ -60,6 +61,39 @@ void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size)
     this->resultado.setMovimentacao(movimentacoes);
     
     arq.temp(resultado);
+}
+void AlgoritmosOrdenacao::merge(ProductReview* vet, int i, int q, int f)
+{
+    int inicio = i;
+    int meio = q;
+    int k = 0;
+    ProductReview* aux;
+    while(inicio < q && meio < f)
+    {
+        if(vet[inicio] < vet[meio])
+        { 
+            aux[k] = vet[i];  meio++;
+        }
+        else
+        {
+            aux[k] = vet[meio];  meio++; 
+        }
+
+        k++;
+    }
+    while( inicio < meio) { aux[k] = vet[inicio]; inicio++; k++; }
+    while( meio < f) { aux[k] = vet[meio]; meio++; k++; }
+    for(inicio = i; inicio < f; inicio++) { vet[i] = aux[inicio - i]; }
+}
+void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, int i, int f)
+{
+    if(i < f)
+    {
+        int q = (i + f) / 2;
+        mergeSortEncaps(vet, i, q);
+        mergeSortEncaps(vet, q + 1, f);
+        merge(vet, i, q, f);
+    }
 }
 
 void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size)
