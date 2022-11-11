@@ -1,103 +1,94 @@
 #include "HashTable.h"
 #include <math.h>
 
-HashTable::HashTable(int listSize, int bucketSize, float maxLoadFactor)
+HashTable::HashTable(int tamanho)
 {
-    this->listSize = listSize;
-    this->bucketSize = bucketSize;
-    this->maxLoadFactor = maxLoadFactor;
-    n = listSize;
-    g = 0;
-    splitPointer = 0;
-    itemCount = 0;
-
-    for (int i = 0; i < listSize; i++)
+    this->tamanho = tamanho;
+    vet = new HashNode*[tamanho];
+    for (int i = 0; i < tamanho; i++)
     {
-        bucketList.push_back(new Bucket(bucketSize));
+        vet[i] = NULL;
     }
     
 }
 
 HashTable::~HashTable()
 {
-    for(int i = 0; i < bucketList.size(); ++i)
-        delete bucketList[i];
+    delete [] vet;
 }
-
 
 int HashTable::hash(string productId)
 {
-    int key = 0;
+    unsigned key = 0;
     for (int i = 0; i < productId.length(); i++)
     {
         key += productId.at(i);
     }
 
+    double kA = key * (sqrt(5) - 1) / 2;
+    return floor(tamanho * (kA - (int)kA));
 
-    int hashValue = key % ((int)pow(2, g) * n);
+}
 
-    if (hashValue < splitPointer)
+void HashTable::insere(ProductReview newReview)
+{
+    int id = hash(newReview.getProductId());
+
+    HashNode* node = procura(newReview);
+    if (node != NULL)
     {
-        hashValue = key % ((int)pow(2, g+1) * n);
+        node->incrementaQtdReviews();
     }
-
-    return hashValue;   
-}
-
-float HashTable::loadFactor()
-{
-    return (float)itemCount / (bucketList.size() * (bucketSize));
-}
-
-void HashTable::insere(ProductReview pr)
-{
-    int hashValue = hash(pr.getProductId());
-    itemCount += bucketList[hashValue]->addItem(pr.getProductId());
-
-    if(loadFactor() > maxLoadFactor)
-        split();
-}
-
-void HashTable::split()
-{
-    Bucket* newBucket = new Bucket(bucketSize);
-    bucketList.push_back(newBucket);
-    listSize++;
-    Bucket* splitBucket = bucketList[splitPointer];
-    splitPointer++;
-
-    while (splitBucket != NULL)
+    else
     {
-        for (int i = 0; i < splitBucket->getItemCount(); i++)
+        HashNode* newNode = new HashNode(newReview);
+        if (vet[id] == NULL)
         {
-            string productId = splitBucket->getItem(i);
-            int hashValue = hash(productId);
-
-            if (hashValue != splitPointer-1)
-            {
-                splitBucket->removeItem(i);
-                newBucket->addItem(productId);
-                i--;
-            }
+            vet[id] = newNode;
         }
-        splitBucket = splitBucket->getOverflowBucket();
+        else
+        {
+            newNode->setNext(vet[id]);
+            vet[id] = newNode;
+        }
+    }    
+}
+
+
+HashNode* HashTable::procura(ProductReview review)
+{
+    int id = hash(review.getProductId());
+    
+    HashNode *p = vet[id];
+    while (p != NULL)
+    {
+        if (p->getProductId() == review.getProductId())
+        {
+            return p;
+        }
+        p = p->getNext();
     }
 
-    if (splitPointer == n*g)
-    {
-        splitPointer = 0;
-        g++;    
-    }
+    return NULL;
 }
 
 void HashTable::print()
 {
-    cout << endl << "loadFactor: " << (float)loadFactor() << endl;
-    for(int i = 0; i < bucketList.size(); i++)
+    for (int i = 0; i < tamanho; i++)
     {
-        Bucket *b = bucketList[i];
-        cout << "balde " << i << endl;
-        b->print();
+        cout << i << "| ";
+        HashNode* p = vet[i];
+        if (p != NULL)
+        {
+            cout << p->getProductId() << " {" << p->getQtdReviews() << "}";
+            p = p->getNext();
+            while (p != NULL)
+            {
+                cout << " -> ";
+                cout << "| " << p->getProductId() << " {" << p->getQtdReviews() << "}";
+                p = p->getNext();
+            }
+        }
         cout << endl;
     }
 }

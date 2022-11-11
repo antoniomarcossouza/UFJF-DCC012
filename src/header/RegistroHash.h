@@ -5,8 +5,8 @@
 
 struct RegistroHash
 {
-    int qtdReviews;
     std::string productId;
+    int qtdReviews;
 };
 
 #endif

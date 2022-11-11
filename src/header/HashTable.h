@@ -1,39 +1,25 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
+#include <iomanip>
 #include "ProductReview.h"
-#include "Bucket.h"
-#include <vector>
+#include "HashNode.h"
 
 using namespace std;
 
 class HashTable
 {   
     private:
-        vector<Bucket*> bucketList;
-        int listSize;
-        int bucketSize;
-        float maxLoadFactor;
-        int g;
-        int n; // numero original de baldes no nível g (antes de qualquer divisão)
-
-        int itemCount;
-        int splitPointer;
-
-        int hash(string productId);
-        void split();
+        HashNode **vet;
+        int tamanho;
 
     public:
-        HashTable();
-        HashTable(int listSize, int bucketSize, float maxLoadFactor);
+        HashTable(int tamanho);
         ~HashTable();
 
-        float loadFactor();
+        int hash(string productId);
         void insere(ProductReview productReview);
-        int getProductCount(string productId);
-
-    // PARA TESTES
-
+        HashNode* procura(ProductReview productReview);
         void print();
 };
 

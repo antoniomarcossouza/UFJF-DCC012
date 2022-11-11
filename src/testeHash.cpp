@@ -16,11 +16,10 @@
 #include "./header/ManipulandoArquivo.h"
 #include "./header/AlgoritmosOrdenacao.h"
 #include "./header/HashTable.h"
-#include "./header/Bucket.h"
 
 
-#define TAM 10000
 
+#define TAM 1000
 using namespace std;
 
 
@@ -35,8 +34,8 @@ ProductReview getRandomPR()
     // CHAVE RANDOMICA
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distr(0, 1000);
-
+    uniform_int_distribution<> distr(0, 100000);
+    
     return arq.findRegistryPosition(distr(gen));
 }
 
@@ -44,7 +43,7 @@ ProductReview getRandomPR()
 int main(int argc, char* arg[])
 {
     string PATH;
-    HashTable hTable(2,4,0.7);
+    HashTable hTable(TAM * 0.3);
 
     if (argc == 2) 
         PATH = arg[1];
