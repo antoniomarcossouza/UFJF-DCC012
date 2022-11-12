@@ -13,7 +13,7 @@ class ProductReview {
     void setTimestamp(int timestamp) { this->timestamp = timestamp; }
 
     std::string getUserId() { return this->userId; }
-    std::string getProductId() { return this->userId; }
+    std::string getProductId() { return this->productId; }
     double getRating() { return this->rating; }
     int getTimestamp() { return this->timestamp; }
 
