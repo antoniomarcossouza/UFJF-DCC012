@@ -232,7 +232,7 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
             algoritmo = "Merge Sort";
             break;
         case 2:
-            algoritmo = "Outro Algoritmo";
+            algoritmo = "Bucket Sort";
             break;
     }
 

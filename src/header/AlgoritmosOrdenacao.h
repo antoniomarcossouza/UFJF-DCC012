@@ -18,7 +18,7 @@ class AlgoritmosOrdenacao {
    public:
     void quickSort(ProductReview* vet, int size);
     void mergeSort(ProductReview* vet, int size);
-    void algumAlgoritmo(ProductReview* vet, int size);
+    void bucketSort(ProductReview* vet, int size);
 };
 
 #endif

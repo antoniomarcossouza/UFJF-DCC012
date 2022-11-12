@@ -74,7 +74,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     arq.temp(resultado);
 }
 
-void AlgoritmosOrdenacao::algumAlgoritmo(ProductReview* vet, int size) {
+void AlgoritmosOrdenacao::bucketSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
 
     this->resultado.setComparacao(1000);

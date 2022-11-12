@@ -65,7 +65,7 @@ void sort(ProductReview* vet, int n, int methodId) {
             algoritmo.mergeSort(vet, n);
             break;
         case 2:
-            algoritmo.algumAlgoritmo(vet, n);
+            algoritmo.bucketSort(vet, n);
             break;
     }
 }
