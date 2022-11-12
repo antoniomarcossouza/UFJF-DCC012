@@ -48,7 +48,7 @@ void ManipulandoArquivo::fileCSVtoBIN(string path) {
     }
     ofstream outFile(this->binPath, ios::out | ios_base::binary);
     if (!outFile) {
-        cout << "ERRO ao abrir o arquibo: " << binPath << ".bin" << endl;
+        cout << "ERRO ao abrir o arquivo: " << binPath << ".bin" << endl;
         exit(1);
     }
 
@@ -310,7 +310,7 @@ void ManipulandoArquivo::preProcessamento(string path) {
             }
         }
     else {
-        cout << "ERRO arquivo .csv nao localisado" << endl;
+        cout << "ERRO arquivo .csv nao localizado" << endl;
         exit(1);
     }
 

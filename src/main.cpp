@@ -124,7 +124,7 @@ void interface() {
         cout << "Escolha qual etapa sera executada: " << endl
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
-             << "0. Quit" << endl
+             << "0. Sair" << endl
              << "> " << flush;
         cin >> option;
 
