@@ -72,7 +72,7 @@ void sort(ProductReview* vet, int n, int methodId) {
 
 void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
     ProductReview* vet;
-    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Algum Algoritmo"};
+    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Bucket Sort"};
 
     cout << "ANALISE ALGORITMO ORDENACAO: " << metodosOrdenacao[methodId] << endl;
 
