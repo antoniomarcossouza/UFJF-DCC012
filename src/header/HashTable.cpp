@@ -3,13 +3,20 @@
 
 HashTable::HashTable(int tamanho)
 {
+    while(!isPrime(tamanho)) // o tamanho da tablea precisa ser impar
+    {
+        tamanho++;
+    }
+
     this->tamanho = tamanho;
-    vet = new HashNode*[tamanho];
+    vet = new RegistroHash[tamanho];
+    qtdItens = 0;
+
     for (int i = 0; i < tamanho; i++)
     {
-        vet[i] = NULL;
+        vet[i].productId = "";
+        vet[i].qtdReviews = 0;
     }
-    
 }
 
 HashTable::~HashTable()
@@ -17,78 +24,78 @@ HashTable::~HashTable()
     delete [] vet;
 }
 
-int HashTable::hash(string productId)
+bool HashTable::isPrime(int n)
+{
+    for (int i = 2; i < n/2; i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+
+int HashTable::hash(string productId, int i)
 {
     unsigned key = 0;
-    for (int i = 0; i < productId.length(); i++)
+    for (int j = 0; j < productId.length(); j++)
     {
-        key += productId.at(i);
+        key += productId.at(j);
     }
 
-    double kA = key * (sqrt(5) - 1) / 2;
-    return floor(tamanho * (kA - (int)kA));
+    return (h1(key) + i*h2(key)) % tamanho;
+}
 
+int HashTable::h1(unsigned key)
+{
+    return key % tamanho;
+}
+
+int HashTable::h2(unsigned key)
+{
+    return 1 + (key % (tamanho-2));
 }
 
 void HashTable::insere(ProductReview newReview)
 {
-    int id = hash(newReview.getProductId());
-
-    HashNode* node = procura(newReview);
-    if (node != NULL)
+    if(qtdItens >= tamanho)
     {
-        node->incrementaQtdReviews();
+        cout << "Capacidade maxima da tabela atingida" << endl;
+        return;
     }
-    else
+
+    int index = hash(newReview.getProductId(), 0);
+    int qtdColisoes = 0;
+
+    while(vet[index].qtdReviews != 0)
     {
-        HashNode* newNode = new HashNode(newReview);
-        if (vet[id] == NULL)
+        if (vet[index].productId == newReview.getProductId())
         {
-            vet[id] = newNode;
+            vet[index].qtdReviews++;
+            return;
         }
-        else
-        {
-            newNode->setNext(vet[id]);
-            vet[id] = newNode;
-        }
-    }    
+
+        qtdColisoes++;
+        index = hash(newReview.getProductId(), qtdColisoes);
+    }
+
+    vet[index].productId = newReview.getProductId();
+    vet[index].qtdReviews = 1;
+    qtdItens++;
+
 }
 
-
-HashNode* HashTable::procura(ProductReview review)
+RegistroHash* HashTable::getTable()
 {
-    int id = hash(review.getProductId());
-    
-    HashNode *p = vet[id];
-    while (p != NULL)
-    {
-        if (p->getProductId() == review.getProductId())
-        {
-            return p;
-        }
-        p = p->getNext();
-    }
-
-    return NULL;
+    return vet;
 }
 
 void HashTable::print()
 {
     for (int i = 0; i < tamanho; i++)
     {
-        cout << i << "| ";
-        HashNode* p = vet[i];
-        if (p != NULL)
-        {
-            cout << p->getProductId() << " {" << p->getQtdReviews() << "}";
-            p = p->getNext();
-            while (p != NULL)
-            {
-                cout << " -> ";
-                cout << "| " << p->getProductId() << " {" << p->getQtdReviews() << "}";
-                p = p->getNext();
-            }
-        }
-        cout << endl;
+        cout << " | " << setw(10) << vet[i].productId << " | " << setw(3) << vet[i].qtdReviews << " | " << endl;
     }
+
+    /*
+        imprimir os P produtos mais avaliados utilizando o metodo com melhor desempenho da etapa 2
+    */
 }
