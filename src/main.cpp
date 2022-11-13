@@ -100,12 +100,13 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
     arq.resetTempFile();
 
     remove("./files/temp.bin");
+    vet->print();
     delete[] vet;
 }
 
 void etapaOrdenacao(int M)
 {
-    cout << "EXECTANDO ETAPA DE ORDENACAO" << endl;
+    cout << "EXECUTANDO ETAPA DE ORDENACAO" << endl;
 
     int size;
     int* N = arq.readInput(size);
