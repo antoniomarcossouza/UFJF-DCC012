@@ -65,14 +65,14 @@ void sort(ProductReview* vet, int n, int methodId) {
             algoritmo.mergeSort(vet, n);
             break;
         case 2:
-            algoritmo.bucketSort(vet, n);
+            algoritmo.timSort(vet, n);
             break;
     }
 }
 
 void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
     ProductReview* vet;
-    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Bucket Sort"};
+    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "TimSort"};
 
     cout << "ANALISE ALGORITMO ORDENACAO: " << metodosOrdenacao[methodId] << endl;
 
