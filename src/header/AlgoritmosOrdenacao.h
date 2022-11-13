@@ -15,8 +15,8 @@ class AlgoritmosOrdenacao
         void troca(ProductReview& x, ProductReview& y);
 
         void quickSortEncaps(ProductReview* vet, int lo, int hi, int& comparacoes, int& movimentacao);
-        void mergeSortEncaps(ProductReview* vet, int i, int f);
-        void merge(ProductReview* vet, int i, int q, int f);
+        void mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim);
+        void merge(ProductReview* vet, ProductReview* aux,  int inicio, int meio, int fim);
     public:
         void quickSort(ProductReview* vet, int size);
         void mergeSort(ProductReview* vet, int size);

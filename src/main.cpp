@@ -82,7 +82,7 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
     string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Algum Algoritmo"};
 
     cout << "ANALISE ALGORITMO ORDENACAO: " << metodosOrdenacao[methodId] << endl;
-    
+   
     for (int j = 0; j < sizeN; j++)
     {
         for (int i = 0; i < M; i++)
@@ -113,10 +113,10 @@ void etapaOrdenacao(int M)
     arq.clearOutputFile();
 
     // Testando Algoritmo 0 - Quick Sort
-    testarAlgoritmo(0, M, N, size);
+    //testarAlgoritmo(0, M, N, size);
 
-    // Testando Algoritmo 1 - Quick Sort
-    // testarAlgoritmo(1, M, N, size);
+    // Testando Algoritmo 1 - Merge Sort
+     testarAlgoritmo(1, M, N, size);
 
     // Testando Algoritmo 2 - Quick Sort
     // testarAlgoritmo(2, M, N, size);
