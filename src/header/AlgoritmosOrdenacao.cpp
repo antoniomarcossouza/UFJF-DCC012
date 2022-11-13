@@ -86,7 +86,42 @@ void insertionSort(ProductReview* vetor, int esquerda, int direita) {
         vetor[j + 1].setUserId(temp);
     }
 }
+
+const int RUN = 32;
+void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
+    cout << "entrando no tim" << endl;
+    // Sort individual subarrays of size RUN
+    for (int i = 0; i < size; i += RUN) {
+        cout << "entrando no for do tim" << endl;
+        insertionSort(vet, i, min((i + RUN - 1), (size - 1)));
+    }
+    // Start merging from size RUN.
+    // It will merge
+    // to form size 64, then 128, 256
+    // and so on ....
+
+    for (int tamanho = RUN; tamanho < tamanho; tamanho = 2 * tamanho) {
+        // pick starting point of left sub array. We are going to merge arr[left..left+size-1] and arr[left+size, left+2*size-1]
+        // After every merge, we increase left by 2*size
+        cout << "entrando no for talvez infinito" << endl;
+        for (int esquerda = 0; esquerda < tamanho; esquerda += 2 * tamanho) {
+            cout << "entrando no for do merge" << endl;
+            // find ending point of
+            // left sub array
+            // mid+1 is starting point
+            // of right sub array
+            int meio = esquerda + tamanho - 1;
+            int direita = min((esquerda + 2 * tamanho - 1), (tamanho - 1));
+            // merge sub array arr[left.....mid] &
+            // arr[mid+1....right]
+            if (meio < direita) {
+                // merge(vet, esquerda, meio, direita);
+            }
+        }
+        cout << "saindo do for do merge" << endl;
+    }
+    cout << "saindo do for talvez infinito" << endl;
 
     this->resultado.setComparacao(1000);
     this->resultado.setMovimentacao(10000);
