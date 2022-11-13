@@ -74,7 +74,18 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     arq.temp(resultado);
 }
 
-void AlgoritmosOrdenacao::bucketSort(ProductReview* vet, int size) {
+void insertionSort(ProductReview* vetor, int esquerda, int direita) {
+    for (int i = esquerda + 1; i <= direita; i++) {
+        cout << "for insertion" << endl;
+        string temp = vetor[i].getUserId();
+        int j = i - 1;
+        while (j >= esquerda && vetor[j].getUserId().compare(temp) > 0) {
+            vetor[j + 1] = vetor[j];
+            j--;
+        }
+        vetor[j + 1].setUserId(temp);
+    }
+}
     ManipulandoArquivo arq;
 
     this->resultado.setComparacao(1000);
