@@ -63,6 +63,7 @@ void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size) {
 
     arq.temp(resultado);
 }
+
 void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes) {
     int i = inicio;
     int j = meio + 1;
@@ -82,6 +83,8 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
 
         k++;
     }
+    cout << " depois do while:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
+
     while (i <= meio) {
         aux[k] = vet[i];
         i++;
@@ -97,25 +100,39 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
     }
 }
 void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes) {
+    
     if (inicio < fim) {
+
         int meio = (inicio + fim) / 2;
+
+
+        cout << " Antes 1:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
         mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
 
-        mergeSortEncaps(vet, aux, meio + 1, fim, comparacoes, movimentacoes);
 
+        cout << " Antes 2:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
+        mergeSortEncaps(vet, aux, meio + 1, fim, comparacoes, movimentacoes);
+         
         merge(vet, aux, inicio, meio, fim, comparacoes, movimentacoes);
+
+        cout << " Depois do merge:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
     }
 }
 
 void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
+    
     ManipulandoArquivo arq;
     int comparacoes = 0, movimentacoes = 0;
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
     ProductReview* aux = new ProductReview[size];
+
     mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
-    
+      
+
+     cout << " FINAL:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
+     
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
