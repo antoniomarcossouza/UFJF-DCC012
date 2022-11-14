@@ -20,7 +20,8 @@
 ### Funções obrigatorias
 - [x] void sort(ProductReview *vet, int n, int methodId)
 ## ETAPA 3 - Produtos mais avaliados
-- [ ] ProductReview* createTable(int n)
+- [x] Tabela Hash
+- [ ] RegistroHash* createTable(int n)
 ## ETAPA 4 - Programa principal
 - [x] Escolha de qual operação executar
 - [x] O programa desenvolvido deve permitir que o usuário entre com o caminho do diretório que contém os arquivos de dados como um argumento na linha de comando

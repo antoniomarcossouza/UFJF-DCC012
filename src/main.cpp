@@ -1,25 +1,25 @@
-#include <iostream>
-#include <fstream>
 #include <bits/stdc++.h>
-#include <random>
 #include <stdlib.h>
 
-#include "./header/ProductReview.h"
-#include "./header/ManipulandoArquivo.h"
+#include <fstream>
+#include <iostream>
+#include <random>
+
 #include "./header/AlgoritmosOrdenacao.h"
+#include "./header/HashTable.h"
+#include "./header/ManipulandoArquivo.h"
+#include "./header/ProductReview.h"
 
 using namespace std;
 
 // Funcoes de Teste
 
-void printArrayProd(ProductReview* arr, int tam)
-{
+void printArrayProd(ProductReview* arr, int tam) {
     for (int i = 0; i < tam; i++)
         arr[i].print();
 }
 
-void printArray(int* arr, int tam)
-{
+void printArray(int* arr, int tam) {
     for (int i = 0; i < tam; i++)
         cout << arr[i] << endl;
 }
@@ -28,21 +28,18 @@ void printArray(int* arr, int tam)
 // https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews
 
 ManipulandoArquivo arq;
-void createBinary(string path)
-{
+void createBinary(string path) {
     arq.preProcessamento(path);
 }
 
-void getReview(int i)
-{
+void getReview(int i) {
     ProductReview prod;
 
     prod = arq.findRegistryPosition(i);
     prod.print();
 }
 
-ProductReview* import(int n)
-{
+ProductReview* import(int n) {
     ProductReview* produtos = new ProductReview[n];
 
     // CHAVE RANDOMICA
@@ -58,12 +55,10 @@ ProductReview* import(int n)
 
 // Etapa 2: Análise de algoritmos de ordenação
 
-void sort(ProductReview *vet, int n, int methodId)
-{
+void sort(ProductReview* vet, int n, int methodId) {
     AlgoritmosOrdenacao algoritmo;
 
-    switch (methodId)
-    {
+    switch (methodId) {
         case 0:
             algoritmo.quickSort(vet, n);
             break;
@@ -71,30 +66,27 @@ void sort(ProductReview *vet, int n, int methodId)
             algoritmo.mergeSort(vet, n);
             break;
         case 2:
-            algoritmo.algumAlgoritmo(vet, n);
+            algoritmo.timSort(vet, n);
             break;
     }
 }
 
-void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
-{
+void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
     ProductReview* vet;
-    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "Algum Algoritmo"};
+    string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "TimSort"};
 
     cout << "ANALISE ALGORITMO ORDENACAO: " << metodosOrdenacao[methodId] << endl;
-   
-    for (int j = 0; j < sizeN; j++)
-    {
-        for (int i = 0; i < M; i++)
-        {
+
+    for (int j = 0; j < sizeN; j++) {
+        for (int i = 0; i < M; i++) {
             vet = import(N[j]);
             sort(vet, N[j], methodId);
-        }    
+        }
 
         // Gerando resultados parciais ..., true)
         arq.gerarResultado(N[j], methodId, j * M, true);
     }
-    
+
     // Gerando resultado final ..., false)
     arq.gerarResultado(N[0], methodId, 0, false);
     arq.resetTempFile();
@@ -103,20 +95,19 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN)
     delete[] vet;
 }
 
-void etapaOrdenacao(int M)
-{
-    cout << "EXECUTANDO ETAPA DE ORDENACAO" << endl;
+void etapaOrdenacao(int M) {
+    cout << "EXECTANDO ETAPA DE ORDENACAO" << endl;
 
     int size;
     int* N = arq.readInput(size);
-    
+
     arq.clearOutputFile();
 
     // Testando Algoritmo 0 - Quick Sort
-    //testarAlgoritmo(0, M, N, size);
+    // testarAlgoritmo(0, M, N, size);
 
     // Testando Algoritmo 1 - Merge Sort
-     testarAlgoritmo(1, M, N, size);
+    testarAlgoritmo(1, M, N, size);
 
     // Testando Algoritmo 2 - Quick Sort
     // testarAlgoritmo(2, M, N, size);
@@ -124,22 +115,44 @@ void etapaOrdenacao(int M)
     delete[] N;
 }
 
-void etapaHash()
-{
+void etapaHash() {
     cout << "EXECUTANDO ETAPA DE HASH" << endl;
+    cout << "quantos itens inserir na tablea:" << endl;
+    int n;
+    std::cin >> n;
+
+    HashTable hTable(n * 0.3);
+
+    ProductReview* pr = import(n);
+
+    for (int i = 0; i < n; i++) {
+        hTable.insere(pr[i]);
+    }
+    hTable.print();
 }
 
-void interface()
-{
+RegistroHash* createTable(int n) {
+    HashTable hTable(n * 0.3);
+
+    ProductReview* pr = import(n);
+
+    for (int i = 0; i < n; i++) {
+        hTable.insere(pr[i]);
+    }
+
+    return hTable.getTable();
+}
+
+void interface() {
     int option;
-    do
-    {
-        cout << "Escolha qual etapa sera executada: " << endl <<
-                "1. Ordenacao" << endl <<
-                "2. Hash" << endl <<
-                "0. Quit" << endl << "> " << flush;
+    do {
+        cout << "Escolha qual etapa sera executada: " << endl
+             << "1. Ordenacao" << endl
+             << "2. Hash" << endl
+             << "0. Sair" << endl
+             << "> " << flush;
         cin >> option;
-        
+
         if (option == 1)
             etapaOrdenacao(3);
         else if (option == 2)
@@ -148,14 +161,13 @@ void interface()
     } while (option != 0);
 }
 
-int main(int argc, char* arg[])
-{
+int main(int argc, char* arg[]) {
     string PATH;
 
-    if (argc == 2) 
+    if (argc == 2)
         PATH = arg[1];
 
-    arq.setPath(PATH); 
+    arq.setPath(PATH);
     createBinary(PATH);
     interface();
 

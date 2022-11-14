@@ -1,105 +1,101 @@
 #include "HashTable.h"
 #include <math.h>
 
-HashTable::HashTable(int listSize, int bucketSize, float maxLoadFactor)
+HashTable::HashTable(int tamanho)
 {
-    this->listSize = listSize;
-    this->bucketSize = bucketSize;
-    this->maxLoadFactor = maxLoadFactor;
-    this->overflow = 2;
-    n = listSize;
-    g = 0;
-    splitPointer = 0;
-    itemCount = 0;
-
-    for (int i = 0; i < listSize; i++)
+    while(!isPrime(tamanho)) // o tamanho da tablea precisa ser impar
     {
-        bucketList.push_back(new Bucket(bucketSize));
+        tamanho++;
     }
-    
+
+    this->tamanho = tamanho;
+    vet = new RegistroHash[tamanho];
+    qtdItens = 0;
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        vet[i].productId = "";
+        vet[i].qtdReviews = 0;
+    }
 }
 
 HashTable::~HashTable()
 {
-    for(int i = 0; i < bucketList.size(); ++i)
-        delete bucketList[i];
+    delete [] vet;
 }
 
-
-int HashTable::hash(string productId)
+bool HashTable::isPrime(int n)
 {
-    int key = 0;
-    for (int i = 0; i < productId.length(); i++)
+    for (int i = 2; i < n/2; i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+
+int HashTable::hash(string productId, int i)
+{
+    unsigned key = 0;
+    for (int j = 0; j < productId.length(); j++)
     {
-        key += productId.at(i);
+        key += productId.at(j);
     }
 
+    return (h1(key) + i*h2(key)) % tamanho;
+}
 
-    int hashValue = key % ((int)pow(2, g) * n);
+int HashTable::h1(unsigned key)
+{
+    return key % tamanho;
+}
 
-    if (hashValue < splitPointer)
+int HashTable::h2(unsigned key)
+{
+    return 1 + (key % (tamanho-2));
+}
+
+void HashTable::insere(ProductReview newReview)
+{
+    if(qtdItens >= tamanho)
     {
-        hashValue = key % ((int)pow(2, g+1) * n);
+        cout << "Capacidade maxima da tabela atingida" << endl;
+        return;
     }
 
-    return hashValue;   
-}
+    int index = hash(newReview.getProductId(), 0);
+    int qtdColisoes = 0;
 
-float HashTable::loadFactor()
-{
-    return (float)itemCount / (bucketList.size() * (bucketSize)); // nao levando em conta o overflow por enquanto
-}
-
-void HashTable::insere(ProductReview pr)
-{
-    int hashValue = hash(pr.getProductId());
-    itemCount += bucketList[hashValue]->addItem(pr.getProductId());
-
-    if(loadFactor() > maxLoadFactor)
-        split();
-
-}
-
-void HashTable::split()
-{
-    Bucket* newBucket = new Bucket(bucketSize);
-    bucketList.push_back(newBucket);
-    listSize++;
-    Bucket* splitBucket = bucketList[splitPointer];
-    splitPointer++;
-
-    while (splitBucket != NULL)
+    while(vet[index].qtdReviews != 0)
     {
-        for (int i = 0; i < splitBucket->getItemCount(); i++)
+        if (vet[index].productId == newReview.getProductId())
         {
-            string productId = splitBucket->getItem(i);
-            int hashValue = hash(productId);
-
-            if (hashValue != splitPointer-1)
-            {
-                splitBucket->removeItem(i);
-                newBucket->addItem(productId);
-                i--;
-            }
+            vet[index].qtdReviews++;
+            return;
         }
-        splitBucket = splitBucket->getOverflowBucket();
+
+        qtdColisoes++;
+        index = hash(newReview.getProductId(), qtdColisoes);
     }
 
-    if (splitPointer == n*g)
-    {
-        splitPointer = 0;
-        g++;    
-    }
+    vet[index].productId = newReview.getProductId();
+    vet[index].qtdReviews = 1;
+    qtdItens++;
+
+}
+
+RegistroHash* HashTable::getTable()
+{
+    return vet;
 }
 
 void HashTable::print()
 {
-    cout << endl << "loadFactor: " << (float)loadFactor() << endl;
-    for(int i = 0; i < bucketList.size(); i++)
+    for (int i = 0; i < tamanho; i++)
     {
-        Bucket *b = bucketList[i];
-        cout << "balde " << i << endl;
-        b->print();
-        cout << endl;
+        cout << " | " << setw(10) << vet[i].productId << " | " << setw(3) << vet[i].qtdReviews << " | " << endl;
     }
+
+    /*
+        imprimir os P produtos mais avaliados utilizando o metodo com melhor desempenho da etapa 2
+    */
 }

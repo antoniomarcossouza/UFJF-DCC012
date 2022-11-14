@@ -1,56 +1,54 @@
 #include "ManipulandoArquivo.h"
-#include <iostream>
-#include <fstream>
+
 #include <bits/stdc++.h>
-#include <chrono>
-#include <sstream>
-#include <random>
 #include <dirent.h>
+
+#include <chrono>
 #include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <random>
+#include <sstream>
 #include <vector>
-#include "ProductReview.h"
+
 #include "Metricas.h"
+#include "ProductReview.h"
 
 using namespace std;
 using namespace std::chrono;
 namespace fs = std::filesystem;
 
-void ManipulandoArquivo::setPath(string path)
-{
+void ManipulandoArquivo::setPath(string path) {
     this->path = path;
 }
 
-vector<string> ManipulandoArquivo::getFileName(string path)
-{
+vector<string> ManipulandoArquivo::getFileName(string path) {
     string val;
     int i;
     char postfix = '/';
     stringstream streamData(path);
     vector<string> dir;
-    
+
     for (i = 0; getline(streamData, val, postfix); i++)
         dir.push_back(val);
 
     return dir;
 }
 
-void ManipulandoArquivo::fileCSVtoBIN(string path)
-{
+void ManipulandoArquivo::fileCSVtoBIN(string path) {
     // Converte o arquivo CSV para BINARIO
     cout << "PRE-PROCESSANDO OS DADOS" << endl;
 
     string csvPath = path + ".csv";
 
     ifstream inFile(csvPath, ios::in);
-    if (!inFile)
-    {
+    if (!inFile) {
         cout << "ERRO ao abrir o aquivo: " << csvPath << endl;
         exit(1);
     }
     ofstream outFile(this->binPath, ios::out | ios_base::binary);
-    if (!outFile)
-    {
-        cout << "ERRO ao abrir o arquibo: " << binPath << ".bin" << endl;
+    if (!outFile) {
+        cout << "ERRO ao abrir o arquivo: " << binPath << ".bin" << endl;
         exit(1);
     }
 
@@ -59,10 +57,9 @@ void ManipulandoArquivo::fileCSVtoBIN(string path)
     string val;
     char separador = ',';
     int i = 0;
-    unsigned int size; 
+    unsigned int size;
 
-    while (!inFile.eof())
-    {
+    while (!inFile.eof()) {
         // LENDO ARQUIVO CSV
         getline(inFile, linha);
         stringstream streamData(linha);
@@ -87,13 +84,11 @@ void ManipulandoArquivo::fileCSVtoBIN(string path)
     inFile.close();
 }
 
-ProductReview ManipulandoArquivo::findRegistryPosition(int i)
-{
+ProductReview ManipulandoArquivo::findRegistryPosition(int i) {
     // Procura o registro na posicao i passada
     // string path = "./files/ratings_Electronics.bin";
     ifstream inFile(this->binPath, ios::in | ios_base::binary);
-    if (!inFile)
-    {
+    if (!inFile) {
         cout << "ERRO ao abrir o arquivo " << this->binPath << endl;
         exit(1);
     }
@@ -115,7 +110,7 @@ ProductReview ManipulandoArquivo::findRegistryPosition(int i)
 
     inFile.read((char*)&rating, sizeof(float));
     inFile.read((char*)&timestamp, sizeof(int));
-    
+
     // RETORNANDO A CLASSE
     prod.setUserId(userId);
     prod.setProductId(productId);
@@ -126,26 +121,22 @@ ProductReview ManipulandoArquivo::findRegistryPosition(int i)
     return prod;
 }
 
-void ManipulandoArquivo::resetTempFile()
-{
+void ManipulandoArquivo::resetTempFile() {
     // Reseta o arquivo temporario
     ofstream outFile("./files/temp.bin", ios::binary);
-    if (!outFile) 
-    {
+    if (!outFile) {
         cout << "ERRO ao abrir ./files/temp.bin" << endl;
         exit(1);
     }
 }
 
-void ManipulandoArquivo::temp(Metricas res)
-{
-    // Gera um arquivo temporario para armazenar as metricas 
+void ManipulandoArquivo::temp(Metricas res) {
+    // Gera um arquivo temporario para armazenar as metricas
     // dos metodos de ordenacao (tempo, comparacao e movimentacao)
     ofstream outFile("./files/temp.bin", ios::out | ios::binary | ios::app);
     outFile.seekp(0, ios::end);
 
-    if (!outFile)
-    {
+    if (!outFile) {
         cout << "ERRO ao abrir o arquivo: ./file/temp.bin" << endl;
         exit(1);
     }
@@ -161,59 +152,53 @@ void ManipulandoArquivo::temp(Metricas res)
     outFile.close();
 }
 
-int* ManipulandoArquivo::readInput(int& size)
-{
+int* ManipulandoArquivo::readInput(int& size) {
     // Le os dados de input do arquivo .dat e retorna um vetor com os dados.
     int* N;
     ifstream inFile(this->datPath, ios::binary);
-    if (!inFile)
-    {
+    if (!inFile) {
         cout << "ERRO ao abrir " << this->datPath << endl;
         exit(1);
     }
 
     inFile.seekg(0, ios::end);
-    size = inFile.tellg()/sizeof(int);
+    size = inFile.tellg() / sizeof(int);
     inFile.seekg(0);
-    
+
     N = new int[size];
 
-    inFile.read((char*) N, size * sizeof(int));
+    inFile.read((char*)N, size * sizeof(int));
 
     return N;
 }
 
-
-void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial)
-{
+void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial) {
     // Gera os resultados para o metodo de ordenacao passado
     string algoritmo;
     int comp, mov, mediaComp, mediaMov, total, size;
     double tempo, mediaTempo;
 
-    mediaTempo = 0.0;    
+    mediaTempo = 0.0;
     mediaComp = mediaMov = total = 0;
 
     ifstream inFile("./files/temp.bin", ios::in | ios::binary);
-    if(!inFile)
-    {
+    if (!inFile) {
         cout << "ERRO ao abrir ./files/temp.bin" << endl;
         exit(1);
     }
 
     inFile.seekg(0, ios::end);
     int sizeofRegistry = sizeof(int) + sizeof(int) + sizeof(double);
-    size = inFile.tellg()/sizeofRegistry;
+    size = inFile.tellg() / sizeofRegistry;
 
     // Se parcial == true, gerara o resultado medio individual.
-    if (parcial) 
+    if (parcial)
         inFile.seekg(M * sizeofRegistry);
     else
-    // Se parcial == false, gerara o resultado medio total.
+        // Se parcial == false, gerara o resultado medio total.
         inFile.seekg(0);
 
-    for(int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         inFile.read((char*)&comp, sizeof(int));
         inFile.read((char*)&mov, sizeof(int));
         inFile.read((char*)&tempo, sizeof(double));
@@ -223,7 +208,7 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
         mediaTempo += tempo;
         total++;
     }
-    
+
     inFile.close();
 
     // Calculando a media
@@ -232,16 +217,14 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
     mediaTempo /= total;
 
     ofstream outFileResults(this->path + "/saida.txt", ios::app);
-    if (!outFileResults) 
-    {
+    if (!outFileResults) {
         cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
         exit(1);
     }
 
     outFileResults.seekp(0, ios::end);
 
-    switch (methodId)
-    {
+    switch (methodId) {
         case 0:
             algoritmo = "Quick Sort";
             break;
@@ -249,7 +232,7 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
             algoritmo = "Merge Sort";
             break;
         case 2:
-            algoritmo = "Outro Algoritmo";
+            algoritmo = "TimSort";
             break;
     }
 
@@ -260,43 +243,39 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
         outFileResults << "Simulaçao de N: " << N << " Valores" << endl;
     else
         outFileResults << "Media Total dos Testes" << endl;
-    
+
     outFileResults << "Media Comparaçoes: " << mediaComp << endl;
     outFileResults << "Media Movimentaçoes: " << mediaMov << endl;
-    outFileResults << "Media Tempo: " << mediaTempo << endl << endl;
+    outFileResults << "Media Tempo: " << mediaTempo << endl
+                   << endl;
 
-    if (!parcial) 
+    if (!parcial)
         outFileResults << "---------------------------------------" << endl;
 
     outFileResults.close();
 }
 
-void ManipulandoArquivo::clearOutputFile()
-{
+void ManipulandoArquivo::clearOutputFile() {
     // Limpa o arquivo de saida.txt
     ofstream outFile(this->path + "/saida.txt");
-    if (!outFile) 
-    {
+    if (!outFile) {
         cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
         exit(1);
     }
     outFile.close();
 }
 
-void ManipulandoArquivo::preProcessamento(string path)
-{
+void ManipulandoArquivo::preProcessamento(string path) {
     // Avalia o diretorio passado para fazer o preprocessamento se necessario
     int position = 0, index;
     string csvName = "";
     string binName = "";
     string datName = "";
 
-    for (const auto & entry : fs::directory_iterator(path))
-        // Analisa se existe arquivo .CSV no diretorio 
-        while((index = getFileName(entry.path()).back().find(".csv", position)) != string::npos)
-        {
-            if (index > 0) 
-            {
+    for (const auto& entry : fs::directory_iterator(path))
+        // Analisa se existe arquivo .CSV no diretorio
+        while ((index = getFileName(entry.path()).back().find(".csv", position)) != string::npos) {
+            if (index > 0) {
                 csvName = entry.path();
                 csvName.erase(csvName.size() - 4);
                 break;
@@ -305,49 +284,40 @@ void ManipulandoArquivo::preProcessamento(string path)
         }
 
     position = 0;
-    for (const auto & entry : fs::directory_iterator(path))
+    for (const auto& entry : fs::directory_iterator(path))
         // Analisa se existe arquivo .DAT no diretorio
-        while((index = getFileName(entry.path()).back().find(".dat", position)) != string::npos)
-        {
-            if (index > 0) 
-            {
+        while ((index = getFileName(entry.path()).back().find(".dat", position)) != string::npos) {
+            if (index > 0) {
                 datName = entry.path();
                 datName.erase(datName.size() - 4);
                 break;
             }
             position = index + 1;
         }
-        
-    if (datName == "")
-    {
+
+    if (datName == "") {
         cout << "ERRO Faltando arquivo input.dat" << endl;
         exit(1);
-    }
-    else
+    } else
         this->datPath = datName + ".dat";
-    
+
     if (csvName != "")
         // Analisa se existe arquivo .BIN no diretorio
-        for (const auto & entry : fs::directory_iterator(path))
-        {
-            if (entry.path() == (csvName + ".bin"))
-            {
+        for (const auto& entry : fs::directory_iterator(path)) {
+            if (entry.path() == (csvName + ".bin")) {
                 binName = entry.path();
                 break;
             }
-        }   
-    else 
-        {
-            cout << "ERRO arquivo .csv nao localisado" << endl;
-            exit(1);
         }
-    
-    if (binName == "")
-    {
+    else {
+        cout << "ERRO arquivo .csv nao localizado" << endl;
+        exit(1);
+    }
+
+    if (binName == "") {
         this->binPath = csvName + ".bin";
         fileCSVtoBIN(csvName);
-    }
-    else 
+    } else
         this->binPath = binName;
 
     cout << this->binPath << " " << this->datPath << " " << this->path << endl;
