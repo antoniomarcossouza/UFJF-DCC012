@@ -63,7 +63,7 @@ void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size) {
 
     arq.temp(resultado);
 }
-void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim) {
+void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes) {
     int i = inicio;
     int j = meio + 1;
     int k = 0;
@@ -72,9 +72,13 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
         if (vet[i].getUserId().compare(vet[j].getUserId()) <= 0) {
             aux[k] = vet[i];
             i++;
+            comparacoes++;
+            movimentacoes++;
         } else {
             aux[k] = vet[j];
             j++;
+            //  comparacoes++;
+            //  movimentacoes++;
         }
 
         k++;
@@ -93,14 +97,14 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
         vet[inicio + k] = aux[k];
     }
 }
-void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim) {
+void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes) {
     if (inicio < fim) {
         int meio = (inicio + fim) / 2;
-        mergeSortEncaps(vet, aux, inicio, meio);
+        mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
 
-        mergeSortEncaps(vet, aux, meio + 1, fim);
+        mergeSortEncaps(vet, aux, meio + 1, fim, comparacoes, movimentacoes);
 
-        merge(vet, aux, inicio, meio, fim);
+        merge(vet, aux, inicio, meio, fim, comparacoes, movimentacoes);
     }
 }
 
@@ -111,7 +115,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
     ProductReview* aux = new ProductReview[size];
-    mergeSortEncaps(vet, aux, 0, size - 1);
+    mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
 
     delete[] aux;
 
@@ -122,7 +126,6 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     this->resultado.setTempoExecucao(time);
     this->resultado.setComparacao(comparacoes);
     this->resultado.setMovimentacao(movimentacoes);
-
     arq.temp(resultado);
 }
 

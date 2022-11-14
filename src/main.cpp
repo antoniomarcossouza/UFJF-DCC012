@@ -91,6 +91,7 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
     arq.resetTempFile();
 
     remove("./files/temp.bin");
+    vet->print();
     delete[] vet;
 }
 
