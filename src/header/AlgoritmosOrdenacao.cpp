@@ -70,9 +70,11 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
     int k = 0;
 
     while (i <= meio && j <= fim) {
+        // comparando valor se vet[i] é menor
         if (vet[i].getUserId().compare(vet[j].getUserId()) <= 0) {
             aux[k] = vet[i];
             i++;
+
             comparacoes++;
             movimentacoes++;
         } else {
@@ -82,6 +84,7 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
 
         k++;
     }
+
     while (i <= meio) {
         aux[k] = vet[i];
         i++;
@@ -100,8 +103,10 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
 void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes) {
     if (inicio < fim) {
         int meio = (inicio + fim) / 2;
-        mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
 
+        // Dividindo a primeira metade
+        mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
+        // Dividindo a segunda metade
         mergeSortEncaps(vet, aux, meio + 1, fim, comparacoes, movimentacoes);
 
         merge(vet, aux, inicio, meio, fim, comparacoes, movimentacoes);
@@ -110,11 +115,12 @@ void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux
 
 void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
+
+    ProductReview* aux = new ProductReview[size];
     int comparacoes = 0, movimentacoes = 0;
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
-    ProductReview* aux = new ProductReview[size];
     mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
 
     high_resolution_clock::time_point fim = high_resolution_clock::now();
