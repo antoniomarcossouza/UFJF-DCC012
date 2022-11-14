@@ -104,12 +104,12 @@ void etapaOrdenacao(int M) {
     arq.clearOutputFile();
 
     // Testando Algoritmo 0 - Quick Sort
-    // testarAlgoritmo(0, M, N, size);
+    testarAlgoritmo(0, M, N, size);
 
     // Testando Algoritmo 1 - Merge Sort
-    testarAlgoritmo(1, M, N, size);
+    // testarAlgoritmo(1, M, N, size);
 
-    // Testando Algoritmo 2 - Quick Sort
+    // Testando Algoritmo 2 - TimSort
     // testarAlgoritmo(2, M, N, size);
 
     delete[] N;

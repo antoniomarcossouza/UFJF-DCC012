@@ -20,7 +20,7 @@ class AlgoritmosOrdenacao {
    public:
     void quickSort(ProductReview* vet, int size);
     void mergeSort(ProductReview* vet, int size);
-    void insertionSort(ProductReview* vetor, int esquerda, int direita);
+    void insertionSort(ProductReview* vetor, int esquerda, int direita, int& comparacoes, int& movimentacoes);
     void timSort(ProductReview* vet, int size);
 };
 

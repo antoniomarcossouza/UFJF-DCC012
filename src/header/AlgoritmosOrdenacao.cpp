@@ -127,57 +127,65 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     arq.temp(resultado);
 }
 
-void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int direita) {
+void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int direita, int& comparacoes, int& movimentacoes) {
     for (int i = esquerda + 1; i <= direita; i++) {
-        cout << "for insertion" << endl;
         string temp = vetor[i].getUserId();
         int j = i - 1;
+        movimentacoes++;
         while (j >= esquerda && vetor[j].getUserId().compare(temp) > 0) {
             vetor[j + 1] = vetor[j];
             j--;
+            movimentacoes++;
+            comparacoes++;
         }
         vetor[j + 1].setUserId(temp);
+        movimentacoes++;
     }
 }
 const int RUN = 32;
 void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
-    cout << "entrando no tim" << endl;
+    int comparacoes = 0, movimentacoes = 0;
+
+    high_resolution_clock::time_point inicio = high_resolution_clock::now();
+
     // Sort individual subarrays of size RUN
     for (int i = 0; i < size; i += RUN) {
-        cout << "entrando no for do tim" << endl;
-        insertionSort(vet, i, min((i + RUN - 1), (size - 1)));
+        insertionSort(vet, i, min((i + RUN - 1), (size - 1)), comparacoes, movimentacoes);
     }
     // Start merging from size RUN.
     // It will merge
     // to form size 64, then 128, 256
     // and so on ....
-
+    ProductReview* aux = new ProductReview[size];
     for (int tamanho = RUN; tamanho < tamanho; tamanho = 2 * tamanho) {
         // pick starting point of left sub array. We are going to merge arr[left..left+size-1] and arr[left+size, left+2*size-1]
         // After every merge, we increase left by 2*size
-        cout << "entrando no for talvez infinito" << endl;
         for (int esquerda = 0; esquerda < tamanho; esquerda += 2 * tamanho) {
-            cout << "entrando no for do merge" << endl;
             // find ending point of
             // left sub array
             // mid+1 is starting point
             // of right sub array
             int meio = esquerda + tamanho - 1;
+            movimentacoes++;
             int direita = min((esquerda + 2 * tamanho - 1), (tamanho - 1));
+            movimentacoes++;
+            comparacoes++;
             // merge sub array arr[left.....mid] &
             // arr[mid+1....right]
             if (meio < direita) {
-                merge(vet, NULL, esquerda, meio, direita, NULL, NULL);
+                merge(vet, aux, esquerda, meio, direita, comparacoes, movimentacoes);
             }
         }
-        cout << "saindo do for do merge" << endl;
     }
-    cout << "saindo do for talvez infinito" << endl;
 
-    this->resultado.setComparacao(1000);
-    this->resultado.setMovimentacao(10000);
-    this->resultado.setTempoExecucao(30.33);
+    high_resolution_clock::time_point fim = high_resolution_clock::now();
+
+    double time = duration_cast<duration<double>>(fim - inicio).count();
+
+    this->resultado.setTempoExecucao(time);
+    this->resultado.setComparacao(comparacoes);
+    this->resultado.setMovimentacao(movimentacoes);
 
     arq.temp(resultado);
 }
