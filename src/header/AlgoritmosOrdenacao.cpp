@@ -70,9 +70,13 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
     int k = 0;
 
     while (i <= meio && j <= fim) {
+
+        //comparando valor se vet[i] é menor
         if (vet[i].getUserId().compare(vet[j].getUserId()) <= 0) {
+
             aux[k] = vet[i];
             i++;
+
             comparacoes++;
             movimentacoes++;
         }
@@ -83,7 +87,6 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
 
         k++;
     }
-    cout << " depois do while:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
 
     while (i <= meio) {
         aux[k] = vet[i];
@@ -106,33 +109,26 @@ void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux
 
         int meio = (inicio + fim) / 2;
 
-
-        cout << " Antes 1:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
+        //Dividindo a primeira metade
         mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
-
-
-        cout << " Antes 2:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
+        //Dividindo a segunda metade
         mergeSortEncaps(vet, aux, meio + 1, fim, comparacoes, movimentacoes);
          
         merge(vet, aux, inicio, meio, fim, comparacoes, movimentacoes);
 
-        cout << " Depois do merge:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
     }
 }
 
 void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
-    
+
     ManipulandoArquivo arq;
+
+    ProductReview* aux = new ProductReview[size];
     int comparacoes = 0, movimentacoes = 0;
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
-    ProductReview* aux = new ProductReview[size];
-
     mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
-      
-
-     cout << " FINAL:  Comparações: "<<comparacoes << " Movimentaçoes: "<<movimentacoes << endl;
      
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
@@ -185,7 +181,7 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
             // merge sub array arr[left.....mid] &
             // arr[mid+1....right]
             if (meio < direita) {
-                merge(vet, NULL, esquerda, meio, direita, NULL, NULL);
+             //   merge(vet, NULL, esquerda, meio, direita, NULL, NULL);
             }
         }
         cout << "saindo do for do merge" << endl;
