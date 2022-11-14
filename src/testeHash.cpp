@@ -19,7 +19,7 @@
 
 
 
-#define TAM 1000
+#define TAM 50000
 using namespace std;
 
 
@@ -34,7 +34,7 @@ ProductReview getRandomPR()
     // CHAVE RANDOMICA
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distr(0, 100000);
+    uniform_int_distribution<> distr(0, 1000000);
     
     return arq.findRegistryPosition(distr(gen));
 }
@@ -43,7 +43,7 @@ ProductReview getRandomPR()
 int main(int argc, char* arg[])
 {
     string PATH;
-    HashTable hTable(TAM * 0.3);
+    HashTable hTable(0.2 * TAM);
 
     if (argc == 2) 
         PATH = arg[1];
@@ -51,6 +51,7 @@ int main(int argc, char* arg[])
     arq.setPath(PATH); 
     createBinary(PATH);
 
+    cout << "iniciando" << endl;
     ProductReview pr;
     for (int i = 0; i < TAM; i++)
     {

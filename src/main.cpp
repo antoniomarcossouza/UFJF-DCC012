@@ -6,6 +6,7 @@
 #include <random>
 
 #include "./header/AlgoritmosOrdenacao.h"
+#include "./header/HashTable.h"
 #include "./header/ManipulandoArquivo.h"
 #include "./header/ProductReview.h"
 
@@ -117,6 +118,30 @@ void etapaOrdenacao(int M) {
 
 void etapaHash() {
     cout << "EXECUTANDO ETAPA DE HASH" << endl;
+    cout << "quantos itens inserir na tablea:" << endl;
+    int n;
+    std::cin >> n;
+
+    HashTable hTable(n * 0.3);
+
+    ProductReview* pr = import(n);
+
+    for (int i = 0; i < n; i++) {
+        hTable.insere(pr[i]);
+    }
+    hTable.print();
+}
+
+RegistroHash* createTable(int n) {
+    HashTable hTable(n * 0.3);
+
+    ProductReview* pr = import(n);
+
+    for (int i = 0; i < n; i++) {
+        hTable.insere(pr[i]);
+    }
+
+    return hTable.getTable();
 }
 
 void interface() {
