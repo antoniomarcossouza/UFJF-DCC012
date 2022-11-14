@@ -15,7 +15,7 @@
 - [x] Salve todos os resultados obtidos em um arquivo saida.txt, contendo tanto os resultados individuais quanto a média final.
 ### ALGORITMOS
 - [x] QuickSort
-- [ ] HeapSort
+- [x] MergeSort
 - [ ] Um terceiro algoritmo à sua escolha que seja O(nlogn) (ou melhor) no caso médio (não escolher o shell sort nem qualquer outro algoritmo trabalhado na disciplina)
 ### Funções obrigatorias
 - [x] void sort(ProductReview *vet, int n, int methodId)

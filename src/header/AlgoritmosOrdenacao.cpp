@@ -75,11 +75,10 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
             i++;
             comparacoes++;
             movimentacoes++;
-        } else {
-            aux[k] = vet[j];
-            j++;
-            //  comparacoes++;
-            //  movimentacoes++;
+        }
+        else
+        {
+            aux[k] = vet[j];  j++;
         }
 
         k++;
@@ -118,9 +117,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
 
     ProductReview* aux = new ProductReview[size];
     mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
-
-    delete[] aux;
-
+    
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
@@ -143,7 +140,6 @@ void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int 
         vetor[j + 1].setUserId(temp);
     }
 }
-
 const int RUN = 32;
 void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
