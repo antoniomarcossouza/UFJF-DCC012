@@ -63,6 +63,7 @@ void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size) {
 
     arq.temp(resultado);
 }
+
 void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes) {
     int i = inicio;
     int j = meio + 1;
@@ -97,6 +98,7 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
         vet[inicio + k] = aux[k];
     }
 }
+
 void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes) {
     if (inicio < fim) {
         int meio = (inicio + fim) / 2;
@@ -129,7 +131,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     arq.temp(resultado);
 }
 
-void insertionSort(ProductReview* vetor, int esquerda, int direita) {
+void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int direita) {
     for (int i = esquerda + 1; i <= direita; i++) {
         cout << "for insertion" << endl;
         string temp = vetor[i].getUserId();
@@ -171,7 +173,7 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
             // merge sub array arr[left.....mid] &
             // arr[mid+1....right]
             if (meio < direita) {
-                // merge(vet, esquerda, meio, direita);
+                merge(vet, NULL, esquerda, meio, direita, NULL, NULL);
             }
         }
         cout << "saindo do for do merge" << endl;
