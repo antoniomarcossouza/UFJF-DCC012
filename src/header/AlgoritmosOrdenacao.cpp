@@ -80,8 +80,6 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux,  int ini
         else
         {
             aux[k] = vet[j];  j++;
-          //  comparacoes++;
-          //  movimentacoes++;
         }
 
         k++;
@@ -123,7 +121,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size)
     mergeSortEncaps(vet, aux, 0, size-1, comparacoes, movimentacoes);
 
     delete [] aux;
-
+    
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
