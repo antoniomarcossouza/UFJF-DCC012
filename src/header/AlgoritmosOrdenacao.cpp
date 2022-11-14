@@ -33,7 +33,7 @@ int AlgoritmosOrdenacao::particionamento(ProductReview* vet, int lo, int hi, int
         if (i >= j) return j;
 
         troca(vet[i], vet[j]);
-        movimentacao++;
+        movimentacao += 2;
 
     } while (true);
 }
@@ -48,7 +48,7 @@ void AlgoritmosOrdenacao::quickSortEncaps(ProductReview* vet, int lo, int hi, in
 
 void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
-    int comparacoes = 0, movimentacoes = 0;
+    int comparacoes = -1, movimentacoes = -1;
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
@@ -75,13 +75,12 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
             aux[k] = vet[i];
             i++;
 
-            comparacoes++;
-            movimentacoes++;
         } else {
             aux[k] = vet[j];
             j++;
         }
-
+        
+        comparacoes++;
         k++;
     }
 
@@ -89,14 +88,17 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
         aux[k] = vet[i];
         i++;
         k++;
+        movimentacoes++;
     }
     while (j <= fim) {
         aux[k] = vet[j];
         j++;
         k++;
+        movimentacoes++;
     }
     for (k = 0; k < fim - inicio + 1; k++) {
         vet[inicio + k] = aux[k];
+        movimentacoes++;
     }
 }
 
@@ -155,30 +157,20 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
-    // Sort individual subarrays of size RUN
     for (int i = 0; i < size; i += RUN) {
         insertionSort(vet, i, min((i + RUN - 1), (size - 1)), comparacoes, movimentacoes);
     }
-    // Start merging from size RUN.
-    // It will merge
-    // to form size 64, then 128, 256
-    // and so on ....
+    
     ProductReview* aux = new ProductReview[size];
     for (int tamanho = RUN; tamanho < tamanho; tamanho = 2 * tamanho) {
-        // pick starting point of left sub array. We are going to merge arr[left..left+size-1] and arr[left+size, left+2*size-1]
-        // After every merge, we increase left by 2*size
         for (int esquerda = 0; esquerda < tamanho; esquerda += 2 * tamanho) {
-            // find ending point of
-            // left sub array
-            // mid+1 is starting point
-            // of right sub array
             int meio = esquerda + tamanho - 1;
             movimentacoes++;
+
             int direita = min((esquerda + 2 * tamanho - 1), (tamanho - 1));
             movimentacoes++;
             comparacoes++;
-            // merge sub array arr[left.....mid] &
-            // arr[mid+1....right]
+
             if (meio < direita) {
                 merge(vet, aux, esquerda, meio, direita, comparacoes, movimentacoes);
             }
