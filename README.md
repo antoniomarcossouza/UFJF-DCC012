@@ -1,6 +1,6 @@
 # ED2
 # Comando
-`g++ main.cpp header/*.cpp -I header -o main && ./main ./files/`<br>
+`g++ ./src/main.cpp ./src/header/*.cpp -I ./src/header -o ./src/main && ./src/main ./src/files/`<br>
 - No argumento ./main passar o local do arquivo .csv ./{local_do_aquivo}
 # RELATÓRIO
 <a href="">https://docs.google.com/document/d/19g9uwIkStjVOPfbnRkWuc7Q4zaOtmVJ6BP_dn87qpRE/edit?usp=sharing</a>
