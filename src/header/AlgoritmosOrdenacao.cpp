@@ -181,7 +181,7 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
 
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
-    timeSortEncaps(vet, aux, size, comparacoes, movimentacoes);
+    timSortEncaps(vet, aux, size, comparacoes, movimentacoes);
 
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
