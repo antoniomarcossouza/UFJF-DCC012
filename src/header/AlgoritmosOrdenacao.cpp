@@ -64,58 +64,49 @@ void AlgoritmosOrdenacao::quickSort(ProductReview* vet, int size) {
     arq.temp(resultado);
 }
 
-void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes) 
-{                                                                               
+void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes) {
     int i = inicio;
     int j = meio + 1;
     int k = 0;
 
-    while (i <= meio && j <= fim) 
-    {                                  
+    while (i <= meio && j <= fim) {
         // comparando valor se vet[i] é menor
-        if (vet[i].getUserId().compare(vet[j].getUserId()) <= 0) 
-        {                                                                 
+        if (vet[i].getUserId().compare(vet[j].getUserId()) <= 0) {
             aux[k] = vet[i];
             i++;
 
-        } else 
-        {                                                                                                   
+        } else {
             aux[k] = vet[j];
             j++;
         }
-        
+
         comparacoes++;
-        movimentacoes++;                                             
+        movimentacoes++;
         k++;
     }
 
-    while (i <= meio) 
-    {                                                          
+    while (i <= meio) {
         aux[k] = vet[i];
         i++;
         k++;
         movimentacoes++;
-    }                            
+    }
 
-    while (j <= fim) 
-    {                                         
+    while (j <= fim) {
         aux[k] = vet[j];
         j++;
         k++;
         movimentacoes++;
     }
-                          
-    for (k = 0; k < fim - inicio + 1; k++) 
-    {                                        
+
+    for (k = 0; k < fim - inicio + 1; k++) {
         vet[inicio + k] = aux[k];
         movimentacoes++;
     }
 }
 
-void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes)
-{                                                                                                                    
-    if (inicio < fim) 
-    {                                                                                
+void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes) {
+    if (inicio < fim) {
         int meio = (inicio + fim) / 2;
         // Dividindo a primeira metade
         mergeSortEncaps(vet, aux, inicio, meio, comparacoes, movimentacoes);
@@ -126,8 +117,7 @@ void AlgoritmosOrdenacao::mergeSortEncaps(ProductReview* vet, ProductReview* aux
     }
 }
 
-void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) 
-{                                               
+void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     ManipulandoArquivo arq;
 
     ProductReview* aux = new ProductReview[size];
@@ -145,10 +135,9 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size)
     this->resultado.setComparacao(comparacoes);
     this->resultado.setMovimentacao(movimentacoes);
     arq.temp(resultado);
-}                                                
+}
 
-void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int direita, int& comparacoes, int& movimentacoes)
-{                                                                                                                                                                                                    
+void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int direita, int& comparacoes, int& movimentacoes) {
     for (int i = esquerda + 1; i <= direita; i++) {
         string temp = vetor[i].getUserId();
         int j = i - 1;
@@ -163,12 +152,10 @@ void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int 
         movimentacoes++;
     }
 }
-                                                       
+
 const int RUN = 32;
 
-void AlgoritmosOrdenacao::timeSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes)
-{                   
-
+void AlgoritmosOrdenacao::timeSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes) {
     for (int i = 0; i < size; i += RUN) {
         insertionSort(vet, i, min((i + RUN - 1), (size - 1)), comparacoes, movimentacoes);
     }
@@ -186,14 +173,12 @@ void AlgoritmosOrdenacao::timeSortEncaps(ProductReview* vet, ProductReview* aux,
             }
         }
     }
-
 }
 void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
-
     ManipulandoArquivo arq;
     ProductReview* aux = new ProductReview[size];
     int comparacoes = 0, movimentacoes = 0;
-                                                   
+
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
     timeSortEncaps(vet, aux, size, comparacoes, movimentacoes);
@@ -202,9 +187,9 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
 
-    this->resultado.setTempoExecucao(time);                   
-    this->resultado.setComparacao(comparacoes);                   
-    this->resultado.setMovimentacao(movimentacoes);              
+    this->resultado.setTempoExecucao(time);
+    this->resultado.setComparacao(comparacoes);
+    this->resultado.setMovimentacao(movimentacoes);
 
     arq.temp(resultado);
 }

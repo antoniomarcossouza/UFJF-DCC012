@@ -12,12 +12,12 @@ class AlgoritmosOrdenacao {
 
     int particionamento(ProductReview* vet, int lo, int hi, int& comparacoes, int& movimentacao);
     void troca(ProductReview& x, ProductReview& y);
-                                                    
-    void quickSortEncaps(ProductReview* vet, int lo, int hi, int& comparacoes, int& movimentacao);                                                  
-    void mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes);                            
-    void merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes);                         
-    void timeSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes);                                
-                                            
+
+    void quickSortEncaps(ProductReview* vet, int lo, int hi, int& comparacoes, int& movimentacao);
+    void mergeSortEncaps(ProductReview* vet, ProductReview* aux, int inicio, int fim, int& comparacoes, int& movimentacoes);
+    void merge(ProductReview* vet, ProductReview* aux, int inicio, int meio, int fim, int& comparacoes, int& movimentacoes);
+    void timeSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes);
+
    public:
     void quickSort(ProductReview* vet, int size);
     void mergeSort(ProductReview* vet, int size);
