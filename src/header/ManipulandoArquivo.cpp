@@ -123,9 +123,9 @@ ProductReview ManipulandoArquivo::findRegistryPosition(int i) {
 
 void ManipulandoArquivo::resetTempFile() {
     // Reseta o arquivo temporario
-    ofstream outFile("./files/temp.bin", ios::binary);
+    ofstream outFile("./src/files/temp.bin", ios::binary);
     if (!outFile) {
-        cout << "ERRO ao abrir ./files/temp.bin" << endl;
+        cout << "ERRO ao abrir ./src/files/temp.bin" << endl;
         exit(1);
     }
 }
@@ -133,7 +133,7 @@ void ManipulandoArquivo::resetTempFile() {
 void ManipulandoArquivo::temp(Metricas res) {
     // Gera um arquivo temporario para armazenar as metricas
     // dos metodos de ordenacao (tempo, comparacao e movimentacao)
-    ofstream outFile("./files/temp.bin", ios::out | ios::binary | ios::app);
+    ofstream outFile("./src/files/temp.bin", ios::out | ios::binary | ios::app);
     outFile.seekp(0, ios::end);
 
     if (!outFile) {
@@ -181,9 +181,9 @@ void ManipulandoArquivo::gerarResultado(int N, int methodId, int M, bool parcial
     mediaTempo = 0.0;
     mediaComp = mediaMov = total = 0;
 
-    ifstream inFile("./files/temp.bin", ios::in | ios::binary);
+    ifstream inFile("./src/files/temp.bin", ios::in | ios::binary);
     if (!inFile) {
-        cout << "ERRO ao abrir ./files/temp.bin" << endl;
+        cout << "ERRO ao abrir ./src/files/temp.bin" << endl;
         exit(1);
     }
 
@@ -319,6 +319,4 @@ void ManipulandoArquivo::preProcessamento(string path) {
         fileCSVtoBIN(csvName);
     } else
         this->binPath = binName;
-
-    cout << this->binPath << " " << this->datPath << " " << this->path << endl;
 }
