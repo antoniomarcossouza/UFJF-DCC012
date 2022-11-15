@@ -16,7 +16,7 @@
 ### ALGORITMOS
 - [x] QuickSort
 - [x] MergeSort
-- [ ] Um terceiro algoritmo à sua escolha que seja O(nlogn) (ou melhor) no caso médio (não escolher o shell sort nem qualquer outro algoritmo trabalhado na disciplina)
+- [x] TimSort
 ### Funções obrigatorias
 - [x] void sort(ProductReview *vet, int n, int methodId)
 ## ETAPA 3 - Produtos mais avaliados
