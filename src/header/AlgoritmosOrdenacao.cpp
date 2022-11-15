@@ -85,6 +85,7 @@ void AlgoritmosOrdenacao::merge(ProductReview* vet, ProductReview* aux, int inic
         }
         
         comparacoes++;
+        movimentacoes++;                                             
         k++;
     }
 
