@@ -155,7 +155,7 @@ void AlgoritmosOrdenacao::insertionSort(ProductReview* vetor, int esquerda, int 
 
 const int RUN = 32;
 
-void AlgoritmosOrdenacao::timeSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes) {
+void AlgoritmosOrdenacao::timSortEncaps(ProductReview* vet, ProductReview* aux, int size, int& comparacoes, int& movimentacoes) {
     for (int i = 0; i < size; i += RUN) {
         insertionSort(vet, i, min((i + RUN - 1), (size - 1)), comparacoes, movimentacoes);
     }
