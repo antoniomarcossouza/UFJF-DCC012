@@ -92,8 +92,12 @@ RegistroHash* HashTable::getTable()
 
 void HashTable::print()
 {
-    
-    RegistroHash* aux = this->getTable();
+    RegistroHash* aux = new RegistroHash[tamanho];
+
+    for(int i = 0; i < tamanho; i++)
+    {
+        aux[i] = vet[i];
+    }
 
     AlgoritmosOrdenacao algoritmo;
     algoritmo.quickSortHash(aux, tamanho);
