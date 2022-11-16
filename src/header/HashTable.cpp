@@ -105,12 +105,18 @@ void HashTable::print()
     RegistroHash* aux = getTable();
 
     AlgoritmosOrdenacao algoritmo;
-    algoritmo.quickSortHash(aux, getTamanho());
+    int p = 0;
 
-    for (int i = 0; i < getTamanho(); i++)
-    {
-        cout << " | " << setw(10) << aux[i].productId << " | " << setw(3) << aux[i].qtdReviews << " | " << endl;
-    }
+    algoritmo.quickSortHash(aux, getTamanho());
+    cout << "Quantos (p) elementos mostrar?" << endl;
+    cin >> p;
+    if (p <= getTamanho())
+        for (int i = 0; i < p; i++)
+        {
+            cout << " | " << setw(10) << aux[i].productId << " | " << setw(3) << aux[i].qtdReviews << " | " << endl;
+        }
+    else 
+        cout << "ERRO: P maior que tabela" << endl;
 
     delete [] aux;
 }
