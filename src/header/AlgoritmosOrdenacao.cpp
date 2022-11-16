@@ -202,7 +202,7 @@ void AlgoritmosOrdenacao::trocaHash(RegistroHash& x, RegistroHash& y) {
     y = aux;
 }
 
-int AlgoritmosOrdenacao::particionamentoHash(RegistroHash* vet, int lo, int hi) {
+int AlgoritmosOrdenacao::particionamentoHash(RegistroHash *vet, int lo, int hi) {
     int posPivo = (hi + lo) / 2;
     RegistroHash pivo = vet[posPivo];
     int i = lo - 1, j = hi + 1;
@@ -221,13 +221,13 @@ int AlgoritmosOrdenacao::particionamentoHash(RegistroHash* vet, int lo, int hi) 
     } while (true);
 }
 
-void AlgoritmosOrdenacao::quickSortEncapsHash(RegistroHash* vet, int lo, int hi) {
+void AlgoritmosOrdenacao::quickSortEncapsHash(RegistroHash *vet, int lo, int hi) {
     if (lo < hi) {
         int p = particionamentoHash(vet, lo, hi);
         quickSortEncapsHash(vet, p + 1, hi);
     }
 }
 
-void AlgoritmosOrdenacao::quickSortHash(RegistroHash* vet, int size) {
+void AlgoritmosOrdenacao::quickSortHash(RegistroHash *vet, int size) {
     quickSortEncapsHash(vet, 0, size - 1);
 }

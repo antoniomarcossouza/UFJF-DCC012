@@ -92,17 +92,12 @@ RegistroHash* HashTable::getTable()
 
 void HashTable::print()
 {
-    RegistroHash* aux =  vet;
-
-    // for (int i = 0; i < tamanho; i++)
-    // {
-    //     cout << " | " << setw(10) << vet[i].productId << " | " << setw(3) << vet[i].qtdReviews << " | " << endl;
-    //    // aux[i] = vet[i];
-    // }
+    RegistroHash* aux = new RegistroHash[tamanho];
+    aux = this->getTable();
 
     AlgoritmosOrdenacao algoritmo;
     algoritmo.quickSortHash(aux, tamanho);
-    
+
     for (int i = 0; i < tamanho; i++)
     {
         cout << " | " << setw(10) << aux[i].productId << " | " << setw(3) << aux[i].qtdReviews << " | " << endl;
