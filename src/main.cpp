@@ -96,7 +96,7 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
 }
 
 void etapaOrdenacao(int M) {
-    cout << "EXECTANDO ETAPA DE ORDENACAO" << endl;
+    cout << "EXECUTANDO ETAPA DE ORDENACAO" << endl;
 
     int size;
     int* N = arq.readInput(size);
@@ -117,7 +117,7 @@ void etapaOrdenacao(int M) {
 
 void etapaHash() {
     cout << "EXECUTANDO ETAPA DE HASH" << endl;
-    cout << "quantos itens inserir na tablea:" << endl;
+    cout << "quantos itens inserir na tabela:" << endl;
     int n;
     std::cin >> n;
 

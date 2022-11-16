@@ -92,8 +92,8 @@ RegistroHash* HashTable::getTable()
 
 void HashTable::print()
 {
-    RegistroHash* aux = new RegistroHash[tamanho];
-    aux = this->getTable();
+    
+    RegistroHash* aux = this->getTable();
 
     AlgoritmosOrdenacao algoritmo;
     algoritmo.quickSortHash(aux, tamanho);
@@ -102,8 +102,6 @@ void HashTable::print()
     {
         cout << " | " << setw(10) << aux[i].productId << " | " << setw(3) << aux[i].qtdReviews << " | " << endl;
     }
+
     delete [] aux;
-    /*
-        imprimir os P produtos mais avaliados utilizando o metodo com melhor desempenho da etapa 2
-    */
 }

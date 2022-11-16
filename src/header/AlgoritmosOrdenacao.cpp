@@ -224,6 +224,7 @@ int AlgoritmosOrdenacao::particionamentoHash(RegistroHash *vet, int lo, int hi) 
 void AlgoritmosOrdenacao::quickSortEncapsHash(RegistroHash *vet, int lo, int hi) {
     if (lo < hi) {
         int p = particionamentoHash(vet, lo, hi);
+        quickSortEncapsHash(vet, lo, p);
         quickSortEncapsHash(vet, p + 1, hi);
     }
 }

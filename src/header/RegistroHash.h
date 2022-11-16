@@ -1,5 +1,5 @@
 #ifndef REGISTROHASH_H
-#define REGISTROHASH_H_H
+#define REGISTROHASH_H
 
 #include <iostream>
 
