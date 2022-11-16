@@ -25,7 +25,7 @@ class HashTable
         int h1(unsigned key);
         int h2(unsigned key);
         void insere(ProductReview productReview);
-        //procura(ProductReview productReview);
+        int getTamanho();
         void print();
 };
 
