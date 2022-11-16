@@ -7,6 +7,8 @@
 #include "ManipulandoArquivo.h"
 #include "Metricas.h"
 
+#include "RegistroHash.h"
+
 using namespace std;
 using namespace std::chrono;
 
@@ -126,7 +128,7 @@ void AlgoritmosOrdenacao::mergeSort(ProductReview* vet, int size) {
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
     mergeSortEncaps(vet, aux, 0, size - 1, comparacoes, movimentacoes);
-
+    delete [] aux;
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
@@ -182,7 +184,7 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
     high_resolution_clock::time_point inicio = high_resolution_clock::now();
 
     timSortEncaps(vet, aux, size, comparacoes, movimentacoes);
-
+    delete [] aux;
     high_resolution_clock::time_point fim = high_resolution_clock::now();
 
     double time = duration_cast<duration<double>>(fim - inicio).count();
@@ -192,4 +194,40 @@ void AlgoritmosOrdenacao::timSort(ProductReview* vet, int size) {
     this->resultado.setMovimentacao(movimentacoes);
 
     arq.temp(resultado);
+}
+
+void AlgoritmosOrdenacao::trocaHash(RegistroHash& x, RegistroHash& y) {
+    RegistroHash aux = x;
+    x = y;
+    y = aux;
+}
+
+int AlgoritmosOrdenacao::particionamentoHash(RegistroHash* vet, int lo, int hi) {
+    int posPivo = (hi + lo) / 2;
+    RegistroHash pivo = vet[posPivo];
+    int i = lo - 1, j = hi + 1;
+    do {
+        do {
+            i++;
+        }while(vet[i].qtdReviews < pivo.qtdReviews);
+        do {
+            j--;
+        } while (vet[i].qtdReviews > pivo.qtdReviews);
+
+        if (i >= j) return j;
+
+        trocaHash(vet[i], vet[j]);
+
+    } while (true);
+}
+
+void AlgoritmosOrdenacao::quickSortEncapsHash(RegistroHash* vet, int lo, int hi) {
+    if (lo < hi) {
+        int p = particionamentoHash(vet, lo, hi);
+        quickSortEncapsHash(vet, p + 1, hi);
+    }
+}
+
+void AlgoritmosOrdenacao::quickSortHash(RegistroHash* vet, int size) {
+    quickSortEncapsHash(vet, 0, size - 1);
 }

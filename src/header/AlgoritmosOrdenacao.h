@@ -4,11 +4,17 @@
 #include "Metricas.h"
 #include "ProductReview.h"
 
+#include "RegistroHash.h"
+
 using namespace std;
 
 class AlgoritmosOrdenacao {
    private:
     Metricas resultado;
+
+    void trocaHash(RegistroHash& x, RegistroHash& y);
+    int particionamentoHash(RegistroHash* vet, int lo, int hi);
+    void quickSortEncapsHash(RegistroHash* vet, int lo, int hi);
 
     int particionamento(ProductReview* vet, int lo, int hi, int& comparacoes, int& movimentacao);
     void troca(ProductReview& x, ProductReview& y);
@@ -23,6 +29,7 @@ class AlgoritmosOrdenacao {
     void mergeSort(ProductReview* vet, int size);
     void insertionSort(ProductReview* vetor, int esquerda, int direita, int& comparacoes, int& movimentacoes);
     void timSort(ProductReview* vet, int size);
+    void quickSortHash(RegistroHash* vet, int size);
 };
 
 #endif
