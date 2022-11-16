@@ -2,6 +2,7 @@
 # Comando
 `g++ ./src/main.cpp ./src/header/*.cpp -I ./src/header -o ./src/main && ./src/main ./src/files/`<br>
 - No argumento ./main passar o local do arquivo .csv ./{local_do_aquivo}
+- Utilizar da versao 11 (g++)
 # RELATÓRIO
 <a href="">https://docs.google.com/document/d/19g9uwIkStjVOPfbnRkWuc7Q4zaOtmVJ6BP_dn87qpRE/edit?usp=sharing</a>
 # TODO

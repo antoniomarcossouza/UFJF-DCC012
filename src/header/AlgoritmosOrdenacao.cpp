@@ -212,7 +212,7 @@ int AlgoritmosOrdenacao::particionamentoHash(RegistroHash *vet, int lo, int hi) 
         }while(vet[i].qtdReviews < pivo.qtdReviews);
         do {
             j--;
-        } while (vet[i].qtdReviews > pivo.qtdReviews);
+        } while (vet[j].qtdReviews > pivo.qtdReviews);
 
         if (i >= j) return j;
 
