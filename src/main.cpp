@@ -129,6 +129,8 @@ void etapaHash() {
         hTable.insere(pr[i]);
     }
     hTable.print();
+
+    delete [] pr;
 }
 
 RegistroHash* createTable(int n) {
@@ -141,6 +143,8 @@ RegistroHash* createTable(int n) {
     }
 
     return hTable.getTable();
+
+    delete [] pr;
 }
 
 void interface() {

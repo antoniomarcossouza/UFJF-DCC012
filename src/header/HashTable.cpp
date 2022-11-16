@@ -87,17 +87,19 @@ void HashTable::insere(ProductReview newReview)
 
 RegistroHash* HashTable::getTable()
 {
-    return vet;
-}
-
-void HashTable::print()
-{
     RegistroHash* aux = new RegistroHash[tamanho];
 
     for(int i = 0; i < tamanho; i++)
     {
         aux[i] = vet[i];
     }
+
+    return aux;
+}
+
+void HashTable::print()
+{
+    RegistroHash* aux = getTable();
 
     AlgoritmosOrdenacao algoritmo;
     algoritmo.quickSortHash(aux, tamanho);
