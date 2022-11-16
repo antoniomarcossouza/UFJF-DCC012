@@ -141,10 +141,9 @@ RegistroHash* createTable(int n) {
     for (int i = 0; i < n; i++) {
         hTable.insere(pr[i]);
     }
-
-    return hTable.getTable();
-
     delete [] pr;
+    
+    return hTable.getTable();
 }
 
 void interface() {
