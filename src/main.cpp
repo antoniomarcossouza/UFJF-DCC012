@@ -121,7 +121,7 @@ void etapaHash() {
     int n;
     std::cin >> n;
 
-    HashTable hTable(n * 0.3);
+    HashTable hTable((int)(n * 0.3));
 
     ProductReview* pr = import(n);
 
@@ -134,7 +134,7 @@ void etapaHash() {
 }
 
 RegistroHash* createTable(int n) {
-    HashTable hTable(n * 0.3);
+    HashTable hTable((int)(n * 0.3));
 
     ProductReview* pr = import(n);
 
