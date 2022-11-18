@@ -72,15 +72,15 @@ void sort(ProductReview* vet, int n, int methodId) {
 }
 
 void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
-    ProductReview* vet;
     string metodosOrdenacao[3] = {"Quick Sort", "Merge Sort", "TimSort"};
 
     cout << "ANALISE ALGORITMO ORDENACAO: " << metodosOrdenacao[methodId] << endl;
 
     for (int j = 0; j < sizeN; j++) {
         for (int i = 0; i < M; i++) {
-            vet = import(N[j]);
+            ProductReview* vet = import(N[j]);
             sort(vet, N[j], methodId);
+            delete[] vet;
         }
 
         // Gerando resultados parciais ..., true)
@@ -92,7 +92,6 @@ void testarAlgoritmo(int methodId, int M, int* N, int sizeN) {
     arq.resetTempFile();
 
     remove("./src/files/temp.bin");
-    delete[] vet;
 }
 
 void etapaOrdenacao(int M) {
