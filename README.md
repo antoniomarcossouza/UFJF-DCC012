@@ -1,7 +1,7 @@
 # ED2
 # Comando
 `g++ ./src/main.cpp ./src/header/*.cpp -I ./src/header -o ./src/main && ./src/main ./src/files/`<br>
-- No argumento ./main passar o local do arquivo .csv ./{local_do_aquivo}
+- No argumento ./src/main passar o local do arquivo .csv ./src/{local_do_aquivo}
 - Utilizar da versao 11 (g++)
 # RELATÓRIO
 <a href="">https://docs.google.com/document/d/19g9uwIkStjVOPfbnRkWuc7Q4zaOtmVJ6BP_dn87qpRE/edit?usp=sharing</a>
@@ -22,10 +22,10 @@
 - [x] void sort(ProductReview *vet, int n, int methodId)
 ## ETAPA 3 - Produtos mais avaliados
 - [x] Tabela Hash
-- [ ] RegistroHash* createTable(int n)
+- [x] RegistroHash* createTable(int n)
 ## ETAPA 4 - Programa principal
 - [x] Escolha de qual operação executar
 - [x] O programa desenvolvido deve permitir que o usuário entre com o caminho do diretório que contém os arquivos de dados como um argumento na linha de comando
 - [x] O programa deve procurar pela existência dos  arquivos binários dentro da pasta. Se não existir, deve pré-processá-los (etapa 1) antes de seguir para as etapas seguintes.
 ## RELATÓRIO PARCIAL
-- [ ] detalhamento das atividades realizadas por cada membro do grupo; decisões de implementação; toda e qualquer referência utilizada no desenvolvimento do trabalho.
+- [x] detalhamento das atividades realizadas por cada membro do grupo; decisões de implementação; toda e qualquer referência utilizada no desenvolvimento do trabalho.
