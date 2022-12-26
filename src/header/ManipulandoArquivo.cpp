@@ -116,6 +116,7 @@ ProductReview ManipulandoArquivo::findRegistryPosition(int i) {
     prod.setProductId(productId);
     prod.setRating(rating);
     prod.setTimestamp(timestamp);
+    prod.setBinFileLocation(i);
 
     inFile.close();
     return prod;
@@ -319,4 +320,42 @@ void ManipulandoArquivo::preProcessamento(string path) {
         fileCSVtoBIN(csvName);
     } else
         this->binPath = binName;
+}
+
+void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch, int* compInsert, int* compSearch, string algoritmo)
+{
+    ofstream outFileResults(this->path + "/saida.txt", ios::app);
+    if (!outFileResults) {
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
+        exit(1);
+    }
+
+    outFileResults.seekp(0, ios::end);
+
+    double mediaTotalTime = 0;
+    int mediaTotalComp = 0;
+
+    for (int i = 0; i < 3; i++) {
+        mediaTotalTime += timeInsert[i] + timeSearch[i];
+        mediaTotalComp += compInsert[i] + compSearch[i];
+    }
+
+    outFileResults << "Algoritmo: " << algoritmo << endl;
+    outFileResults << "1 execucao" << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[0] + compInsert[0] << endl;
+    outFileResults << "\tTempo: " << timeSearch[0] + timeInsert[0] << endl << endl;
+
+    outFileResults << "2 execucao" << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[1] + compInsert[1] << endl;
+    outFileResults << "\tTempo: " << timeSearch[1] + timeInsert[1] << endl << endl;
+
+    outFileResults << "3 execucao" << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[2] + compInsert[2] << endl;
+    outFileResults << "\tTempo: " << timeSearch[2] + timeInsert[2] << endl << endl;
+    
+    outFileResults << "Media final das execucoes" << endl;
+    outFileResults << "\tComparaçoes: " << mediaTotalComp << endl;
+    outFileResults << "\tTempo: " << mediaTotalTime << endl << endl;
+
+    outFileResults.close();
 }

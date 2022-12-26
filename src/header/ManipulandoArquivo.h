@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <vector>
+#include <string>
 
 #include "Metricas.h"
 #include "ProductReview.h"
@@ -20,6 +21,7 @@ class ManipulandoArquivo {
     void clearOutputFile();
     void preProcessamento(string path);
     void setPath(string path);
+    void gerarResultadoEB(double* timeInsert, double* timeSearch, int* compInsert, int* compSearch, std::string algo);
 
    private:
     vector<string> getFileName(string path);

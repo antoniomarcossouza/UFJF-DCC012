@@ -4,14 +4,20 @@
 #include <fstream>
 #include <iostream>
 #include <random>
+#include <chrono>
+#include <vector>
+#include <algorithm>
 
 #include "./header/AlgoritmosOrdenacao.h"
 #include "./header/HashTable.h"
 #include "./header/ManipulandoArquivo.h"
 #include "./header/ProductReview.h"
+#include "./header/ArvoreB20.h"
+#include "./header/ArvoreB200.h"
 
 using namespace std;
-
+using namespace std;
+using namespace std::chrono;
 // Funcoes de Teste
 
 void printArrayProd(ProductReview* arr, int tam) {
@@ -45,7 +51,7 @@ ProductReview* import(int n) {
     // CHAVE RANDOMICA
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distr(0, n);
+    uniform_int_distribution<> distr(0, 7000000);
 
     for (int i = 0; i < n; i++)
         produtos[i] = arq.findRegistryPosition(distr(gen));
@@ -145,12 +151,159 @@ RegistroHash* createTable(int n) {
     return hTable.getTable();
 }
 
+void randomVetIndex(vector<int>& numbers) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(1, 7000000);
+
+    generate(numbers.begin(), numbers.end(), [&]{ return dis(gen);});
+    sort(numbers.begin(), numbers.end());
+
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
+}
+
+ProductReview* importSemRepeticao(int n, int& size) {
+    ProductReview* produtos = new ProductReview[n];
+    vector<int> numbers(n + 90000);
+    randomVetIndex(numbers);
+
+    while (numbers.size() > n)
+        numbers.pop_back();
+
+    for (int i = 0; i < n; i++)
+        produtos[i] = arq.findRegistryPosition(numbers[i]);
+
+
+    return produtos;
+}
+
+void arvoreB20() {
+    // IMPORTANDO UM CONJUNTO DE 1M ELEMENTOS
+    int size;
+    int M = 3;
+    int N = 1000000;
+    int B = 100;
+
+    double* timeResultsInsersion = new double[M];
+    double* timeResultsSearch = new double[M];
+    int* comparacoesResultsInsersion = new int[M];
+    int* comparacoesResultsSearch = new int[M];
+
+    for (int j = 0; j < M; j++) {
+        ProductReview* prodsToImport = importSemRepeticao(N, size);
+        ArvoreB20 arvoreB20;
+
+
+        // REALIZANDO INSERCAO
+        high_resolution_clock::time_point inicioInsere = high_resolution_clock::now();
+
+        for (int i = 0; i < size; i++)
+            arvoreB20.insere(&prodsToImport[i]);
+
+        high_resolution_clock::time_point fimInsere = high_resolution_clock::now();
+        double insersionTime = duration_cast<duration<double>>(fimInsere - inicioInsere).count();
+
+        // REALIZANDO BUSCA
+        high_resolution_clock::time_point inicioBusca = high_resolution_clock::now();
+
+        ProductReview* prodsToSearch = import(B);
+        for (int i = 0; i < B; i++) {
+            ProductReview* res = arvoreB20.busca(prodsToImport[i].getUserId(), prodsToImport[i].getProductId());
+            delete res;
+        }
+
+        high_resolution_clock::time_point fimBUsdca = high_resolution_clock::now();
+        double searchTime = duration_cast<duration<double>>(fimBUsdca - inicioBusca).count();
+
+        timeResultsInsersion[j] = insersionTime;
+        timeResultsSearch[j] = searchTime;
+        comparacoesResultsInsersion[j] = arvoreB20.getComparacoesInsercao();
+        comparacoesResultsSearch[j] = arvoreB20.getComparacoesBusca();
+
+        delete [] prodsToImport;
+        delete [] prodsToSearch;
+    }
+
+    arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, "Arvore B m = 20");
+
+    delete [] timeResultsInsersion;
+    delete [] timeResultsSearch;
+    delete [] comparacoesResultsInsersion;
+    delete [] comparacoesResultsSearch;
+}
+
+void arvoreB200() {
+    // IMPORTANDO UM CONJUNTO DE 1M ELEMENTOS
+    int size;
+    int M = 3;
+    int N = 1000000;
+    int B = 100;
+
+    double* timeResultsInsersion = new double[M];
+    double* timeResultsSearch = new double[M];
+    int* comparacoesResultsInsersion = new int[M];
+    int* comparacoesResultsSearch = new int[M];
+
+    for (int j = 0; j < M; j++) {
+        ProductReview* prodsToImport = importSemRepeticao(N, size);
+        ArvoreB200 arvoreB200;
+
+
+        // REALIZANDO INSERCAO
+        high_resolution_clock::time_point inicioInsere = high_resolution_clock::now();
+
+        for (int i = 0; i < size; i++)
+            arvoreB200.insere(&prodsToImport[i]);
+
+        high_resolution_clock::time_point fimInsere = high_resolution_clock::now();
+        double insersionTime = duration_cast<duration<double>>(fimInsere - inicioInsere).count();
+
+        // REALIZANDO BUSCA
+        high_resolution_clock::time_point inicioBusca = high_resolution_clock::now();
+
+        ProductReview* prodsToSearch = import(B);
+        for (int i = 0; i < B; i++) {
+            ProductReview* res = arvoreB200.busca(prodsToImport[i].getUserId(), prodsToImport[i].getProductId());
+            delete res;
+        }
+
+        high_resolution_clock::time_point fimBUsdca = high_resolution_clock::now();
+        double searchTime = duration_cast<duration<double>>(fimBUsdca - inicioBusca).count();
+
+        timeResultsInsersion[j] = insersionTime;
+        timeResultsSearch[j] = searchTime;
+        comparacoesResultsInsersion[j] = arvoreB200.getComparacoesInsercao();
+        comparacoesResultsSearch[j] = arvoreB200.getComparacoesBusca();
+
+        delete [] prodsToImport;
+        delete [] prodsToSearch;
+    }
+
+    arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, "Arvore B m = 200");
+
+    delete [] timeResultsInsersion;
+    delete [] timeResultsSearch;
+    delete [] comparacoesResultsInsersion;
+    delete [] comparacoesResultsSearch;
+}
+
+void etapaEstruturasBalanceadas() {
+    arq.clearOutputFile();
+    // ARVORE VERMELHO E PRETO
+        // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
+
+    // ARVORE B
+    arvoreB20();
+    arvoreB200();
+}
+
 void interface() {
     int option;
     do {
         cout << "Escolha qual etapa sera executada: " << endl
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
+             << "3. Estruturas Balanceadas" << endl
              << "0. Sair" << endl
              << "> " << flush;
         cin >> option;
@@ -159,6 +312,8 @@ void interface() {
             etapaOrdenacao(3);
         else if (option == 2)
             etapaHash();
+        else if (option == 3)
+            etapaEstruturasBalanceadas();
 
     } while (option != 0);
 }
