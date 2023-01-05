@@ -37,9 +37,9 @@
 - [] ProductReciew* ArvoreVP::busca(string userId, string productId)
 - [] void ArvoreVP::print()
 ### Arvore B
-- [] ArvoreB::insere(ProductReview *pr)
-- [] ProductReciew* ArvoreB::busca(string userId, string productId)
-- [] void ArvoreB::print()
+- [x] ArvoreB::insere(ProductReview *pr)
+- [x] ProductReciew* ArvoreB::busca(string userId, string productId)
+- [x] void ArvoreB::print()
 ## ETAPA 2 - Implementacao metodos de compressao
 ### ALGORITMOS
 - [] Huffman
