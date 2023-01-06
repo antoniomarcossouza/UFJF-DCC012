@@ -43,7 +43,7 @@
 ## ETAPA 2 - Implementacao metodos de compressao
 ### ALGORITMOS
 - [ ] Huffman
-- [ ] LZ77
+- [x] LZ77
 - [ ] LZW
 ### FUNCOES
 - [ ] string comprime(string str, int metodo)
