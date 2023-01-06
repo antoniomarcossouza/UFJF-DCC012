@@ -353,7 +353,6 @@ void etapaCompressao() {
 
     for (int i = 0; i < n; i++)
     {
-        cout << "oi" << endl;
         str += lista[i].toString() + '\n';
     }
 
