@@ -17,3 +17,16 @@ void ProductReview::print() {
     cout << "RATING: " << this->rating << endl;
     cout << "TIMESTAMP: " << this->timestamp << endl;
 }
+
+string ProductReview::toString() {
+    string retorno = "";
+    retorno += this->userId;
+    retorno += "/";
+    retorno += this->productId;
+    retorno += "/";
+    retorno += to_string(this->rating);
+    retorno += "/";
+    retorno += to_string(this->timestamp);
+    retorno += "/";
+    return retorno;
+}

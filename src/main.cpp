@@ -14,6 +14,7 @@
 #include "./header/ProductReview.h"
 #include "./header/ArvoreB20.h"
 #include "./header/ArvoreB200.h"
+#include "./header/CompressaoLZ77.h"
 
 using namespace std;
 using namespace std;
@@ -297,6 +298,70 @@ void etapaEstruturasBalanceadas() {
     arvoreB200();
 }
 
+string comprime(string str, int metodo) {
+    if (metodo == 0) {
+        //  Huffman
+        // retorna a string comprimida
+    }
+    else if (metodo == 1) {
+        // LZ77
+        return CompressaoLZ77::comprime(str);
+    }
+    else if (metodo == 2) {
+        // LZW
+        // retorna a string comprimida
+    }
+}
+
+string descomprime(string str, int metodo) {
+    if (metodo == 0) {
+        //  Huffman
+        // retorna a string descomprimida
+    }
+    else if (metodo == 1) {
+        // LZ77
+        // retorna a string descomprimida
+    }
+    else if (metodo == 2) {
+        // LZW
+        // retorna a string descomprimida
+    }
+}
+
+void comprime(int metodo) {
+    /*
+        comprime o conteúdo de um arquivo texto nomeado reviewsOrig.txt, utilizando o método especificado 
+        no segundo parâmetro (0 = Huffman, 1 = LZ77, 2 = LZW). A função deve salvar o resultado da compressão
+        em um arquivo binário reviewsComp.bin. Ambos os arquivos deverão estar localizados no caminho fornecido 
+        pelo usuário via linha de comando (vide Seção 5). 
+    */
+}
+
+void descomprime(int metodo) {
+    /*
+        descomprime o conteúdo do arquivo binário reviewsComp.bin, utilizando o método especificado no segundo
+        parâmetro (0 = Huffman, 1 = LZ77, 2 = LZW). A função deve salvar o resultado da descompressão em um arquivo texto
+        reviewsDesc.txt. Ambos os arquivos deverão estar localizados no caminho fornecido pelo usuário via linha de comando (vide Seção 5).
+    */
+}
+
+
+void etapaCompressao() {
+    const int n = 3; // qtd de registros importados
+    string str = "";
+    ProductReview* lista = import(n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << "oi" << endl;
+        str += lista[i].toString() + '\n';
+    }
+
+    // NAO ESTA PRONTO  
+
+}
+
+
 void interface() {
     int option;
     do {
@@ -304,6 +369,7 @@ void interface() {
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
              << "3. Estruturas Balanceadas" << endl
+             << "4. Compressao" << endl
              << "0. Sair" << endl
              << "> " << flush;
         cin >> option;
@@ -314,6 +380,8 @@ void interface() {
             etapaHash();
         else if (option == 3)
             etapaEstruturasBalanceadas();
+        else if (option == 4)
+            etapaCompressao();
 
     } while (option != 0);
 }

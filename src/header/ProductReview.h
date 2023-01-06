@@ -22,6 +22,8 @@ class ProductReview {
     ProductReview();
     void print();
 
+    string toString();
+
    private:
     std::string userId;
     std::string productId;
