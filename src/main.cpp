@@ -219,7 +219,7 @@ void testeArvoreB() {
 void etapaEstruturasBalanceadas() {
     arq.clearOutputFile();
     // ARVORE VERMELHO E PRETO
-        // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
+    
 
     // ARVORE B
     testeArvoreB();
