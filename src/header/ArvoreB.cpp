@@ -1,4 +1,4 @@
-#include "ArvoreB20.h"
+#include "ArvoreB.h"
 #include "ProductReview.h"
 #include "ManipulandoArquivo.h"
 
@@ -10,19 +10,19 @@ using namespace std;
 
 extern ManipulandoArquivo arq;
 
-ArvoreB20::ArvoreB20() 
+ArvoreB::ArvoreB() 
 {
     comparacoesInsercao = 0;
     comparacoesBusca = 0;
     raiz = NULL;
 }
 
-ArvoreB20::~ArvoreB20()
+ArvoreB::~ArvoreB()
 {
     delete raiz;
 }
 
-ArvoreBNo* ArvoreB20::criaNo(bool folha) 
+ArvoreBNo* ArvoreB::criaNo(bool folha) 
 {
     ArvoreBNo* no = new ArvoreBNo;
     no->folha = folha;
@@ -34,7 +34,7 @@ ArvoreBNo* ArvoreB20::criaNo(bool folha)
 }
 
 // Fazer a cisao do filho e sobe a chave central para o pai
-void ArvoreB20::cisaoFilho(ArvoreBNo* no, int i) 
+void ArvoreB::cisaoFilho(ArvoreBNo* no, int i) 
 {
     ArvoreBNo* no1 = no->filhos[i];
     ArvoreBNo* no2 = criaNo(no1->folha);
@@ -68,7 +68,7 @@ void ArvoreB20::cisaoFilho(ArvoreBNo* no, int i)
 }
 
 // Insere uma chave em uma arvore b com espaço
-void ArvoreB20::insersaoComEspaco(ArvoreBNo* no, Infos chave)
+void ArvoreB::insersaoComEspaco(ArvoreBNo* no, Infos chave)
 {
     int i = no->n - 1;
 
@@ -108,7 +108,7 @@ void ArvoreB20::insersaoComEspaco(ArvoreBNo* no, Infos chave)
 }
 
 // Insere uma chave na arvore B
-void ArvoreB20::insersaoEncaps(ArvoreBNo*& raiz, Infos chave) {
+void ArvoreB::insersaoEncaps(ArvoreBNo*& raiz, Infos chave) {
     // Se a arvore esta vazia, cria um novo no como raiz
     if (raiz == NULL)
     {
@@ -130,7 +130,7 @@ void ArvoreB20::insersaoEncaps(ArvoreBNo*& raiz, Infos chave) {
     }
 }
 
-void ArvoreB20::insere(ProductReview *pr)
+void ArvoreB::insere(ProductReview *pr)
 {
     Infos chave;
     chave.id = pr->getUserId() + pr->getProductId();
@@ -139,7 +139,7 @@ void ArvoreB20::insere(ProductReview *pr)
     insersaoEncaps(raiz, chave);
 }
 
-ProductReview* ArvoreB20::busca(string userId, string productId) {
+ProductReview* ArvoreB::busca(string userId, string productId) {
     string idChave = userId + productId;
     int location = buscaEncaps(raiz, idChave);
     ProductReview* prod = new ProductReview();
@@ -157,7 +157,7 @@ ProductReview* ArvoreB20::busca(string userId, string productId) {
 }
 
 // faz a a busca encapsulada e retorna a localizacao no arquivo binario
-int ArvoreB20::buscaEncaps(ArvoreBNo* raiz, string chave) {
+int ArvoreB::buscaEncaps(ArvoreBNo* raiz, string chave) {
     if (raiz == NULL) {
         return -1;
     }
@@ -178,7 +178,7 @@ int ArvoreB20::buscaEncaps(ArvoreBNo* raiz, string chave) {
 }
 
 // Imprime as chaves na arvore B
-void ArvoreB20::printEncaps(ArvoreBNo* raiz) {
+void ArvoreB::printEncaps(ArvoreBNo* raiz) {
     if (raiz == NULL) {
         return;
     }

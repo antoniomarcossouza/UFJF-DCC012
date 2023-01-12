@@ -1,5 +1,5 @@
-#ifndef ARVOREB20_H
-#define ARVOREB20_H
+#ifndef ARVOREB_H
+#define ARVOREB_H
 
 #include "ProductReview.h"
 #include <string>
@@ -20,10 +20,10 @@ struct ArvoreBNo {
     bool folha; // no folha
 };
 
-class ArvoreB20 {
+class ArvoreB {
     public:
-        ArvoreB20();
-        ~ArvoreB20();
+        ArvoreB();
+        ~ArvoreB();
 
         ProductReview* busca(string userId, string productId);
         void print() {printEncaps(raiz);}

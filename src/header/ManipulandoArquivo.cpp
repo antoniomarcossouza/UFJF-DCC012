@@ -324,14 +324,6 @@ void ManipulandoArquivo::preProcessamento(string path) {
 
 void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch, int* compInsert, int* compSearch, string algoritmo)
 {
-    ofstream outFileResults(this->path + "/saida.txt", ios::app);
-    if (!outFileResults) {
-        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
-        exit(1);
-    }
-
-    outFileResults.seekp(0, ios::end);
-
     double mediaTotalTime = 0;
     int mediaTotalComp = 0;
 
@@ -340,22 +332,29 @@ void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch
         mediaTotalComp += compInsert[i] + compSearch[i];
     }
 
+    ofstream outFileResults(this->path + "/saida.txt", ios::app);
+    if (!outFileResults) {
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
+        exit(1);
+    }
+
+    outFileResults.seekp(0, ios::end);
+
     outFileResults << "Algoritmo: " << algoritmo << endl;
     outFileResults << "1 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[0] + compInsert[0] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[0] + compSearch[0] << endl;
     outFileResults << "\tTempo: " << timeSearch[0] + timeInsert[0] << endl << endl;
 
     outFileResults << "2 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[1] + compInsert[1] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[1] + compSearch[1] << endl;
     outFileResults << "\tTempo: " << timeSearch[1] + timeInsert[1] << endl << endl;
 
     outFileResults << "3 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[2] + compInsert[2] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[2] + compSearch[2] << endl;
     outFileResults << "\tTempo: " << timeSearch[2] + timeInsert[2] << endl << endl;
     
     outFileResults << "Media final das execucoes" << endl;
-    outFileResults << "\tComparaçoes: " << mediaTotalComp << endl;
-    outFileResults << "\tTempo: " << mediaTotalTime << endl << endl;
-
+    outFileResults << "\tComparaçoes: " << mediaTotalComp/3 << endl;
+    outFileResults << "\tTempo: " << mediaTotalTime/3 << endl << endl;
     outFileResults.close();
 }
