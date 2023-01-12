@@ -358,3 +358,110 @@ void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch
     outFileResults << "\tTempo: " << mediaTotalTime/3 << endl << endl;
     outFileResults.close();
 }
+
+/*
+    retorna o texto contido em PATH/reviewsOrig.txt
+*/
+string ManipulandoArquivo::getReviews() {
+    string reviewsOrigPath = path + "reviewsOrig.txt";
+    string reviews;
+    ifstream inFile(reviewsOrigPath, ios::ate);
+    if (!inFile) {
+        cout << "ERRO ao abrir " << reviewsOrigPath << endl;
+        exit(1);
+    }
+
+    reviews.resize(inFile.tellg());
+    inFile.seekg(0, inFile.beg);
+    inFile.read(reviews.data(), reviews.size());
+
+    return reviews;
+}
+
+
+/*
+    le arquivo binario nomeArq que contem
+    options:
+    1 -> string
+    2 -> inteiros
+*/
+string ManipulandoArquivo::readBin(string nomeArq, int option) {
+    ifstream inFile(path + nomeArq, ios::in | ios_base::binary);
+    string saida;
+
+    if (!inFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    if (option == 1) {// char
+        while (!inFile.eof())
+        {
+            char c;
+            inFile.read(&c, sizeof(char));
+            saida += c;
+        }
+        
+    }
+    else if (option == 2) {
+        vector<int> v;
+        while (!inFile.eof())
+        {
+            int n;
+            inFile.read((char*)&n, sizeof(int));
+            saida += to_string(n) + " ";
+        }
+        
+    }
+
+    return saida;
+}
+
+/*
+    Escreve uma string no arquivo binario de nome nomeArq
+*/
+void ManipulandoArquivo::writeBin(string nomeArq, string str) {
+    ofstream outFile(path + nomeArq, ios::out | ios::binary);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    //outFile.write(str.c_str(), str.length());
+    for (int i = 0; i < str.length(); i++)
+    {
+        outFile.write(reinterpret_cast<char *> (&str.at(i)),sizeof(char));
+    }
+}
+
+/*
+    Escreve um vetor de inteiros no arquivo binario de nome nomeArq
+*/
+void ManipulandoArquivo::writeBin(string nomeArq, vector<int> code) {
+    ofstream outFile(path + nomeArq, ios::out | ios::binary);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    for (int i = 0; i < code.size(); i++)
+    {
+        outFile.write((char *)&code[i], sizeof(int));
+    }
+    
+}
+
+void ManipulandoArquivo::writeTxt(string nomeArq, string str) {
+    ofstream outFile(path + nomeArq, ios::out);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    cout << "escrevendo" << endl;
+
+    outFile << str;
+}

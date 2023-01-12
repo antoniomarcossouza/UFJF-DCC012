@@ -23,6 +23,15 @@ class ManipulandoArquivo {
     void setPath(string path);
     void gerarResultadoEB(double* timeInsert, double* timeSearch, int* compInsert, int* compSearch, std::string algo);
 
+    // etapa de compressao
+    string getReviews();
+    void writeBin(string nomeArq, string str);
+    void writeBin(string nomeArq, vector<int> code);
+    string readBin(string nomeArq, int option);
+    void writeTxt(string nomeAqr, string str);
+    void gerarResultadoCmprs(double* taxaCompressao);
+
+
    private:
     vector<string> getFileName(string path);
     string path;

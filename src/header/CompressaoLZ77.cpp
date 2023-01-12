@@ -46,36 +46,28 @@ string CompressaoLZ77::comprime(string str) {
 
         }
 
-        try
-        {
-        }
-        catch(const std::out_of_range& e)
-        {
-        }
         strCompactada += to_string(volta);
         strCompactada += to_string(qtd);
-        try
-        {
+        try {
             strCompactada += str.at(midPoint+qtd);
         }
-        catch(const std::out_of_range& e)
-        {
+        catch(const std::out_of_range& e) {
             strCompactada += '\0';
         }
         
         midPoint += qtd+1;
     }
-
     return strCompactada;   
 
 }
 
 string CompressaoLZ77::descomprime(string str) {
+    cout << "descomprimindo" << endl;
     string descomprimida = "";
 
     descomprimida += str.at(2);
     int ptr = 1;
-    for (int i = 3; i < str.length(); i+=3)
+    for (int i = 3; i < str.length()-1; i+=3)
     {
         int volta = int(str.at(i) - '0');
         int qtd = int(str.at(i+1) - '0');
@@ -85,7 +77,6 @@ string CompressaoLZ77::descomprime(string str) {
         {
             descomprimida += descomprimida.at(ptr-volta+j);
         }
-        
         descomprimida += next;
         
         ptr += qtd+1;

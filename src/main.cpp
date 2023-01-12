@@ -15,6 +15,7 @@
 #include "./header/ArvoreB.h"
 #include "./header/ArvoreB200.h"
 #include "./header/CompressaoLZ77.h"
+#include "./header/CompressaoLZW.h"
 
 using namespace std;
 using namespace std;
@@ -46,6 +47,9 @@ void getReview(int i) {
     prod.print();
 }
 
+/*
+    Retorna um array contendo n ProductReviews
+*/
 ProductReview* import(int n) {
     ProductReview* produtos = new ProductReview[n];
     vector<int> numbers(n + 90000);
@@ -232,11 +236,15 @@ string comprime(string str, int metodo) {
     }
     else if (metodo == 1) {
         // LZ77
-        return CompressaoLZ77::comprime(str);
     }
     else if (metodo == 2) {
         // LZW
-        // retorna a string comprimida
+        vector<int> codes = CompressaoLZW::comprime(str);
+        string comprimida;
+        for (int i = 0; i < codes.size(); i++)
+            comprimida.append(to_string(codes.at(i)) + " ");
+        
+        return comprimida;
     }
     return "";
 }
@@ -252,7 +260,7 @@ string descomprime(string str, int metodo) {
     }
     else if (metodo == 2) {
         // LZW
-        // retorna a string descomprimida
+        return CompressaoLZW::descomprime(str);
     }
     return "";
 }
@@ -264,7 +272,26 @@ void comprime(int metodo) {
         em um arquivo binário reviewsComp.bin. Ambos os arquivos deverão estar localizados no caminho fornecido 
         pelo usuário via linha de comando (vide Seção 5). 
     */
+
+    string original = arq.getReviews();
+
+    if (metodo == 0) {
+        //  Huffman
+        // string comprimida = CompressaoHUF::comprime(original);
+    }
+    else if (metodo == 1) {
+        // LZ77
+        //string comprimida = CompressaoLZ77::comprime(original);
+    }
+    else if (metodo == 2) {
+        // LZW
+        vector<int> comprimida = CompressaoLZW::comprime(original);
+        arq.writeBin("reviewsComp.bin", comprimida);
+        // string comprimida = CompressaoLZW::comprime(original);
+    }
+    
 }
+
 
 void descomprime(int metodo) {
     /*
@@ -272,21 +299,75 @@ void descomprime(int metodo) {
         parâmetro (0 = Huffman, 1 = LZ77, 2 = LZW). A função deve salvar o resultado da descompressão em um arquivo texto
         reviewsDesc.txt. Ambos os arquivos deverão estar localizados no caminho fornecido pelo usuário via linha de comando (vide Seção 5).
     */
+
+    cout << "Descomprimindo" << endl;
+
+    string descomprimida;
+
+    if (metodo == 0) {
+        //  Huffman
+        // string comprimida = CompressaoHUF::comprime(original);
+    }
+    else if (metodo == 1) {
+        // LZ77
+        //cout << "comprimida: " << comprimida << endl << endl;
+        //cout << "descomprimida: " << CompressaoLZ77::descomprime(comprimida) << endl;
+    } 
+    else if (metodo == 2) {
+        // LZW
+        string comprimida = arq.readBin("reviewsComp.bin", 2);
+        string descomprimida = CompressaoLZW::descomprime(comprimida);
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
+    }
 }
 
+void compressTest(int method)
+{
+    switch(method)
+    {
+        case 0: cout << "=== Teste Huffman ===" << endl << endl; break;
+        case 1: cout << "=== Teste LZ77 ===" << endl << endl; break;
+        case 2: cout << "=== Teste LZW ===" << endl << endl; break;
+        default: cout << "Metodo de compressao nao suportado" << endl << endl; break;
+    }
+    
+    cout << "Testando strings..." << endl;
+
+    string str = "string qualquer";
+    string comp = comprime(str, method);
+    string orig = descomprime(comp, method);
+
+    cout << "String comprimida: " << comp << endl;
+    cout << "String descomprimida: " << orig << endl << endl;
+
+    cout << "Testando arquivos..." << endl;
+
+    comprime(method); // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
+    descomprime(method); // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
+}
 
 void etapaCompressao() {
-    const int n = 3; // qtd de registros importados
-    string str = "";
-    ProductReview* lista = import(n);
+    int option;
+    cout << "Escolha qual compressão: " << endl
+             << "0. Huffman" << endl
+             << "1. LZ77" << endl
+             << "2. LZW" << endl
+             << "> " << flush;
+        cin >> option;
 
-    for (int i = 0; i < n; i++)
+    string str;
+    ProductReview* pr = import(5);
+    for (int i = 0; i < 5; i++)
     {
-        str += lista[i].toString() + '\n';
+        str.append(pr[i].toString() + "-");
     }
 
-    // NAO ESTA PRONTO  
+    cout << "orig: " << str << endl;
 
+    string compress = comprime(str, option);
+    cout << "compress: " << compress << endl;
+
+    cout << "decompress: " << descomprime(compress, 2) << endl; 
 }
 
 
@@ -314,6 +395,7 @@ void interface() {
     } while (option != 0);
 }
 
+
 int main(int argc, char* arg[]) {
     string PATH;
 
@@ -325,4 +407,4 @@ int main(int argc, char* arg[]) {
     interface();
 
     return 0;
-}
+} 
