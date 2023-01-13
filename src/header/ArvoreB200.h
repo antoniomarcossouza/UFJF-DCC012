@@ -14,9 +14,9 @@ struct Infos200 {
 };
 
 struct ArvoreB200No {
-    Infos200 chaves[2*M200-1]; // Vetor de chaves userId + productId
+    Infos200 chaves[M200-1]; // Vetor de chaves userId + productId
     int n; // Numero de chaves no vetor
-    ArvoreB200No* filhos[2*M200]; // filhos
+    ArvoreB200No* filhos[M200]; // filhos
     bool folha; // no folha
 };
 
