@@ -29,7 +29,7 @@ class ManipulandoArquivo {
     void writeBin(string nomeArq, vector<int> code);
     string readBin(string nomeArq, int option);
     void writeTxt(string nomeAqr, string str);
-    void gerarResultadoCmprs(double* taxaCompressao);
+    void gerarResultadoCmprs(int metodo, int charOrig[], int charCompress[]);
 
 
    private:

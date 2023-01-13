@@ -347,6 +347,8 @@ void compressTest(int method)
 }
 
 void etapaCompressao() {
+    const int qtdImports = 3;
+
     int option;
     cout << "Escolha qual compressão: " << endl
              << "0. Huffman" << endl
@@ -355,19 +357,27 @@ void etapaCompressao() {
              << "> " << flush;
         cin >> option;
 
-    string str;
-    ProductReview* pr = import(5);
-    for (int i = 0; i < 5; i++)
+    int tamOrig[3];
+    int tamCompress[3];
+
+    for (int i = 0; i < 3; i++)
     {
-        str.append(pr[i].toString() + "-");
+        string str;
+        ProductReview* pr = import(qtdImports);
+        for (int i = 0; i < qtdImports; i++)
+        {
+            str.append(pr[i].toString() + "-");
+        }
+
+        str = "bananabacana";
+        string compress = comprime(str, option);
+        
+        tamOrig[i] = str.length();
+        compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
+        tamCompress[i] = compress.length();
     }
 
-    cout << "orig: " << str << endl;
-
-    string compress = comprime(str, option);
-    cout << "compress: " << compress << endl;
-
-    cout << "decompress: " << descomprime(compress, 2) << endl; 
+    arq.gerarResultadoCmprs(option, tamOrig, tamCompress);
 }
 
 

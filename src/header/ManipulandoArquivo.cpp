@@ -465,3 +465,45 @@ void ManipulandoArquivo::writeTxt(string nomeArq, string str) {
 
     outFile << str;
 }
+
+void ManipulandoArquivo::gerarResultadoCmprs(int metodo, int tamOrig[], int tamCompress[]) {
+    double mediaFinal;
+    double taxaCompress;
+    string strMetodo;
+
+    switch (metodo)
+    {
+    case 0:
+        strMetodo = "Huffman";
+        break;
+    case 1:
+        strMetodo = "LZ77";
+        break;
+    case 2:
+        strMetodo = "LZW";
+        break;
+    
+    default:
+        break;
+    }
+
+    
+    ofstream outfile(this->path + "/saida.txt", ios::app);
+    if (!outfile) {
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
+        exit(1);
+    }
+
+    outfile << "-= ANALISE DA COMPRESSÃO " << strMetodo << " =- "<< endl << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        taxaCompress = ((double)tamOrig[i] - (double)tamCompress[i]) / (double)tamOrig[i];
+        outfile << i+1 << "ª execucao" << endl;
+        outfile << "\tstring original: " << tamOrig[i] << endl;
+        outfile << "\tstring comprimida: " << tamCompress[i] << endl;
+        outfile << "\ttaxa de compressao: " << (double)taxaCompress << "%" << endl << endl;
+    }
+    outfile << "- - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl << endl;
+    
+    
+}
