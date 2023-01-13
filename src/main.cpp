@@ -9,10 +9,11 @@
 #include <vector>
 
 #include "./header/AlgoritmosOrdenacao.h"
-#include "./header/ArvoreB20.h"
+#include "./header/ArvoreB.h"
 #include "./header/ArvoreB200.h"
 #include "./header/CompressaoHuffman.h"
 #include "./header/CompressaoLZ77.h"
+#include "./header/CompressaoLZW.h"
 #include "./header/HashTable.h"
 #include "./header/ManipulandoArquivo.h"
 #include "./header/ProductReview.h"
@@ -47,16 +48,27 @@ void getReview(int i) {
     prod.print();
 }
 
+/*
+    Retorna um array contendo n ProductReviews
+*/
 ProductReview* import(int n) {
     ProductReview* produtos = new ProductReview[n];
+    vector<int> numbers(n + 90000);
 
-    // CHAVE RANDOMICA
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> distr(0, 7000000);
+    uniform_int_distribution<> dis(1, 7000000);
+
+    generate(numbers.begin(), numbers.end(), [&] { return dis(gen); });
+    sort(numbers.begin(), numbers.end());
+
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
+
+    while (numbers.size() > n)
+        numbers.pop_back();
 
     for (int i = 0; i < n; i++)
-        produtos[i] = arq.findRegistryPosition(distr(gen));
+        produtos[i] = arq.findRegistryPosition(numbers[i]);
 
     return produtos;
 }
@@ -153,52 +165,25 @@ RegistroHash* createTable(int n) {
     return hTable.getTable();
 }
 
-void randomVetIndex(vector<int>& numbers) {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(1, 7000000);
-
-    generate(numbers.begin(), numbers.end(), [&] { return dis(gen); });
-    sort(numbers.begin(), numbers.end());
-
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
-}
-
-ProductReview* importSemRepeticao(int n, int& size) {
-    ProductReview* produtos = new ProductReview[n];
-    vector<int> numbers(n + 90000);
-    randomVetIndex(numbers);
-
-    while (numbers.size() > n)
-        numbers.pop_back();
-
-    for (int i = 0; i < n; i++)
-        produtos[i] = arq.findRegistryPosition(numbers[i]);
-
-    return produtos;
-}
-
-void arvoreB20() {
-    // IMPORTANDO UM CONJUNTO DE 1M ELEMENTOS
-    int size;
-    int M = 3;
+template <typename T>
+void testeArvore(T* arv, string algoritmo) {
     int N = 1000000;
     int B = 100;
 
-    double* timeResultsInsersion = new double[M];
-    double* timeResultsSearch = new double[M];
-    int* comparacoesResultsInsersion = new int[M];
-    int* comparacoesResultsSearch = new int[M];
+    double timeResultsInsersion[3];
+    double timeResultsSearch[3];
+    int comparacoesResultsInsersion[3];
+    int comparacoesResultsSearch[3];
 
-    for (int j = 0; j < M; j++) {
-        ProductReview* prodsToImport = importSemRepeticao(N, size);
-        ArvoreB20 arvoreB20;
+    for (int j = 0; j < 3; j++) {
+        ProductReview* prodsToImport = import(N);
+        arv = new T();
 
         // REALIZANDO INSERCAO
         high_resolution_clock::time_point inicioInsere = high_resolution_clock::now();
 
-        for (int i = 0; i < size; i++)
-            arvoreB20.insere(&prodsToImport[i]);
+        for (int i = 0; i < N; i++)
+            arv->insere(&prodsToImport[i]);
 
         high_resolution_clock::time_point fimInsere = high_resolution_clock::now();
         double insersionTime = duration_cast<duration<double>>(fimInsere - inicioInsere).count();
@@ -208,7 +193,7 @@ void arvoreB20() {
 
         ProductReview* prodsToSearch = import(B);
         for (int i = 0; i < B; i++) {
-            ProductReview* res = arvoreB20.busca(prodsToImport[i].getUserId(), prodsToImport[i].getProductId());
+            ProductReview* res = arv->busca(prodsToImport[i].getUserId(), prodsToImport[i].getProductId());
             delete res;
         }
 
@@ -217,73 +202,23 @@ void arvoreB20() {
 
         timeResultsInsersion[j] = insersionTime;
         timeResultsSearch[j] = searchTime;
-        comparacoesResultsInsersion[j] = arvoreB20.getComparacoesInsercao();
-        comparacoesResultsSearch[j] = arvoreB20.getComparacoesBusca();
+        comparacoesResultsInsersion[j] = arv->getComparacoesInsercao();
+        comparacoesResultsSearch[j] = arv->getComparacoesBusca();
 
+        delete arv;
         delete[] prodsToImport;
         delete[] prodsToSearch;
     }
 
-    arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, "Arvore B m = 20");
-
-    delete[] timeResultsInsersion;
-    delete[] timeResultsSearch;
-    delete[] comparacoesResultsInsersion;
-    delete[] comparacoesResultsSearch;
+    arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, algoritmo);
 }
 
-void arvoreB200() {
-    // IMPORTANDO UM CONJUNTO DE 1M ELEMENTOS
-    int size;
-    int M = 3;
-    int N = 1000000;
-    int B = 100;
+void testeArvoreB() {
+    ArvoreB* arv_20;
+    ArvoreB200* arv_200;
 
-    double* timeResultsInsersion = new double[M];
-    double* timeResultsSearch = new double[M];
-    int* comparacoesResultsInsersion = new int[M];
-    int* comparacoesResultsSearch = new int[M];
-
-    for (int j = 0; j < M; j++) {
-        ProductReview* prodsToImport = importSemRepeticao(N, size);
-        ArvoreB200 arvoreB200;
-
-        // REALIZANDO INSERCAO
-        high_resolution_clock::time_point inicioInsere = high_resolution_clock::now();
-
-        for (int i = 0; i < size; i++)
-            arvoreB200.insere(&prodsToImport[i]);
-
-        high_resolution_clock::time_point fimInsere = high_resolution_clock::now();
-        double insersionTime = duration_cast<duration<double>>(fimInsere - inicioInsere).count();
-
-        // REALIZANDO BUSCA
-        high_resolution_clock::time_point inicioBusca = high_resolution_clock::now();
-
-        ProductReview* prodsToSearch = import(B);
-        for (int i = 0; i < B; i++) {
-            ProductReview* res = arvoreB200.busca(prodsToImport[i].getUserId(), prodsToImport[i].getProductId());
-            delete res;
-        }
-
-        high_resolution_clock::time_point fimBUsdca = high_resolution_clock::now();
-        double searchTime = duration_cast<duration<double>>(fimBUsdca - inicioBusca).count();
-
-        timeResultsInsersion[j] = insersionTime;
-        timeResultsSearch[j] = searchTime;
-        comparacoesResultsInsersion[j] = arvoreB200.getComparacoesInsercao();
-        comparacoesResultsSearch[j] = arvoreB200.getComparacoesBusca();
-
-        delete[] prodsToImport;
-        delete[] prodsToSearch;
-    }
-
-    arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, "Arvore B m = 200");
-
-    delete[] timeResultsInsersion;
-    delete[] timeResultsSearch;
-    delete[] comparacoesResultsInsersion;
-    delete[] comparacoesResultsSearch;
+    testeArvore(arv_20, "ArvoreB m = 20");
+    testeArvore(arv_200, "ArvoreB m = 200");
 }
 
 void etapaEstruturasBalanceadas() {
@@ -292,10 +227,10 @@ void etapaEstruturasBalanceadas() {
     // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
 
     // ARVORE B
-    arvoreB20();
-    arvoreB200();
+    testeArvoreB();
 }
 
+// VARIÁVEIS GLOBAIS - COLOCAR ONDE?
 unordered_map<char, string> huffmanCode;
 priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare> filaPrioridade;
 
@@ -309,8 +244,14 @@ string comprime(string str, int metodo) {
         return CompressaoLZ77::comprime(str);
     } else if (metodo == 2) {
         // LZW
-        // retorna a string comprimida
+        vector<int> codes = CompressaoLZW::comprime(str);
+        string comprimida;
+        for (int i = 0; i < codes.size(); i++)
+            comprimida.append(to_string(codes.at(i)) + " ");
+
+        return comprimida;
     }
+    return "";
 }
 
 string descomprime(string str, int metodo) {
@@ -319,11 +260,12 @@ string descomprime(string str, int metodo) {
         return CompressaoHuffman::descomprimir(str, filaPrioridade.top());
     } else if (metodo == 1) {
         // LZ77
-        // retorna a string descomprimida
+        return CompressaoLZ77::descomprime(str);
     } else if (metodo == 2) {
         // LZW
-        // retorna a string descomprimida
+        return CompressaoLZW::descomprime(str);
     }
+    return "";
 }
 
 void comprime(int metodo) {
@@ -333,6 +275,22 @@ void comprime(int metodo) {
         em um arquivo binário reviewsComp.bin. Ambos os arquivos deverão estar localizados no caminho fornecido
         pelo usuário via linha de comando (vide Seção 5).
     */
+
+    string original = arq.getReviews();
+
+    if (metodo == 0) {
+        //  Huffman
+        // string comprimida = CompressaoHUF::comprime(original);
+    } else if (metodo == 1) {
+        // LZ77
+        string comprimida = CompressaoLZ77::comprime(original);
+        arq.writeBin("reviewsComp.bin", comprimida);
+    } else if (metodo == 2) {
+        // LZW
+        vector<int> comprimida = CompressaoLZW::comprime(original);
+        arq.writeBin("reviewsComp.bin", comprimida);
+        // string comprimida = CompressaoLZW::comprime(original);
+    }
 }
 
 void descomprime(int metodo) {
@@ -341,24 +299,95 @@ void descomprime(int metodo) {
         parâmetro (0 = Huffman, 1 = LZ77, 2 = LZW). A função deve salvar o resultado da descompressão em um arquivo texto
         reviewsDesc.txt. Ambos os arquivos deverão estar localizados no caminho fornecido pelo usuário via linha de comando (vide Seção 5).
     */
+
+    if (metodo == 0) {
+        //  Huffman
+        // string comprimida = CompressaoHUF::comprime(original);
+    } else if (metodo == 1) {
+        // LZ77
+        string comprimida = arq.readBin("reviewsComp.bin", 1);
+        string descomprimida = CompressaoLZ77::descomprime(comprimida);
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
+    } else if (metodo == 2) {
+        // LZW
+        string comprimida = arq.readBin("reviewsComp.bin", 2);
+        string descomprimida = CompressaoLZW::descomprime(comprimida);
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
+    }
+}
+
+void compressTest(int method) {
+    switch (method) {
+        case 0:
+            cout << "=== Teste Huffman ===" << endl
+                 << endl;
+            break;
+        case 1:
+            cout << "=== Teste LZ77 ===" << endl
+                 << endl;
+            break;
+        case 2:
+            cout << "=== Teste LZW ===" << endl
+                 << endl;
+            break;
+        default:
+            cout << "Metodo de compressao nao suportado" << endl
+                 << endl;
+            break;
+    }
+
+    cout << "Testando strings..." << endl;
+
+    string str = "string qualquer";
+    string comp = comprime(str, method);
+    string orig = descomprime(comp, method);
+
+    cout << "String comprimida: " << comp << endl;
+    cout << "String descomprimida: " << orig << endl
+         << endl;
+
+    cout << "Testando arquivos..." << endl;
+
+    comprime(method);     // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
+    descomprime(method);  // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
 }
 
 void etapaCompressao() {
-    const int n = 3;  // qtd de registros importados
-    string str = "";
-    ProductReview* lista = import(n);
+    const int qtdImports = 3;
 
-    for (int i = 0; i < n; i++) {
-        str += lista[i].toString() + '\n';
+    int option;
+    cout << "Escolha qual compressão: " << endl
+         << "0. Huffman" << endl
+         << "1. LZ77" << endl
+         << "2. LZW" << endl
+         << "> " << flush;
+    cin >> option;
+
+    int tamOrig[3];
+    int tamCompress[3];
+
+    for (int i = 0; i < 3; i++) {
+        string str;
+        ProductReview* pr = import(qtdImports);
+        for (int i = 0; i < qtdImports; i++) {
+            str.append(pr[i].toString());
+        }
+
+        string compress = comprime(str, option);
+
+        tamOrig[i] = str.length();
+        compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
+        tamCompress[i] = compress.length();
     }
 
-    // NAO ESTA PRONTO
+    arq.gerarResultadoCmprs(option, tamOrig, tamCompress);
 }
 
 void interface() {
     int option;
     do {
-        cout << "Escolha qual etapa sera executada: " << endl
+        cout << endl
+             << "Escolha qual etapa sera executada: " << endl
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
              << "3. Estruturas Balanceadas" << endl
@@ -373,8 +402,9 @@ void interface() {
             etapaHash();
         else if (option == 3)
             etapaEstruturasBalanceadas();
-        else if (option == 4)
+        else if (option == 4) {
             etapaCompressao();
+        }
 
     } while (option != 0);
 }

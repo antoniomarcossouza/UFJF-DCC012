@@ -1,5 +1,5 @@
-#ifndef ARVOREB20_H
-#define ARVOREB20_H
+#ifndef ARVOREB_H
+#define ARVOREB_H
 
 #include "ProductReview.h"
 #include <string>
@@ -14,16 +14,16 @@ struct Infos {
 };
 
 struct ArvoreBNo {
-    Infos chaves[2*M-1]; // Vetor de chaves userId + productId
+    Infos chaves[M-1]; // Vetor de chaves userId + productId
     int n; // Numero de chaves no vetor
-    ArvoreBNo* filhos[2*M]; // filhos
+    ArvoreBNo* filhos[M]; // filhos
     bool folha; // no folha
 };
 
-class ArvoreB20 {
+class ArvoreB {
     public:
-        ArvoreB20();
-        ~ArvoreB20();
+        ArvoreB();
+        ~ArvoreB();
 
         ProductReview* busca(string userId, string productId);
         void print() {printEncaps(raiz);}

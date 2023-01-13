@@ -38,27 +38,24 @@ void ArvoreB200::cisaoFilho(ArvoreB200No* no, int i)
 {
     ArvoreB200No* no1 = no->filhos[i];
     ArvoreB200No* no2 = criaNo(no1->folha);
+    int idxMeio = (M200 - 1) / 2;
 
     // Sobe a chave central para o pai
-    no->chaves[i] = no1->chaves[M200 - 1];
+    no->chaves[i] = no1->chaves[idxMeio];
+
+    // Atualiza numero de chaves no1 e no2
+    no1->n = idxMeio;
+    no2->n = idxMeio;
 
     // Copiar as chaves e filhos para a segunda metade de no1 para no2
-    no2->n = M200 - 1;
-    for (int j = 0; j < M200 - 1; j++)
-    {
-        no2->chaves[j] = no1->chaves[M200 + j];
-    }
+    for (int j = 0; j < idxMeio - 1; j++)
+        no2->chaves[j] = no1->chaves[M200/2 + j];
 
     if (!no1->folha)
-    {
-        for (int j = 0; j < M200; j++)
-        no2->filhos[j] = no1->filhos[M200 + j];
-    }
+        for (int j = 0; j < M200/2; j++)
+            no2->filhos[j] = no1->filhos[M200/2 + j];
 
-    // Reseta numero de chaves no no1
-    no1->n = M200 - 1;
-
-    // Transfere as cahves e filos restantes no No pra liberar espaço pros novos filhos
+    // Transfere as chaves e filhos restantes no No pra liberar espaço pros novos filhos
     for (int j = no->n; j > i; j--)
         no->filhos[j + 1] = no->filhos[j];
     no->filhos[i + 1] = no2;
@@ -94,7 +91,7 @@ void ArvoreB200::insersaoComEspaco(ArvoreB200No* no, Infos200 chave)
         i++;
 
         // Se o filho esta cheio, faz a cisao
-        if (no->filhos[i]->n == 2*M200 - 1)
+        if (no->filhos[i]->n == M200 - 1)
         {
             cisaoFilho(no, i);
             if (chave.id > no->chaves[i].id) {
@@ -119,7 +116,7 @@ void ArvoreB200::insersaoEncaps(ArvoreB200No*& raiz, Infos200 chave) {
     else 
     {
         // Se a raiz ja esta cheia, faz o cisao e cria uma nova raiz
-        if (raiz->n == 2*M200 - 1)
+        if (raiz->n == M200 - 1)
         {
             ArvoreB200No* novoNo = criaNo(false);
             novoNo->filhos[0] = raiz;

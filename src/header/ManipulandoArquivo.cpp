@@ -324,14 +324,6 @@ void ManipulandoArquivo::preProcessamento(string path) {
 
 void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch, int* compInsert, int* compSearch, string algoritmo)
 {
-    ofstream outFileResults(this->path + "/saida.txt", ios::app);
-    if (!outFileResults) {
-        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
-        exit(1);
-    }
-
-    outFileResults.seekp(0, ios::end);
-
     double mediaTotalTime = 0;
     int mediaTotalComp = 0;
 
@@ -340,22 +332,176 @@ void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch
         mediaTotalComp += compInsert[i] + compSearch[i];
     }
 
+    ofstream outFileResults(this->path + "/saida.txt", ios::app);
+    if (!outFileResults) {
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
+        exit(1);
+    }
+
+    outFileResults.seekp(0, ios::end);
+
     outFileResults << "Algoritmo: " << algoritmo << endl;
     outFileResults << "1 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[0] + compInsert[0] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[0] + compSearch[0] << endl;
     outFileResults << "\tTempo: " << timeSearch[0] + timeInsert[0] << endl << endl;
 
     outFileResults << "2 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[1] + compInsert[1] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[1] + compSearch[1] << endl;
     outFileResults << "\tTempo: " << timeSearch[1] + timeInsert[1] << endl << endl;
 
     outFileResults << "3 execucao" << endl;
-    outFileResults << "\tComparaçoes: " << compInsert[2] + compInsert[2] << endl;
+    outFileResults << "\tComparaçoes: " << compInsert[2] + compSearch[2] << endl;
     outFileResults << "\tTempo: " << timeSearch[2] + timeInsert[2] << endl << endl;
     
     outFileResults << "Media final das execucoes" << endl;
-    outFileResults << "\tComparaçoes: " << mediaTotalComp << endl;
-    outFileResults << "\tTempo: " << mediaTotalTime << endl << endl;
-
+    outFileResults << "\tComparaçoes: " << mediaTotalComp/3 << endl;
+    outFileResults << "\tTempo: " << mediaTotalTime/3 << endl << endl;
     outFileResults.close();
+}
+
+/*
+    retorna o texto contido em PATH/reviewsOrig.txt
+*/
+string ManipulandoArquivo::getReviews() {
+    string reviewsOrigPath = path + "reviewsOrig.txt";
+    string reviews;
+    ifstream inFile(reviewsOrigPath, ios::ate);
+    if (!inFile) {
+        cout << "ERRO ao abrir " << reviewsOrigPath << endl;
+        exit(1);
+    }
+
+    reviews.resize(inFile.tellg());
+    inFile.seekg(0, inFile.beg);
+    inFile.read(reviews.data(), reviews.size());
+
+    return reviews;
+}
+
+
+/*
+    le arquivo binario nomeArq que contem
+    options:
+    1 -> string
+    2 -> inteiros
+*/
+string ManipulandoArquivo::readBin(string nomeArq, int option) {
+    ifstream inFile(path + nomeArq, ios::in | ios::binary);
+    string saida;
+
+    if (!inFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    if (option == 1) {// char
+        while (!inFile.eof())
+        {
+            char c;
+            inFile.read(&c, sizeof(char));
+            saida += c;
+        }
+        
+    }
+    else if (option == 2) {
+        vector<int> v;
+        while (!inFile.eof())
+        {
+            int n;
+            inFile.read((char*)&n, sizeof(int));
+            saida += to_string(n) + " ";
+        }
+        
+    }
+
+    return saida;
+}
+
+/*
+    Escreve uma string no arquivo binario de nome nomeArq
+*/
+void ManipulandoArquivo::writeBin(string nomeArq, string str) {
+    ofstream outFile(path + nomeArq, ios::out | ios::binary);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    //outFile.write(str.c_str(), str.length());
+    for (int i = 0; i < str.length(); i++)
+    {
+        outFile.write(reinterpret_cast<char *> (&str.at(i)),sizeof(char));
+    }
+}
+
+/*
+    Escreve um vetor de inteiros no arquivo binario de nome nomeArq
+*/
+void ManipulandoArquivo::writeBin(string nomeArq, vector<int> code) {
+    ofstream outFile(path + nomeArq, ios::out | ios::binary);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    for (int i = 0; i < code.size(); i++)
+    {
+        outFile.write((char *)&code[i], sizeof(int));
+    }
+    
+}
+
+void ManipulandoArquivo::writeTxt(string nomeArq, string str) {
+    ofstream outFile(path + nomeArq, ios::out);
+
+    if (!outFile) {
+        cout << "nao foi possivel abrir " << nomeArq << endl;
+        exit(1);
+    }
+
+    outFile << str;
+}
+
+void ManipulandoArquivo::gerarResultadoCmprs(int metodo, int tamOrig[], int tamCompress[]) {
+    double mediaFinal;
+    double taxaCompress;
+    string strMetodo;
+
+    switch (metodo)
+    {
+    case 0:
+        strMetodo = "Huffman";
+        break;
+    case 1:
+        strMetodo = "LZ77";
+        break;
+    case 2:
+        strMetodo = "LZW";
+        break;
+    
+    default:
+        break;
+    }
+
+    
+    ofstream outfile(this->path + "/saida.txt", ios::app);
+    if (!outfile) {
+        cout << "ERRO ao abrir " << this->path << "/saida.txt" << endl;
+        exit(1);
+    }
+
+    outfile << "-= ANALISE DA COMPRESSÃO " << strMetodo << " =- "<< endl << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        taxaCompress = ((double)tamOrig[i] - (double)tamCompress[i]) / (double)tamOrig[i];
+        outfile << i+1 << "ª execucao" << endl;
+        outfile << "\tstring original: " << tamOrig[i] << endl;
+        outfile << "\tstring comprimida: " << tamCompress[i] << endl;
+        outfile << "\ttaxa de compressao: " << (double)taxaCompress << "%" << endl << endl;
+    }
+    outfile << "- - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl << endl;
+    
+    
 }
