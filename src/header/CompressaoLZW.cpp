@@ -56,12 +56,10 @@ string CompressaoLZW::descomprime(vector<int> codes) {
             string newCombination = dicionario[prevCode];
             newCombination += dicionario[prevCode].back();
             dicionario.push_back(newCombination);
-            //cout << dicionario.size()-1 << " -> " << dicionario.back() << endl;
             saida += dicionario[codes[i]];
         } else {
             saida += dicionario[codes[i]];
             dicionario.push_back(dicionario[prevCode] + dicionario[codes[i]].at(0));
-            //cout << dicionario.size()-1 << " -> " << dicionario.back() << endl;
         }
 
         prevCode = codes[i];

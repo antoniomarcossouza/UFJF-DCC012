@@ -62,7 +62,6 @@ string CompressaoLZ77::comprime(string str) {
 }
 
 string CompressaoLZ77::descomprime(string str) {
-    cout << "descomprimindo" << endl;
     string descomprimida = "";
 
     descomprimida += str.at(2);

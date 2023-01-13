@@ -236,6 +236,7 @@ string comprime(string str, int metodo) {
     }
     else if (metodo == 1) {
         // LZ77
+        return CompressaoLZ77::comprime(str);
     }
     else if (metodo == 2) {
         // LZW
@@ -256,7 +257,7 @@ string descomprime(string str, int metodo) {
     }
     else if (metodo == 1) {
         // LZ77
-        // retorna a string descomprimida
+        return CompressaoLZ77::descomprime(str);
     }
     else if (metodo == 2) {
         // LZW
@@ -281,7 +282,8 @@ void comprime(int metodo) {
     }
     else if (metodo == 1) {
         // LZ77
-        //string comprimida = CompressaoLZ77::comprime(original);
+        string comprimida = CompressaoLZ77::comprime(original);
+        arq.writeBin("reviewsComp.bin", comprimida);
     }
     else if (metodo == 2) {
         // LZW
@@ -300,18 +302,15 @@ void descomprime(int metodo) {
         reviewsDesc.txt. Ambos os arquivos deverão estar localizados no caminho fornecido pelo usuário via linha de comando (vide Seção 5).
     */
 
-    cout << "Descomprimindo" << endl;
-
-    string descomprimida;
-
     if (metodo == 0) {
         //  Huffman
         // string comprimida = CompressaoHUF::comprime(original);
     }
     else if (metodo == 1) {
         // LZ77
-        //cout << "comprimida: " << comprimida << endl << endl;
-        //cout << "descomprimida: " << CompressaoLZ77::descomprime(comprimida) << endl;
+        string comprimida = arq.readBin("reviewsComp.bin", 1);
+        string descomprimida = CompressaoLZ77::descomprime(comprimida);
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
     } 
     else if (metodo == 2) {
         // LZW
@@ -366,10 +365,9 @@ void etapaCompressao() {
         ProductReview* pr = import(qtdImports);
         for (int i = 0; i < qtdImports; i++)
         {
-            str.append(pr[i].toString() + "-");
+            str.append(pr[i].toString());
         }
 
-        str = "bananabacana";
         string compress = comprime(str, option);
         
         tamOrig[i] = str.length();
@@ -384,7 +382,7 @@ void etapaCompressao() {
 void interface() {
     int option;
     do {
-        cout << "Escolha qual etapa sera executada: " << endl
+        cout << endl << "Escolha qual etapa sera executada: " << endl
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
              << "3. Estruturas Balanceadas" << endl
@@ -399,8 +397,9 @@ void interface() {
             etapaHash();
         else if (option == 3)
             etapaEstruturasBalanceadas();
-        else if (option == 4)
+        else if (option == 4) {
             etapaCompressao();
+        }
 
     } while (option != 0);
 }

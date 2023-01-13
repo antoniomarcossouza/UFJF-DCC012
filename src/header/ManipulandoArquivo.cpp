@@ -386,7 +386,7 @@ string ManipulandoArquivo::getReviews() {
     2 -> inteiros
 */
 string ManipulandoArquivo::readBin(string nomeArq, int option) {
-    ifstream inFile(path + nomeArq, ios::in | ios_base::binary);
+    ifstream inFile(path + nomeArq, ios::in | ios::binary);
     string saida;
 
     if (!inFile) {
@@ -460,8 +460,6 @@ void ManipulandoArquivo::writeTxt(string nomeArq, string str) {
         cout << "nao foi possivel abrir " << nomeArq << endl;
         exit(1);
     }
-
-    cout << "escrevendo" << endl;
 
     outFile << str;
 }
