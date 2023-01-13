@@ -14,9 +14,9 @@ struct Infos {
 };
 
 struct ArvoreBNo {
-    Infos chaves[2*M-1]; // Vetor de chaves userId + productId
+    Infos chaves[M-1]; // Vetor de chaves userId + productId
     int n; // Numero de chaves no vetor
-    ArvoreBNo* filhos[2*M]; // filhos
+    ArvoreBNo* filhos[M]; // filhos
     bool folha; // no folha
 };
 
