@@ -48,12 +48,12 @@
 ### ALGORITMOS
 - [ ] Huffman
 - [x] LZ77
-- [ ] LZW
+- [x] LZW
 ### FUNCOES
-- [ ] string comprime(string str, int metodo)
-- [ ] string descomprime(string str, int metodo)
-- [ ] void comprime(int metodo)
-- [ ] void descromprime(int metodo)
+- [x] string comprime(string str, int metodo)
+- [x] string descomprime(string str, int metodo)
+- [x] void comprime(int metodo)
+- [x] void descromprime(int metodo)
 ## ETATA 3 - Analise das estruturas balanceadas
 - [ ] importar conjuntos de N registros aleatórios sem repetição do arquivo binário gerado pelo pré-processamento;
 - [ ] realizar a inserção desses registros na estrutura. Durante a inserção, deverão ser computados o total de comparações de chaves e o tempo de execução;
