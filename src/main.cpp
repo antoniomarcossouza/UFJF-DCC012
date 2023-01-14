@@ -244,7 +244,7 @@ string comprime(string str, int metodo) {
         return CompressaoLZ77::comprime(str);
     } else if (metodo == 2) {
         // LZW
-        vector<int> codes = CompressaoLZW::comprime(str);
+        vector<short> codes = CompressaoLZW::comprime(str);
         string comprimida;
         for (int i = 0; i < codes.size(); i++)
             comprimida.append(to_string(codes.at(i)) + " ");
@@ -287,7 +287,7 @@ void comprime(int metodo) {
         arq.writeBin("reviewsComp.bin", comprimida);
     } else if (metodo == 2) {
         // LZW
-        vector<int> comprimida = CompressaoLZW::comprime(original);
+        vector<short> comprimida = CompressaoLZW::comprime(original);
         arq.writeBin("reviewsComp.bin", comprimida);
         // string comprimida = CompressaoLZW::comprime(original);
     }
@@ -353,8 +353,6 @@ void compressTest(int method) {
 }
 
 void etapaCompressao() {
-    const int qtdImports = 3;
-
     int option;
     cout << "Escolha qual compressão: " << endl
          << "0. Huffman" << endl
@@ -363,6 +361,15 @@ void etapaCompressao() {
          << "> " << flush;
     cin >> option;
 
+    string strOption;
+    switch (option) {
+        case 0: strOption = "Huffman"; break;
+        case 1: strOption = "LZ77"; break;
+        case 2: strOption = "LZW"; break;
+        default: break;
+    }
+
+    int qtdImports = 1000;
     int tamOrig[3];
     int tamCompress[3];
 
@@ -373,11 +380,21 @@ void etapaCompressao() {
             str.append(pr[i].toString());
         }
 
-        string compress = comprime(str, option);
+        if (option == 0) {
+            
+        }
+        else if (option == 1) {
+            string compress = comprime(str, option);
+            tamOrig[i] = str.length();
+            compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
+            tamCompress[i] = compress.length();
+        }
+        else if (option == 2) {
+            vector<short> compress = CompressaoLZW::comprime(str);
+            tamOrig[i] = str.length();
+            tamCompress[i] = compress.size() * sizeof(short);
+        }
 
-        tamOrig[i] = str.length();
-        compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
-        tamCompress[i] = compress.length();
     }
 
     arq.gerarResultadoCmprs(option, tamOrig, tamCompress);

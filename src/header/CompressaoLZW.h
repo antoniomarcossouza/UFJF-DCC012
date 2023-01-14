@@ -9,8 +9,8 @@ using namespace std;
 class CompressaoLZW
 {   
     public:
-        static vector<int> comprime(string str); 
-        static string descomprime(vector<int>); 
+        static vector<short> comprime(string str); 
+        static string descomprime(vector<short>); 
         static string descomprime(string str); 
 };
 

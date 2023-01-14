@@ -438,7 +438,7 @@ void ManipulandoArquivo::writeBin(string nomeArq, string str) {
 /*
     Escreve um vetor de inteiros no arquivo binario de nome nomeArq
 */
-void ManipulandoArquivo::writeBin(string nomeArq, vector<int> code) {
+void ManipulandoArquivo::writeBin(string nomeArq, vector<short> code) {
     ofstream outFile(path + nomeArq, ios::out | ios::binary);
 
     if (!outFile) {
@@ -465,26 +465,9 @@ void ManipulandoArquivo::writeTxt(string nomeArq, string str) {
 }
 
 void ManipulandoArquivo::gerarResultadoCmprs(int metodo, int tamOrig[], int tamCompress[]) {
-    double mediaFinal;
+    double mediaFinal = 0;
     double taxaCompress;
     string strMetodo;
-
-    switch (metodo)
-    {
-    case 0:
-        strMetodo = "Huffman";
-        break;
-    case 1:
-        strMetodo = "LZ77";
-        break;
-    case 2:
-        strMetodo = "LZW";
-        break;
-    
-    default:
-        break;
-    }
-
     
     ofstream outfile(this->path + "/saida.txt", ios::app);
     if (!outfile) {
@@ -495,12 +478,15 @@ void ManipulandoArquivo::gerarResultadoCmprs(int metodo, int tamOrig[], int tamC
     outfile << "-= ANALISE DA COMPRESSÃO " << strMetodo << " =- "<< endl << endl;
     for (int i = 0; i < 3; i++)
     {
-        taxaCompress = ((double)tamOrig[i] - (double)tamCompress[i]) / (double)tamOrig[i];
+        taxaCompress = (((double)tamOrig[i] - (double)tamCompress[i]) / (double)tamOrig[i]) * 100;
+        mediaFinal += taxaCompress;
         outfile << i+1 << "ª execucao" << endl;
-        outfile << "\tstring original: " << tamOrig[i] << endl;
-        outfile << "\tstring comprimida: " << tamCompress[i] << endl;
+        outfile << "\tstring original: " << tamOrig[i] << " bytes" << endl;
+        outfile << "\tstring comprimida: " << tamCompress[i] << " bytes" << endl;
         outfile << "\ttaxa de compressao: " << (double)taxaCompress << "%" << endl << endl;
     }
+    outfile << "Media Final: " << mediaFinal / 3 << "%" << endl << endl;
+
     outfile << "- - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl << endl;
     
     

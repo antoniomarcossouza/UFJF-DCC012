@@ -26,7 +26,7 @@ class ManipulandoArquivo {
     // etapa de compressao
     string getReviews();
     void writeBin(string nomeArq, string str);
-    void writeBin(string nomeArq, vector<int> code);
+    void writeBin(string nomeArq, vector<short> code);
     string readBin(string nomeArq, int option);
     void writeTxt(string nomeAqr, string str);
     void gerarResultadoCmprs(int metodo, int charOrig[], int charCompress[]);

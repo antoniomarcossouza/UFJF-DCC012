@@ -6,7 +6,7 @@
 using namespace std;
 
 
-vector<int> CompressaoLZW::comprime(string str) {
+vector<short> CompressaoLZW::comprime(string str) {
     unordered_map<string, int> dicionario;
 
     // iniciar dicionario com a tabela hash
@@ -19,7 +19,7 @@ vector<int> CompressaoLZW::comprime(string str) {
 
     string padrao = str.substr(0, 1); // primeiro simbolo da entrada
     int code = 128;
-    vector<int> saida;
+    vector<short> saida;
     for (int i = 0; i < str.length()-1; i++) 
     {
         char c = str.at(i+1);
@@ -38,7 +38,7 @@ vector<int> CompressaoLZW::comprime(string str) {
     return saida;
 }
 
-string CompressaoLZW::descomprime(vector<int> codes) {
+string CompressaoLZW::descomprime(vector<short> codes) {
     string saida;
     vector<string> dicionario;
     for (int i = 0; i < 128; i++)
@@ -69,7 +69,7 @@ string CompressaoLZW::descomprime(vector<int> codes) {
 }
 
 string CompressaoLZW::descomprime(string str) {
-    vector<int> code;
+    vector<short> code;
 
     string currentCode;
     for (int i = 0; i < str.length(); i++)
