@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-#define TDIC 6
-#define TBUF 4
+#define TDIC 255
+#define TBUF 255
 
 string CompressaoLZ77::comprime(string str) {
     string strCompactada = "";
@@ -17,14 +17,12 @@ string CompressaoLZ77::comprime(string str) {
     while (midPoint < str.length())
     {   
         dicPtr = midPoint - TDIC;
-        bool encontrou = false;
-        int volta = 0;
-        int qtd = 0;
+        unsigned char volta = 0;
+        unsigned char qtd = 0;
         if (dicPtr < 0) dicPtr = 0;
         for (int p = dicPtr; p < midPoint; p++)
         {
             if (str.at(midPoint) == str.at(p)) {
-                encontrou = true;
                 volta = midPoint - p;
                 qtd++;
                 for (int j = 1; j < TBUF; j++)
@@ -46,8 +44,8 @@ string CompressaoLZ77::comprime(string str) {
 
         }
 
-        strCompactada += to_string(volta);
-        strCompactada += to_string(qtd);
+        strCompactada += volta;
+        strCompactada += qtd;
         try {
             strCompactada += str.at(midPoint+qtd);
         }
@@ -68,8 +66,8 @@ string CompressaoLZ77::descomprime(string str) {
     int ptr = 1;
     for (int i = 3; i < str.length()-1; i+=3)
     {
-        int volta = int(str.at(i) - '0');
-        int qtd = int(str.at(i+1) - '0');
+        unsigned char volta = str.at(i);
+        unsigned char qtd = str.at(i+1);
         char next = str.at(i+2);
 
         for (int j = 0; j < qtd; j++)
