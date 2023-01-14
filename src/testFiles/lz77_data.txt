@@ -1,2000 +1,2000 @@
  10 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 454 bytes
-		string comprimida: 594 bytes
-		taxa de compressao: -30.837%
+		string original: 458 bytes
+		string comprimida: 399 bytes
+		taxa de compressao: 12.8821%
 
 	2ª execucao
-		string original: 459 bytes
-		string comprimida: 663 bytes
-		taxa de compressao: -44.4444%
+		string original: 458 bytes
+		string comprimida: 399 bytes
+		taxa de compressao: 12.8821%
 
 	3ª execucao
-		string original: 456 bytes
-		string comprimida: 648 bytes
-		taxa de compressao: -42.1053%
+		string original: 459 bytes
+		string comprimida: 411 bytes
+		taxa de compressao: 10.4575%
 
-	Media final de compressão: -39.1289%
-	Media de caracteres: 456
+	Media final de compressão: 12.0739%
+	Media de caracteres: 458
 
  20 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 917 bytes
-		string comprimida: 1083 bytes
-		taxa de compressao: -18.1025%
+		string original: 916 bytes
+		string comprimida: 726 bytes
+		taxa de compressao: 20.7424%
 
 	2ª execucao
-		string original: 918 bytes
-		string comprimida: 936 bytes
-		taxa de compressao: -1.96078%
+		string original: 914 bytes
+		string comprimida: 747 bytes
+		taxa de compressao: 18.2713%
 
 	3ª execucao
-		string original: 916 bytes
-		string comprimida: 1167 bytes
-		taxa de compressao: -27.4017%
+		string original: 918 bytes
+		string comprimida: 744 bytes
+		taxa de compressao: 18.9542%
 
-	Media final de compressão: -15.8217%
-	Media de caracteres: 917
+	Media final de compressão: 19.3226%
+	Media de caracteres: 916
 
  30 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
 		string original: 1373 bytes
-		string comprimida: 1563 bytes
-		taxa de compressao: -13.8383%
+		string comprimida: 1029 bytes
+		taxa de compressao: 25.0546%
 
 	2ª execucao
-		string original: 1372 bytes
-		string comprimida: 1671 bytes
-		taxa de compressao: -21.793%
+		string original: 1373 bytes
+		string comprimida: 1101 bytes
+		taxa de compressao: 19.8106%
 
 	3ª execucao
-		string original: 1373 bytes
-		string comprimida: 1716 bytes
-		taxa de compressao: -24.9818%
+		string original: 1372 bytes
+		string comprimida: 1047 bytes
+		taxa de compressao: 23.688%
 
-	Media final de compressão: -20.2044%
+	Media final de compressão: 22.8511%
 	Media de caracteres: 1372
 
  40 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 1825 bytes
-		string comprimida: 2103 bytes
-		taxa de compressao: -15.2329%
+		string original: 1823 bytes
+		string comprimida: 1386 bytes
+		taxa de compressao: 23.9715%
 
 	2ª execucao
-		string original: 1830 bytes
-		string comprimida: 2184 bytes
-		taxa de compressao: -19.3443%
+		string original: 1823 bytes
+		string comprimida: 1353 bytes
+		taxa de compressao: 25.7817%
 
 	3ª execucao
-		string original: 1829 bytes
-		string comprimida: 2307 bytes
-		taxa de compressao: -26.1345%
+		string original: 1831 bytes
+		string comprimida: 1377 bytes
+		taxa de compressao: 24.7952%
 
-	Media final de compressão: -20.2372%
-	Media de caracteres: 1828
+	Media final de compressão: 24.8494%
+	Media de caracteres: 1825
 
  50 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 2282 bytes
-		string comprimida: 2733 bytes
-		taxa de compressao: -19.7634%
+		string original: 2278 bytes
+		string comprimida: 1716 bytes
+		taxa de compressao: 24.6708%
 
 	2ª execucao
-		string original: 2290 bytes
-		string comprimida: 2712 bytes
-		taxa de compressao: -18.4279%
+		string original: 2289 bytes
+		string comprimida: 1788 bytes
+		taxa de compressao: 21.8873%
 
 	3ª execucao
-		string original: 2285 bytes
-		string comprimida: 2787 bytes
-		taxa de compressao: -21.9694%
+		string original: 2290 bytes
+		string comprimida: 1728 bytes
+		taxa de compressao: 24.5415%
 
-	Media final de compressão: -20.0536%
+	Media final de compressão: 23.6998%
 	Media de caracteres: 2285
 
  60 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 2748 bytes
-		string comprimida: 3255 bytes
-		taxa de compressao: -18.4498%
+		string original: 2743 bytes
+		string comprimida: 2112 bytes
+		taxa de compressao: 23.004%
 
 	2ª execucao
-		string original: 2743 bytes
-		string comprimida: 3363 bytes
-		taxa de compressao: -22.603%
+		string original: 2746 bytes
+		string comprimida: 2175 bytes
+		taxa de compressao: 20.7939%
 
 	3ª execucao
-		string original: 2749 bytes
-		string comprimida: 3303 bytes
-		taxa de compressao: -20.1528%
+		string original: 2744 bytes
+		string comprimida: 2238 bytes
+		taxa de compressao: 18.4402%
 
-	Media final de compressão: -20.4019%
-	Media de caracteres: 2746
+	Media final de compressão: 20.746%
+	Media de caracteres: 2744
 
  70 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 3203 bytes
-		string comprimida: 3828 bytes
-		taxa de compressao: -19.513%
+		string original: 3205 bytes
+		string comprimida: 2538 bytes
+		taxa de compressao: 20.8112%
 
 	2ª execucao
-		string original: 3204 bytes
-		string comprimida: 3840 bytes
-		taxa de compressao: -19.8502%
+		string original: 3200 bytes
+		string comprimida: 2553 bytes
+		taxa de compressao: 20.2188%
 
 	3ª execucao
-		string original: 3205 bytes
-		string comprimida: 3897 bytes
-		taxa de compressao: -21.5913%
+		string original: 3208 bytes
+		string comprimida: 2502 bytes
+		taxa de compressao: 22.0075%
 
-	Media final de compressão: -20.3181%
+	Media final de compressão: 21.0125%
 	Media de caracteres: 3204
 
  80 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 3661 bytes
-		string comprimida: 4398 bytes
-		taxa de compressao: -20.1311%
+		string original: 3663 bytes
+		string comprimida: 2841 bytes
+		taxa de compressao: 22.4406%
 
 	2ª execucao
-		string original: 3653 bytes
-		string comprimida: 4545 bytes
-		taxa de compressao: -24.4183%
+		string original: 3657 bytes
+		string comprimida: 2883 bytes
+		taxa de compressao: 21.1649%
 
 	3ª execucao
-		string original: 3654 bytes
-		string comprimida: 4659 bytes
-		taxa de compressao: -27.5041%
+		string original: 3657 bytes
+		string comprimida: 2949 bytes
+		taxa de compressao: 19.3601%
 
-	Media final de compressão: -24.0178%
-	Media de caracteres: 3656
+	Media final de compressão: 20.9885%
+	Media de caracteres: 3659
 
  90 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 4116 bytes
-		string comprimida: 5085 bytes
-		taxa de compressao: -23.5423%
+		string original: 4117 bytes
+		string comprimida: 3357 bytes
+		taxa de compressao: 18.46%
 
 	2ª execucao
-		string original: 4111 bytes
-		string comprimida: 5037 bytes
-		taxa de compressao: -22.5249%
+		string original: 4120 bytes
+		string comprimida: 3342 bytes
+		taxa de compressao: 18.8835%
 
 	3ª execucao
-		string original: 4117 bytes
-		string comprimida: 4992 bytes
-		taxa de compressao: -21.2533%
+		string original: 4112 bytes
+		string comprimida: 3225 bytes
+		taxa de compressao: 21.571%
 
-	Media final de compressão: -22.4402%
-	Media de caracteres: 4114
+	Media final de compressão: 19.6382%
+	Media de caracteres: 4116
 
  100 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 4577 bytes
-		string comprimida: 5547 bytes
-		taxa de compressao: -21.1929%
+		string original: 4575 bytes
+		string comprimida: 3651 bytes
+		taxa de compressao: 20.1967%
 
 	2ª execucao
-		string original: 4571 bytes
-		string comprimida: 5568 bytes
-		taxa de compressao: -21.8114%
+		string original: 4578 bytes
+		string comprimida: 3612 bytes
+		taxa de compressao: 21.1009%
 
 	3ª execucao
-		string original: 4564 bytes
-		string comprimida: 5493 bytes
-		taxa de compressao: -20.355%
+		string original: 4568 bytes
+		string comprimida: 3594 bytes
+		taxa de compressao: 21.3222%
 
-	Media final de compressão: -21.1198%
-	Media de caracteres: 4570
+	Media final de compressão: 20.8733%
+	Media de caracteres: 4573
 
  110 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 5029 bytes
-		string comprimida: 6114 bytes
-		taxa de compressao: -21.5749%
+		string original: 5027 bytes
+		string comprimida: 3933 bytes
+		taxa de compressao: 21.7625%
 
 	2ª execucao
-		string original: 5022 bytes
-		string comprimida: 6120 bytes
-		taxa de compressao: -21.8638%
+		string original: 5029 bytes
+		string comprimida: 3924 bytes
+		taxa de compressao: 21.9726%
 
 	3ª execucao
 		string original: 5030 bytes
-		string comprimida: 6114 bytes
-		taxa de compressao: -21.5507%
+		string comprimida: 4020 bytes
+		taxa de compressao: 20.0795%
 
-	Media final de compressão: -21.6631%
-	Media de caracteres: 5027
+	Media final de compressão: 21.2715%
+	Media de caracteres: 5028
 
  120 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 5492 bytes
-		string comprimida: 6588 bytes
-		taxa de compressao: -19.9563%
+		string original: 5491 bytes
+		string comprimida: 4347 bytes
+		taxa de compressao: 20.8341%
 
 	2ª execucao
 		string original: 5483 bytes
-		string comprimida: 6720 bytes
-		taxa de compressao: -22.5606%
+		string comprimida: 4335 bytes
+		taxa de compressao: 20.9374%
 
 	3ª execucao
-		string original: 5494 bytes
-		string comprimida: 6777 bytes
-		taxa de compressao: -23.3527%
+		string original: 5493 bytes
+		string comprimida: 4374 bytes
+		taxa de compressao: 20.3714%
 
-	Media final de compressão: -21.9566%
+	Media final de compressão: 20.7143%
 	Media de caracteres: 5489
 
  130 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 5944 bytes
-		string comprimida: 7254 bytes
-		taxa de compressao: -22.039%
+		string original: 5943 bytes
+		string comprimida: 4692 bytes
+		taxa de compressao: 21.05%
 
 	2ª execucao
-		string original: 5935 bytes
-		string comprimida: 7050 bytes
-		taxa de compressao: -18.7869%
+		string original: 5943 bytes
+		string comprimida: 4626 bytes
+		taxa de compressao: 22.1605%
 
 	3ª execucao
-		string original: 5943 bytes
-		string comprimida: 7236 bytes
-		taxa de compressao: -21.7567%
+		string original: 5940 bytes
+		string comprimida: 4665 bytes
+		taxa de compressao: 21.4646%
 
-	Media final de compressão: -20.8609%
-	Media de caracteres: 5940
+	Media final de compressão: 21.5584%
+	Media de caracteres: 5942
 
  140 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 6395 bytes
-		string comprimida: 7731 bytes
-		taxa de compressao: -20.8913%
+		string original: 6398 bytes
+		string comprimida: 5007 bytes
+		taxa de compressao: 21.7412%
 
 	2ª execucao
-		string original: 6405 bytes
-		string comprimida: 7773 bytes
-		taxa de compressao: -21.3583%
+		string original: 6399 bytes
+		string comprimida: 5067 bytes
+		taxa de compressao: 20.8158%
 
 	3ª execucao
-		string original: 6392 bytes
-		string comprimida: 7749 bytes
-		taxa de compressao: -21.2297%
+		string original: 6400 bytes
+		string comprimida: 5094 bytes
+		taxa de compressao: 20.4062%
 
-	Media final de compressão: -21.1598%
-	Media de caracteres: 6397
+	Media final de compressão: 20.9877%
+	Media de caracteres: 6399
 
  150 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 6862 bytes
-		string comprimida: 8088 bytes
-		taxa de compressao: -17.8665%
+		string original: 6839 bytes
+		string comprimida: 5286 bytes
+		taxa de compressao: 22.708%
 
 	2ª execucao
-		string original: 6855 bytes
-		string comprimida: 8289 bytes
-		taxa de compressao: -20.919%
+		string original: 6856 bytes
+		string comprimida: 5349 bytes
+		taxa de compressao: 21.9807%
 
 	3ª execucao
-		string original: 6856 bytes
-		string comprimida: 8178 bytes
-		taxa de compressao: -19.2824%
+		string original: 6859 bytes
+		string comprimida: 5439 bytes
+		taxa de compressao: 20.7027%
 
-	Media final de compressão: -19.356%
-	Media de caracteres: 6857
+	Media final de compressão: 21.7972%
+	Media de caracteres: 6851
 
  160 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 7310 bytes
-		string comprimida: 8862 bytes
-		taxa de compressao: -21.2312%
+		string original: 7311 bytes
+		string comprimida: 5640 bytes
+		taxa de compressao: 22.856%
 
 	2ª execucao
-		string original: 7293 bytes
-		string comprimida: 8844 bytes
-		taxa de compressao: -21.267%
+		string original: 7314 bytes
+		string comprimida: 5703 bytes
+		taxa de compressao: 22.0263%
 
 	3ª execucao
-		string original: 7301 bytes
-		string comprimida: 8748 bytes
-		taxa de compressao: -19.8192%
+		string original: 7295 bytes
+		string comprimida: 5670 bytes
+		taxa de compressao: 22.2755%
 
-	Media final de compressão: -20.7725%
-	Media de caracteres: 7301
+	Media final de compressão: 22.3859%
+	Media de caracteres: 7306
 
  170 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 7762 bytes
-		string comprimida: 9426 bytes
-		taxa de compressao: -21.4378%
+		string original: 7759 bytes
+		string comprimida: 6087 bytes
+		taxa de compressao: 21.5492%
 
 	2ª execucao
-		string original: 7769 bytes
-		string comprimida: 9198 bytes
-		taxa de compressao: -18.3936%
+		string original: 7755 bytes
+		string comprimida: 5991 bytes
+		taxa de compressao: 22.7466%
 
 	3ª execucao
-		string original: 7770 bytes
-		string comprimida: 9372 bytes
-		taxa de compressao: -20.6178%
+		string original: 7767 bytes
+		string comprimida: 6027 bytes
+		taxa de compressao: 22.4025%
 
-	Media final de compressão: -20.1497%
-	Media de caracteres: 7767
+	Media final de compressão: 22.2328%
+	Media de caracteres: 7760
 
  180 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 8207 bytes
-		string comprimida: 9864 bytes
-		taxa de compressao: -20.1901%
+		string original: 8226 bytes
+		string comprimida: 6495 bytes
+		taxa de compressao: 21.043%
 
 	2ª execucao
-		string original: 8206 bytes
-		string comprimida: 9912 bytes
-		taxa de compressao: -20.7897%
+		string original: 8217 bytes
+		string comprimida: 6375 bytes
+		taxa de compressao: 22.4169%
 
 	3ª execucao
-		string original: 8212 bytes
-		string comprimida: 9825 bytes
-		taxa de compressao: -19.642%
+		string original: 8208 bytes
+		string comprimida: 6330 bytes
+		taxa de compressao: 22.8801%
 
-	Media final de compressão: -20.2072%
-	Media de caracteres: 8208
+	Media final de compressão: 22.1134%
+	Media de caracteres: 8217
 
  190 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 8664 bytes
-		string comprimida: 10215 bytes
-		taxa de compressao: -17.9017%
+		string original: 8679 bytes
+		string comprimida: 6750 bytes
+		taxa de compressao: 22.2261%
 
 	2ª execucao
-		string original: 8675 bytes
-		string comprimida: 10506 bytes
-		taxa de compressao: -21.1066%
+		string original: 8663 bytes
+		string comprimida: 6735 bytes
+		taxa de compressao: 22.2556%
 
 	3ª execucao
-		string original: 8664 bytes
-		string comprimida: 10197 bytes
-		taxa de compressao: -17.6939%
+		string original: 8651 bytes
+		string comprimida: 6723 bytes
+		taxa de compressao: 22.2864%
 
-	Media final de compressão: -18.9007%
-	Media de caracteres: 8667
+	Media final de compressão: 22.256%
+	Media de caracteres: 8664
 
  200 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 9128 bytes
-		string comprimida: 10785 bytes
-		taxa de compressao: -18.1529%
+		string original: 9126 bytes
+		string comprimida: 7047 bytes
+		taxa de compressao: 22.7811%
 
 	2ª execucao
-		string original: 9113 bytes
-		string comprimida: 10923 bytes
-		taxa de compressao: -19.8617%
+		string original: 9116 bytes
+		string comprimida: 7113 bytes
+		taxa de compressao: 21.9724%
 
 	3ª execucao
 		string original: 9110 bytes
-		string comprimida: 11037 bytes
-		taxa de compressao: -21.1526%
+		string comprimida: 7053 bytes
+		taxa de compressao: 22.5796%
 
-	Media final de compressão: -19.7224%
+	Media final de compressão: 22.4443%
 	Media de caracteres: 9117
 
  210 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 9578 bytes
-		string comprimida: 11532 bytes
-		taxa de compressao: -20.4009%
+		string original: 9581 bytes
+		string comprimida: 7491 bytes
+		taxa de compressao: 21.814%
 
 	2ª execucao
-		string original: 9579 bytes
-		string comprimida: 11670 bytes
-		taxa de compressao: -21.829%
+		string original: 9568 bytes
+		string comprimida: 7410 bytes
+		taxa de compressao: 22.5543%
 
 	3ª execucao
-		string original: 9581 bytes
-		string comprimida: 11625 bytes
-		taxa de compressao: -21.3339%
+		string original: 9574 bytes
+		string comprimida: 7473 bytes
+		taxa de compressao: 21.9449%
 
-	Media final de compressão: -21.1879%
-	Media de caracteres: 9579
+	Media final de compressão: 22.1044%
+	Media de caracteres: 9574
 
  220 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 10024 bytes
-		string comprimida: 12129 bytes
-		taxa de compressao: -20.9996%
+		string original: 10026 bytes
+		string comprimida: 7728 bytes
+		taxa de compressao: 22.9204%
 
 	2ª execucao
-		string original: 10013 bytes
-		string comprimida: 11904 bytes
-		taxa de compressao: -18.8854%
+		string original: 10027 bytes
+		string comprimida: 7755 bytes
+		taxa de compressao: 22.6588%
 
 	3ª execucao
-		string original: 10022 bytes
-		string comprimida: 11994 bytes
-		taxa de compressao: -19.6767%
+		string original: 10023 bytes
+		string comprimida: 7770 bytes
+		taxa de compressao: 22.4783%
 
-	Media final de compressão: -19.8539%
-	Media de caracteres: 10019
+	Media final de compressão: 22.6858%
+	Media de caracteres: 10025
 
  230 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 10466 bytes
-		string comprimida: 12420 bytes
-		taxa de compressao: -18.67%
+		string original: 10476 bytes
+		string comprimida: 8082 bytes
+		taxa de compressao: 22.8522%
 
 	2ª execucao
-		string original: 10484 bytes
-		string comprimida: 12636 bytes
-		taxa de compressao: -20.5265%
+		string original: 10483 bytes
+		string comprimida: 8100 bytes
+		taxa de compressao: 22.732%
 
 	3ª execucao
-		string original: 10488 bytes
-		string comprimida: 12624 bytes
-		taxa de compressao: -20.3661%
+		string original: 10472 bytes
+		string comprimida: 8115 bytes
+		taxa de compressao: 22.5076%
 
-	Media final de compressão: -19.8542%
-	Media de caracteres: 10479
+	Media final de compressão: 22.6973%
+	Media de caracteres: 10477
 
  240 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 10926 bytes
-		string comprimida: 12732 bytes
-		taxa de compressao: -16.5294%
+		string original: 10928 bytes
+		string comprimida: 8442 bytes
+		taxa de compressao: 22.7489%
 
 	2ª execucao
 		string original: 10936 bytes
-		string comprimida: 13029 bytes
-		taxa de compressao: -19.1386%
+		string comprimida: 8472 bytes
+		taxa de compressao: 22.5311%
 
 	3ª execucao
-		string original: 10927 bytes
-		string comprimida: 12672 bytes
-		taxa de compressao: -15.9696%
+		string original: 10941 bytes
+		string comprimida: 8505 bytes
+		taxa de compressao: 22.2649%
 
-	Media final de compressão: -17.2125%
-	Media de caracteres: 10929
+	Media final de compressão: 22.515%
+	Media de caracteres: 10935
 
  250 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 11376 bytes
-		string comprimida: 13482 bytes
-		taxa de compressao: -18.5127%
+		string original: 11386 bytes
+		string comprimida: 8766 bytes
+		taxa de compressao: 23.0107%
 
 	2ª execucao
-		string original: 11391 bytes
-		string comprimida: 13530 bytes
-		taxa de compressao: -18.778%
+		string original: 11381 bytes
+		string comprimida: 8823 bytes
+		taxa de compressao: 22.4761%
 
 	3ª execucao
-		string original: 11386 bytes
-		string comprimida: 13362 bytes
-		taxa de compressao: -17.3546%
+		string original: 11391 bytes
+		string comprimida: 8721 bytes
+		taxa de compressao: 23.4396%
 
-	Media final de compressão: -18.2151%
-	Media de caracteres: 11384
+	Media final de compressão: 22.9754%
+	Media de caracteres: 11386
 
  260 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 11826 bytes
-		string comprimida: 14073 bytes
-		taxa de compressao: -19.0005%
+		string original: 11846 bytes
+		string comprimida: 9114 bytes
+		taxa de compressao: 23.0626%
 
 	2ª execucao
-		string original: 11825 bytes
-		string comprimida: 14049 bytes
-		taxa de compressao: -18.8076%
+		string original: 11841 bytes
+		string comprimida: 9276 bytes
+		taxa de compressao: 21.662%
 
 	3ª execucao
-		string original: 11840 bytes
-		string comprimida: 13995 bytes
-		taxa de compressao: -18.201%
+		string original: 11838 bytes
+		string comprimida: 9144 bytes
+		taxa de compressao: 22.7572%
 
-	Media final de compressão: -18.6697%
-	Media de caracteres: 11830
+	Media final de compressão: 22.494%
+	Media de caracteres: 11841
 
  270 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 12300 bytes
-		string comprimida: 14541 bytes
-		taxa de compressao: -18.2195%
+		string original: 12290 bytes
+		string comprimida: 9495 bytes
+		taxa de compressao: 22.7421%
 
 	2ª execucao
-		string original: 12305 bytes
-		string comprimida: 14601 bytes
-		taxa de compressao: -18.6591%
+		string original: 12296 bytes
+		string comprimida: 9552 bytes
+		taxa de compressao: 22.3162%
 
 	3ª execucao
-		string original: 12297 bytes
-		string comprimida: 14580 bytes
-		taxa de compressao: -18.5655%
+		string original: 12299 bytes
+		string comprimida: 9504 bytes
+		taxa de compressao: 22.7254%
 
-	Media final de compressão: -18.4814%
-	Media de caracteres: 12300
+	Media final de compressão: 22.5946%
+	Media de caracteres: 12295
 
  280 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 12748 bytes
-		string comprimida: 15012 bytes
-		taxa de compressao: -17.7596%
+		string original: 12740 bytes
+		string comprimida: 9822 bytes
+		taxa de compressao: 22.9042%
 
 	2ª execucao
-		string original: 12736 bytes
-		string comprimida: 14802 bytes
-		taxa de compressao: -16.2217%
+		string original: 12757 bytes
+		string comprimida: 9723 bytes
+		taxa de compressao: 23.783%
 
 	3ª execucao
-		string original: 12737 bytes
-		string comprimida: 15090 bytes
-		taxa de compressao: -18.4737%
+		string original: 12754 bytes
+		string comprimida: 9729 bytes
+		taxa de compressao: 23.718%
 
-	Media final de compressão: -17.485%
-	Media de caracteres: 12740
+	Media final de compressão: 23.4684%
+	Media de caracteres: 12750
 
  290 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
 		string original: 13221 bytes
-		string comprimida: 15498 bytes
-		taxa de compressao: -17.2226%
+		string comprimida: 10146 bytes
+		taxa de compressao: 23.2585%
 
 	2ª execucao
-		string original: 13197 bytes
-		string comprimida: 15630 bytes
-		taxa de compressao: -18.436%
+		string original: 13219 bytes
+		string comprimida: 10197 bytes
+		taxa de compressao: 22.861%
 
 	3ª execucao
-		string original: 13224 bytes
-		string comprimida: 15594 bytes
-		taxa de compressao: -17.922%
+		string original: 13198 bytes
+		string comprimida: 10143 bytes
+		taxa de compressao: 23.1474%
 
-	Media final de compressão: -17.8602%
-	Media de caracteres: 13214
+	Media final de compressão: 23.089%
+	Media de caracteres: 13212
 
  300 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 13662 bytes
-		string comprimida: 15885 bytes
-		taxa de compressao: -16.2714%
+		string original: 13673 bytes
+		string comprimida: 10347 bytes
+		taxa de compressao: 24.3253%
 
 	2ª execucao
-		string original: 13672 bytes
-		string comprimida: 16188 bytes
-		taxa de compressao: -18.4026%
+		string original: 13658 bytes
+		string comprimida: 10530 bytes
+		taxa de compressao: 22.9023%
 
 	3ª execucao
-		string original: 13662 bytes
-		string comprimida: 15804 bytes
-		taxa de compressao: -15.6785%
+		string original: 13658 bytes
+		string comprimida: 10485 bytes
+		taxa de compressao: 23.2318%
 
-	Media final de compressão: -16.7842%
-	Media de caracteres: 13665
+	Media final de compressão: 23.4865%
+	Media de caracteres: 13663
 
  310 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 14122 bytes
-		string comprimida: 16416 bytes
-		taxa de compressao: -16.2442%
+		string original: 14120 bytes
+		string comprimida: 10647 bytes
+		taxa de compressao: 24.5963%
 
 	2ª execucao
-		string original: 14109 bytes
-		string comprimida: 16329 bytes
-		taxa de compressao: -15.7346%
+		string original: 14118 bytes
+		string comprimida: 10617 bytes
+		taxa de compressao: 24.7981%
 
 	3ª execucao
-		string original: 14125 bytes
-		string comprimida: 16458 bytes
-		taxa de compressao: -16.5168%
+		string original: 14115 bytes
+		string comprimida: 10794 bytes
+		taxa de compressao: 23.5282%
 
-	Media final de compressão: -16.1652%
-	Media de caracteres: 14118
+	Media final de compressão: 24.3075%
+	Media de caracteres: 14117
 
  320 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 14586 bytes
-		string comprimida: 17064 bytes
-		taxa de compressao: -16.9889%
+		string original: 14583 bytes
+		string comprimida: 11136 bytes
+		taxa de compressao: 23.6371%
 
 	2ª execucao
-		string original: 14581 bytes
-		string comprimida: 16866 bytes
-		taxa de compressao: -15.6711%
+		string original: 14587 bytes
+		string comprimida: 11115 bytes
+		taxa de compressao: 23.802%
 
 	3ª execucao
-		string original: 14566 bytes
-		string comprimida: 16818 bytes
-		taxa de compressao: -15.4607%
+		string original: 14579 bytes
+		string comprimida: 10974 bytes
+		taxa de compressao: 24.7273%
 
-	Media final de compressão: -16.0402%
-	Media de caracteres: 14577
+	Media final de compressão: 24.0555%
+	Media de caracteres: 14583
 
  330 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 15023 bytes
-		string comprimida: 17205 bytes
-		taxa de compressao: -14.5244%
+		string original: 15037 bytes
+		string comprimida: 11319 bytes
+		taxa de compressao: 24.7257%
 
 	2ª execucao
-		string original: 15036 bytes
-		string comprimida: 17442 bytes
-		taxa de compressao: -16.0016%
+		string original: 15030 bytes
+		string comprimida: 11442 bytes
+		taxa de compressao: 23.8723%
 
 	3ª execucao
-		string original: 15037 bytes
-		string comprimida: 17451 bytes
-		taxa de compressao: -16.0537%
+		string original: 15034 bytes
+		string comprimida: 11418 bytes
+		taxa de compressao: 24.0521%
 
-	Media final de compressão: -15.5266%
-	Media de caracteres: 15032
+	Media final de compressão: 24.2167%
+	Media de caracteres: 15033
 
  340 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 15477 bytes
-		string comprimida: 18144 bytes
-		taxa de compressao: -17.232%
+		string original: 15504 bytes
+		string comprimida: 11664 bytes
+		taxa de compressao: 24.7678%
 
 	2ª execucao
-		string original: 15499 bytes
-		string comprimida: 17730 bytes
-		taxa de compressao: -14.3945%
+		string original: 15491 bytes
+		string comprimida: 11790 bytes
+		taxa de compressao: 23.8913%
 
 	3ª execucao
-		string original: 15492 bytes
-		string comprimida: 17727 bytes
-		taxa de compressao: -14.4268%
+		string original: 15504 bytes
+		string comprimida: 11769 bytes
+		taxa de compressao: 24.0906%
 
-	Media final de compressão: -15.3511%
-	Media de caracteres: 15489
+	Media final de compressão: 24.2499%
+	Media de caracteres: 15499
 
  350 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 15945 bytes
-		string comprimida: 18297 bytes
-		taxa de compressao: -14.7507%
+		string original: 15942 bytes
+		string comprimida: 12021 bytes
+		taxa de compressao: 24.5954%
 
 	2ª execucao
-		string original: 15960 bytes
-		string comprimida: 18411 bytes
-		taxa de compressao: -15.3571%
+		string original: 15943 bytes
+		string comprimida: 12078 bytes
+		taxa de compressao: 24.2426%
 
 	3ª execucao
-		string original: 15938 bytes
-		string comprimida: 18210 bytes
-		taxa de compressao: -14.2552%
+		string original: 15964 bytes
+		string comprimida: 12120 bytes
+		taxa de compressao: 24.0792%
 
-	Media final de compressão: -14.7877%
-	Media de caracteres: 15947
+	Media final de compressão: 24.3057%
+	Media de caracteres: 15949
 
  360 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 16405 bytes
-		string comprimida: 19197 bytes
-		taxa de compressao: -17.0192%
+		string original: 16404 bytes
+		string comprimida: 12366 bytes
+		taxa de compressao: 24.6159%
 
 	2ª execucao
-		string original: 16394 bytes
-		string comprimida: 18768 bytes
-		taxa de compressao: -14.4809%
+		string original: 16399 bytes
+		string comprimida: 12264 bytes
+		taxa de compressao: 25.215%
 
 	3ª execucao
-		string original: 16395 bytes
-		string comprimida: 18894 bytes
-		taxa de compressao: -15.2425%
+		string original: 16391 bytes
+		string comprimida: 12291 bytes
+		taxa de compressao: 25.0137%
 
-	Media final de compressão: -15.5809%
+	Media final de compressão: 24.9482%
 	Media de caracteres: 16398
 
  370 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 16858 bytes
-		string comprimida: 19356 bytes
-		taxa de compressao: -14.8179%
+		string original: 16871 bytes
+		string comprimida: 12663 bytes
+		taxa de compressao: 24.9422%
 
 	2ª execucao
-		string original: 16850 bytes
-		string comprimida: 19251 bytes
-		taxa de compressao: -14.2493%
+		string original: 16841 bytes
+		string comprimida: 12756 bytes
+		taxa de compressao: 24.2563%
 
 	3ª execucao
-		string original: 16855 bytes
-		string comprimida: 19515 bytes
-		taxa de compressao: -15.7817%
+		string original: 16840 bytes
+		string comprimida: 12741 bytes
+		taxa de compressao: 24.3409%
 
-	Media final de compressão: -14.9496%
-	Media de caracteres: 16854
+	Media final de compressão: 24.5131%
+	Media de caracteres: 16850
 
  380 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 17314 bytes
-		string comprimida: 19875 bytes
-		taxa de compressao: -14.7915%
+		string original: 17303 bytes
+		string comprimida: 13098 bytes
+		taxa de compressao: 24.3021%
 
 	2ª execucao
-		string original: 17318 bytes
-		string comprimida: 19902 bytes
-		taxa de compressao: -14.9209%
+		string original: 17300 bytes
+		string comprimida: 13128 bytes
+		taxa de compressao: 24.1156%
 
 	3ª execucao
-		string original: 17319 bytes
-		string comprimida: 20115 bytes
-		taxa de compressao: -16.1441%
+		string original: 17316 bytes
+		string comprimida: 13044 bytes
+		taxa de compressao: 24.6708%
 
-	Media final de compressão: -15.2855%
-	Media de caracteres: 17317
+	Media final de compressão: 24.3629%
+	Media de caracteres: 17306
 
  390 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 17781 bytes
-		string comprimida: 20460 bytes
-		taxa de compressao: -15.0666%
+		string original: 17761 bytes
+		string comprimida: 13422 bytes
+		taxa de compressao: 24.4299%
 
 	2ª execucao
-		string original: 17771 bytes
-		string comprimida: 20478 bytes
-		taxa de compressao: -15.2327%
+		string original: 17759 bytes
+		string comprimida: 13431 bytes
+		taxa de compressao: 24.3707%
 
 	3ª execucao
-		string original: 17762 bytes
-		string comprimida: 20340 bytes
-		taxa de compressao: -14.5141%
+		string original: 17767 bytes
+		string comprimida: 13479 bytes
+		taxa de compressao: 24.1346%
 
-	Media final de compressão: -14.9378%
-	Media de caracteres: 17771
+	Media final de compressão: 24.3118%
+	Media de caracteres: 17762
 
  400 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 18235 bytes
-		string comprimida: 20718 bytes
-		taxa de compressao: -13.6167%
+		string original: 18229 bytes
+		string comprimida: 13800 bytes
+		taxa de compressao: 24.2965%
 
 	2ª execucao
-		string original: 18228 bytes
-		string comprimida: 21246 bytes
-		taxa de compressao: -16.5569%
+		string original: 18227 bytes
+		string comprimida: 13767 bytes
+		taxa de compressao: 24.4692%
 
 	3ª execucao
-		string original: 18235 bytes
-		string comprimida: 20874 bytes
-		taxa de compressao: -14.4722%
+		string original: 18219 bytes
+		string comprimida: 13842 bytes
+		taxa de compressao: 24.0244%
 
-	Media final de compressão: -14.8819%
-	Media de caracteres: 18232
+	Media final de compressão: 24.2633%
+	Media de caracteres: 18225
 
  410 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 18685 bytes
-		string comprimida: 21384 bytes
-		taxa de compressao: -14.4447%
+		string original: 18669 bytes
+		string comprimida: 14190 bytes
+		taxa de compressao: 23.9916%
 
 	2ª execucao
-		string original: 18693 bytes
-		string comprimida: 21321 bytes
-		taxa de compressao: -14.0587%
+		string original: 18687 bytes
+		string comprimida: 14019 bytes
+		taxa de compressao: 24.9799%
 
 	3ª execucao
-		string original: 18688 bytes
-		string comprimida: 21663 bytes
-		taxa de compressao: -15.9193%
+		string original: 18698 bytes
+		string comprimida: 14124 bytes
+		taxa de compressao: 24.4625%
 
-	Media final de compressão: -14.8076%
-	Media de caracteres: 18688
+	Media final de compressão: 24.478%
+	Media de caracteres: 18684
 
  420 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 19126 bytes
-		string comprimida: 21921 bytes
-		taxa de compressao: -14.6136%
+		string original: 19142 bytes
+		string comprimida: 14529 bytes
+		taxa de compressao: 24.0988%
 
 	2ª execucao
-		string original: 19118 bytes
-		string comprimida: 21885 bytes
-		taxa de compressao: -14.4733%
+		string original: 19160 bytes
+		string comprimida: 14184 bytes
+		taxa de compressao: 25.9708%
 
 	3ª execucao
 		string original: 19139 bytes
-		string comprimida: 21789 bytes
-		taxa de compressao: -13.8461%
+		string comprimida: 14499 bytes
+		taxa de compressao: 24.2437%
 
-	Media final de compressão: -14.311%
-	Media de caracteres: 19127
+	Media final de compressão: 24.7711%
+	Media de caracteres: 19147
 
  430 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 19562 bytes
-		string comprimida: 22410 bytes
-		taxa de compressao: -14.5588%
+		string original: 19592 bytes
+		string comprimida: 14658 bytes
+		taxa de compressao: 25.1837%
 
 	2ª execucao
-		string original: 19589 bytes
-		string comprimida: 22641 bytes
-		taxa de compressao: -15.5802%
+		string original: 19599 bytes
+		string comprimida: 14910 bytes
+		taxa de compressao: 23.9247%
 
 	3ª execucao
-		string original: 19602 bytes
-		string comprimida: 22704 bytes
-		taxa de compressao: -15.8249%
+		string original: 19575 bytes
+		string comprimida: 14784 bytes
+		taxa de compressao: 24.4751%
 
-	Media final de compressão: -15.3213%
-	Media de caracteres: 19584
+	Media final de compressão: 24.5278%
+	Media de caracteres: 19588
 
  440 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 20063 bytes
-		string comprimida: 23127 bytes
-		taxa de compressao: -15.2719%
+		string original: 20045 bytes
+		string comprimida: 15165 bytes
+		taxa de compressao: 24.3452%
 
 	2ª execucao
-		string original: 20042 bytes
-		string comprimida: 22782 bytes
-		taxa de compressao: -13.6713%
+		string original: 20069 bytes
+		string comprimida: 15129 bytes
+		taxa de compressao: 24.6151%
 
 	3ª execucao
-		string original: 20046 bytes
-		string comprimida: 23175 bytes
-		taxa de compressao: -15.6091%
+		string original: 20058 bytes
+		string comprimida: 15069 bytes
+		taxa de compressao: 24.8729%
 
-	Media final de compressão: -14.8508%
-	Media de caracteres: 20050
+	Media final de compressão: 24.6111%
+	Media de caracteres: 20057
 
  450 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 20503 bytes
-		string comprimida: 23895 bytes
-		taxa de compressao: -16.5439%
+		string original: 20500 bytes
+		string comprimida: 15366 bytes
+		taxa de compressao: 25.0439%
 
 	2ª execucao
-		string original: 20479 bytes
-		string comprimida: 23298 bytes
-		taxa de compressao: -13.7653%
+		string original: 20471 bytes
+		string comprimida: 15633 bytes
+		taxa de compressao: 23.6334%
 
 	3ª execucao
-		string original: 20508 bytes
-		string comprimida: 23418 bytes
-		taxa de compressao: -14.1896%
+		string original: 20492 bytes
+		string comprimida: 15630 bytes
+		taxa de compressao: 23.7263%
 
-	Media final de compressão: -14.8329%
-	Media de caracteres: 20496
+	Media final de compressão: 24.1346%
+	Media de caracteres: 20487
 
  460 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 20926 bytes
-		string comprimida: 23772 bytes
-		taxa de compressao: -13.6003%
+		string original: 20923 bytes
+		string comprimida: 15867 bytes
+		taxa de compressao: 24.1648%
 
 	2ª execucao
-		string original: 20956 bytes
-		string comprimida: 24078 bytes
-		taxa de compressao: -14.8979%
+		string original: 20957 bytes
+		string comprimida: 15912 bytes
+		taxa de compressao: 24.0731%
 
 	3ª execucao
-		string original: 20952 bytes
-		string comprimida: 23970 bytes
-		taxa de compressao: -14.4044%
+		string original: 20963 bytes
+		string comprimida: 15792 bytes
+		taxa de compressao: 24.6673%
 
-	Media final de compressão: -14.3008%
-	Media de caracteres: 20944
+	Media final de compressão: 24.3017%
+	Media de caracteres: 20947
 
  470 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 21394 bytes
-		string comprimida: 24747 bytes
-		taxa de compressao: -15.6726%
+		string original: 21415 bytes
+		string comprimida: 16050 bytes
+		taxa de compressao: 25.0525%
 
 	2ª execucao
-		string original: 21384 bytes
-		string comprimida: 24888 bytes
-		taxa de compressao: -16.3861%
+		string original: 21393 bytes
+		string comprimida: 16077 bytes
+		taxa de compressao: 24.8492%
 
 	3ª execucao
-		string original: 21392 bytes
-		string comprimida: 24771 bytes
-		taxa de compressao: -15.7956%
+		string original: 21410 bytes
+		string comprimida: 16194 bytes
+		taxa de compressao: 24.3624%
 
-	Media final de compressão: -15.9514%
-	Media de caracteres: 21390
+	Media final de compressão: 24.7547%
+	Media de caracteres: 21406
 
  480 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 21837 bytes
-		string comprimida: 25074 bytes
-		taxa de compressao: -14.8235%
+		string original: 21854 bytes
+		string comprimida: 16614 bytes
+		taxa de compressao: 23.9773%
 
 	2ª execucao
-		string original: 21863 bytes
-		string comprimida: 25038 bytes
-		taxa de compressao: -14.5223%
+		string original: 21845 bytes
+		string comprimida: 16473 bytes
+		taxa de compressao: 24.5914%
 
 	3ª execucao
-		string original: 21859 bytes
-		string comprimida: 25185 bytes
-		taxa de compressao: -15.2157%
+		string original: 21870 bytes
+		string comprimida: 16590 bytes
+		taxa de compressao: 24.1427%
 
-	Media final de compressão: -14.8538%
-	Media de caracteres: 21853
+	Media final de compressão: 24.2371%
+	Media de caracteres: 21856
 
  490 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
 		string original: 22292 bytes
-		string comprimida: 25854 bytes
-		taxa de compressao: -15.9788%
+		string comprimida: 16851 bytes
+		taxa de compressao: 24.4079%
 
 	2ª execucao
-		string original: 22323 bytes
-		string comprimida: 25896 bytes
-		taxa de compressao: -16.0059%
+		string original: 22283 bytes
+		string comprimida: 16986 bytes
+		taxa de compressao: 23.7715%
 
 	3ª execucao
-		string original: 22316 bytes
-		string comprimida: 25737 bytes
-		taxa de compressao: -15.3298%
+		string original: 22313 bytes
+		string comprimida: 16893 bytes
+		taxa de compressao: 24.2908%
 
-	Media final de compressão: -15.7715%
-	Media de caracteres: 22310
+	Media final de compressão: 24.1567%
+	Media de caracteres: 22296
 
  500 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 22768 bytes
-		string comprimida: 26184 bytes
-		taxa de compressao: -15.0035%
+		string original: 22755 bytes
+		string comprimida: 17145 bytes
+		taxa de compressao: 24.6539%
 
 	2ª execucao
-		string original: 22782 bytes
-		string comprimida: 26472 bytes
-		taxa de compressao: -16.197%
+		string original: 22755 bytes
+		string comprimida: 17247 bytes
+		taxa de compressao: 24.2057%
 
 	3ª execucao
-		string original: 22745 bytes
-		string comprimida: 26391 bytes
-		taxa de compressao: -16.0299%
+		string original: 22772 bytes
+		string comprimida: 17301 bytes
+		taxa de compressao: 24.0251%
 
-	Media final de compressão: -15.7435%
-	Media de caracteres: 22765
+	Media final de compressão: 24.2949%
+	Media de caracteres: 22760
 
  510 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 23183 bytes
-		string comprimida: 26874 bytes
-		taxa de compressao: -15.9211%
+		string original: 23216 bytes
+		string comprimida: 17553 bytes
+		taxa de compressao: 24.3927%
 
 	2ª execucao
-		string original: 23212 bytes
-		string comprimida: 26472 bytes
-		taxa de compressao: -14.0445%
+		string original: 23183 bytes
+		string comprimida: 17562 bytes
+		taxa de compressao: 24.2462%
 
 	3ª execucao
-		string original: 23223 bytes
-		string comprimida: 26538 bytes
-		taxa de compressao: -14.2746%
+		string original: 23219 bytes
+		string comprimida: 17577 bytes
+		taxa de compressao: 24.2991%
 
-	Media final de compressão: -14.7468%
+	Media final de compressão: 24.3126%
 	Media de caracteres: 23206
 
  520 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 23660 bytes
-		string comprimida: 27255 bytes
-		taxa de compressao: -15.1944%
+		string original: 23664 bytes
+		string comprimida: 17871 bytes
+		taxa de compressao: 24.4802%
 
 	2ª execucao
-		string original: 23673 bytes
-		string comprimida: 27372 bytes
-		taxa de compressao: -15.6254%
+		string original: 23655 bytes
+		string comprimida: 17775 bytes
+		taxa de compressao: 24.8573%
 
 	3ª execucao
-		string original: 23672 bytes
-		string comprimida: 27321 bytes
-		taxa de compressao: -15.4148%
+		string original: 23670 bytes
+		string comprimida: 17928 bytes
+		taxa de compressao: 24.2586%
 
-	Media final de compressão: -15.4116%
-	Media de caracteres: 23668
+	Media final de compressão: 24.532%
+	Media de caracteres: 23663
 
  530 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 24119 bytes
-		string comprimida: 27876 bytes
-		taxa de compressao: -15.5769%
+		string original: 24140 bytes
+		string comprimida: 18162 bytes
+		taxa de compressao: 24.7639%
 
 	2ª execucao
-		string original: 24161 bytes
-		string comprimida: 27648 bytes
-		taxa de compressao: -14.4323%
+		string original: 24133 bytes
+		string comprimida: 18120 bytes
+		taxa de compressao: 24.9161%
 
 	3ª execucao
-		string original: 24124 bytes
-		string comprimida: 27450 bytes
-		taxa de compressao: -13.7871%
+		string original: 24134 bytes
+		string comprimida: 18204 bytes
+		taxa de compressao: 24.5711%
 
-	Media final de compressão: -14.5988%
-	Media de caracteres: 24134
+	Media final de compressão: 24.7504%
+	Media de caracteres: 24135
 
  540 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 24571 bytes
-		string comprimida: 28257 bytes
-		taxa de compressao: -15.0014%
+		string original: 24575 bytes
+		string comprimida: 18522 bytes
+		taxa de compressao: 24.6307%
 
 	2ª execucao
-		string original: 24598 bytes
-		string comprimida: 28251 bytes
-		taxa de compressao: -14.8508%
+		string original: 24577 bytes
+		string comprimida: 18669 bytes
+		taxa de compressao: 24.0387%
 
 	3ª execucao
-		string original: 24574 bytes
-		string comprimida: 28254 bytes
-		taxa de compressao: -14.9752%
+		string original: 24542 bytes
+		string comprimida: 18450 bytes
+		taxa de compressao: 24.8228%
 
-	Media final de compressão: -14.9425%
-	Media de caracteres: 24581
+	Media final de compressão: 24.4974%
+	Media de caracteres: 24564
 
  550 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 25035 bytes
-		string comprimida: 28545 bytes
-		taxa de compressao: -14.0204%
+		string original: 25027 bytes
+		string comprimida: 18972 bytes
+		taxa de compressao: 24.1939%
 
 	2ª execucao
-		string original: 25038 bytes
-		string comprimida: 28836 bytes
-		taxa de compressao: -15.1689%
+		string original: 25020 bytes
+		string comprimida: 18912 bytes
+		taxa de compressao: 24.4125%
 
 	3ª execucao
-		string original: 25041 bytes
-		string comprimida: 28944 bytes
-		taxa de compressao: -15.5864%
+		string original: 25025 bytes
+		string comprimida: 18888 bytes
+		taxa de compressao: 24.5235%
 
-	Media final de compressão: -14.9253%
-	Media de caracteres: 25038
+	Media final de compressão: 24.3766%
+	Media de caracteres: 25024
 
  560 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 25461 bytes
-		string comprimida: 28944 bytes
-		taxa de compressao: -13.6797%
+		string original: 25522 bytes
+		string comprimida: 19251 bytes
+		taxa de compressao: 24.571%
 
 	2ª execucao
-		string original: 25491 bytes
-		string comprimida: 29019 bytes
-		taxa de compressao: -13.8402%
+		string original: 25481 bytes
+		string comprimida: 19413 bytes
+		taxa de compressao: 23.8138%
 
 	3ª execucao
-		string original: 25484 bytes
-		string comprimida: 29211 bytes
-		taxa de compressao: -14.6249%
+		string original: 25491 bytes
+		string comprimida: 19122 bytes
+		taxa de compressao: 24.9853%
 
-	Media final de compressão: -14.0483%
-	Media de caracteres: 25478
+	Media final de compressão: 24.4567%
+	Media de caracteres: 25498
 
  570 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 25969 bytes
-		string comprimida: 29832 bytes
-		taxa de compressao: -14.8754%
+		string original: 25934 bytes
+		string comprimida: 19443 bytes
+		taxa de compressao: 25.0289%
 
 	2ª execucao
-		string original: 25923 bytes
-		string comprimida: 29361 bytes
-		taxa de compressao: -13.2624%
+		string original: 25956 bytes
+		string comprimida: 19623 bytes
+		taxa de compressao: 24.399%
 
 	3ª execucao
-		string original: 25939 bytes
-		string comprimida: 29946 bytes
-		taxa de compressao: -15.4478%
+		string original: 25945 bytes
+		string comprimida: 19440 bytes
+		taxa de compressao: 25.0723%
 
-	Media final de compressão: -14.5285%
-	Media de caracteres: 25943
+	Media final de compressão: 24.8334%
+	Media de caracteres: 25945
 
  580 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 26393 bytes
-		string comprimida: 30000 bytes
-		taxa de compressao: -13.6665%
+		string original: 26385 bytes
+		string comprimida: 19950 bytes
+		taxa de compressao: 24.3889%
 
 	2ª execucao
-		string original: 26355 bytes
-		string comprimida: 30087 bytes
-		taxa de compressao: -14.1605%
+		string original: 26397 bytes
+		string comprimida: 19869 bytes
+		taxa de compressao: 24.7301%
 
 	3ª execucao
-		string original: 26409 bytes
-		string comprimida: 30303 bytes
-		taxa de compressao: -14.745%
+		string original: 26402 bytes
+		string comprimida: 19914 bytes
+		taxa de compressao: 24.5739%
 
-	Media final de compressão: -14.1907%
-	Media de caracteres: 26385
+	Media final de compressão: 24.5643%
+	Media de caracteres: 26394
 
  590 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 26856 bytes
-		string comprimida: 30834 bytes
-		taxa de compressao: -14.8123%
+		string original: 26842 bytes
+		string comprimida: 20301 bytes
+		taxa de compressao: 24.3685%
 
 	2ª execucao
-		string original: 26838 bytes
-		string comprimida: 30939 bytes
-		taxa de compressao: -15.2806%
+		string original: 26851 bytes
+		string comprimida: 19980 bytes
+		taxa de compressao: 25.5894%
 
 	3ª execucao
-		string original: 26848 bytes
-		string comprimida: 30585 bytes
-		taxa de compressao: -13.9191%
+		string original: 26867 bytes
+		string comprimida: 20136 bytes
+		taxa de compressao: 25.053%
 
-	Media final de compressão: -14.6707%
-	Media de caracteres: 26847
+	Media final de compressão: 25.0036%
+	Media de caracteres: 26853
 
  600 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 27322 bytes
-		string comprimida: 31065 bytes
-		taxa de compressao: -13.6996%
+		string original: 27312 bytes
+		string comprimida: 20520 bytes
+		taxa de compressao: 24.8682%
 
 	2ª execucao
-		string original: 27303 bytes
-		string comprimida: 31245 bytes
-		taxa de compressao: -14.438%
+		string original: 27276 bytes
+		string comprimida: 20574 bytes
+		taxa de compressao: 24.5711%
 
 	3ª execucao
-		string original: 27311 bytes
-		string comprimida: 31224 bytes
-		taxa de compressao: -14.3276%
+		string original: 27306 bytes
+		string comprimida: 20484 bytes
+		taxa de compressao: 24.9835%
 
-	Media final de compressão: -14.155%
-	Media de caracteres: 27312
+	Media final de compressão: 24.8076%
+	Media de caracteres: 27298
 
  610 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 27715 bytes
-		string comprimida: 31653 bytes
-		taxa de compressao: -14.2089%
+		string original: 27758 bytes
+		string comprimida: 20865 bytes
+		taxa de compressao: 24.8325%
 
 	2ª execucao
 		string original: 27756 bytes
-		string comprimida: 31500 bytes
-		taxa de compressao: -13.489%
+		string comprimida: 21018 bytes
+		taxa de compressao: 24.2758%
 
 	3ª execucao
-		string original: 27743 bytes
-		string comprimida: 31947 bytes
-		taxa de compressao: -15.1534%
+		string original: 27758 bytes
+		string comprimida: 20847 bytes
+		taxa de compressao: 24.8973%
 
-	Media final de compressão: -14.2838%
-	Media de caracteres: 27738
+	Media final de compressão: 24.6685%
+	Media de caracteres: 27757
 
  620 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 28204 bytes
-		string comprimida: 32193 bytes
-		taxa de compressao: -14.1434%
+		string original: 28185 bytes
+		string comprimida: 21351 bytes
+		taxa de compressao: 24.2469%
 
 	2ª execucao
-		string original: 28210 bytes
-		string comprimida: 32247 bytes
-		taxa de compressao: -14.3105%
+		string original: 28199 bytes
+		string comprimida: 21243 bytes
+		taxa de compressao: 24.6675%
 
 	3ª execucao
-		string original: 28216 bytes
-		string comprimida: 32109 bytes
-		taxa de compressao: -13.7971%
+		string original: 28214 bytes
+		string comprimida: 21150 bytes
+		taxa de compressao: 25.0372%
 
-	Media final de compressão: -14.0837%
-	Media de caracteres: 28210
+	Media final de compressão: 24.6506%
+	Media de caracteres: 28199
 
  630 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 28651 bytes
-		string comprimida: 32766 bytes
-		taxa de compressao: -14.3625%
+		string original: 28678 bytes
+		string comprimida: 21582 bytes
+		taxa de compressao: 24.7437%
 
 	2ª execucao
-		string original: 28668 bytes
-		string comprimida: 32598 bytes
-		taxa de compressao: -13.7087%
+		string original: 28658 bytes
+		string comprimida: 21495 bytes
+		taxa de compressao: 24.9948%
 
 	3ª execucao
-		string original: 28652 bytes
-		string comprimida: 32376 bytes
-		taxa de compressao: -12.9973%
+		string original: 28670 bytes
+		string comprimida: 21411 bytes
+		taxa de compressao: 25.3191%
 
-	Media final de compressão: -13.6895%
-	Media de caracteres: 28657
+	Media final de compressão: 25.0192%
+	Media de caracteres: 28668
 
  640 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 29101 bytes
-		string comprimida: 33384 bytes
-		taxa de compressao: -14.7177%
+		string original: 29118 bytes
+		string comprimida: 21987 bytes
+		taxa de compressao: 24.49%
 
 	2ª execucao
-		string original: 29114 bytes
-		string comprimida: 33324 bytes
-		taxa de compressao: -14.4604%
+		string original: 29121 bytes
+		string comprimida: 21831 bytes
+		taxa de compressao: 25.0335%
 
 	3ª execucao
-		string original: 29122 bytes
-		string comprimida: 33381 bytes
-		taxa de compressao: -14.6247%
+		string original: 29121 bytes
+		string comprimida: 21891 bytes
+		taxa de compressao: 24.8274%
 
-	Media final de compressão: -14.6009%
-	Media de caracteres: 29112
+	Media final de compressão: 24.7836%
+	Media de caracteres: 29120
 
  650 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 29581 bytes
-		string comprimida: 33849 bytes
-		taxa de compressao: -14.4282%
+		string original: 29565 bytes
+		string comprimida: 22215 bytes
+		taxa de compressao: 24.8605%
 
 	2ª execucao
-		string original: 29589 bytes
-		string comprimida: 33966 bytes
-		taxa de compressao: -14.7927%
+		string original: 29564 bytes
+		string comprimida: 22179 bytes
+		taxa de compressao: 24.9797%
 
 	3ª execucao
-		string original: 29579 bytes
-		string comprimida: 33792 bytes
-		taxa de compressao: -14.2432%
+		string original: 29561 bytes
+		string comprimida: 22113 bytes
+		taxa de compressao: 25.1954%
 
-	Media final de compressão: -14.488%
-	Media de caracteres: 29583
+	Media final de compressão: 25.0118%
+	Media de caracteres: 29563
 
  660 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 30040 bytes
-		string comprimida: 34509 bytes
-		taxa de compressao: -14.8768%
+		string original: 30030 bytes
+		string comprimida: 22662 bytes
+		taxa de compressao: 24.5355%
 
 	2ª execucao
-		string original: 30044 bytes
-		string comprimida: 33957 bytes
-		taxa de compressao: -13.0242%
+		string original: 30004 bytes
+		string comprimida: 22563 bytes
+		taxa de compressao: 24.8%
 
 	3ª execucao
-		string original: 30019 bytes
-		string comprimida: 33732 bytes
-		taxa de compressao: -12.3688%
+		string original: 30020 bytes
+		string comprimida: 22545 bytes
+		taxa de compressao: 24.9001%
 
-	Media final de compressão: -13.4233%
-	Media de caracteres: 30034
+	Media final de compressão: 24.7452%
+	Media de caracteres: 30018
 
  670 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 30478 bytes
-		string comprimida: 34521 bytes
-		taxa de compressao: -13.2653%
+		string original: 30498 bytes
+		string comprimida: 22971 bytes
+		taxa de compressao: 24.6803%
 
 	2ª execucao
-		string original: 30489 bytes
-		string comprimida: 34575 bytes
-		taxa de compressao: -13.4016%
+		string original: 30506 bytes
+		string comprimida: 22881 bytes
+		taxa de compressao: 24.9951%
 
 	3ª execucao
-		string original: 30470 bytes
-		string comprimida: 34980 bytes
-		taxa de compressao: -14.8014%
+		string original: 30462 bytes
+		string comprimida: 23169 bytes
+		taxa de compressao: 23.9413%
 
-	Media final de compressão: -13.8228%
-	Media de caracteres: 30479
+	Media final de compressão: 24.5389%
+	Media de caracteres: 30488
 
  680 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 30902 bytes
-		string comprimida: 35220 bytes
-		taxa de compressao: -13.9732%
+		string original: 30951 bytes
+		string comprimida: 23217 bytes
+		taxa de compressao: 24.9879%
 
 	2ª execucao
-		string original: 30948 bytes
-		string comprimida: 35196 bytes
-		taxa de compressao: -13.7263%
+		string original: 30926 bytes
+		string comprimida: 23274 bytes
+		taxa de compressao: 24.7429%
 
 	3ª execucao
-		string original: 30928 bytes
-		string comprimida: 35091 bytes
-		taxa de compressao: -13.4603%
+		string original: 30940 bytes
+		string comprimida: 23280 bytes
+		taxa de compressao: 24.7576%
 
-	Media final de compressão: -13.7199%
-	Media de caracteres: 30926
+	Media final de compressão: 24.8295%
+	Media de caracteres: 30939
 
  690 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 31377 bytes
-		string comprimida: 36132 bytes
-		taxa de compressao: -15.1544%
+		string original: 31393 bytes
+		string comprimida: 23643 bytes
+		taxa de compressao: 24.687%
 
 	2ª execucao
-		string original: 31388 bytes
-		string comprimida: 36087 bytes
-		taxa de compressao: -14.9707%
+		string original: 31394 bytes
+		string comprimida: 23607 bytes
+		taxa de compressao: 24.8041%
 
 	3ª execucao
-		string original: 31377 bytes
-		string comprimida: 35517 bytes
-		taxa de compressao: -13.1944%
+		string original: 31400 bytes
+		string comprimida: 23469 bytes
+		taxa de compressao: 25.258%
 
-	Media final de compressão: -14.4398%
-	Media de caracteres: 31380
+	Media final de compressão: 24.9164%
+	Media de caracteres: 31395
 
  700 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 31848 bytes
-		string comprimida: 36294 bytes
-		taxa de compressao: -13.9601%
+		string original: 31856 bytes
+		string comprimida: 23793 bytes
+		taxa de compressao: 25.3108%
 
 	2ª execucao
-		string original: 31862 bytes
-		string comprimida: 36750 bytes
-		taxa de compressao: -15.3412%
+		string original: 31855 bytes
+		string comprimida: 24018 bytes
+		taxa de compressao: 24.6021%
 
 	3ª execucao
-		string original: 31865 bytes
-		string comprimida: 36444 bytes
-		taxa de compressao: -14.37%
+		string original: 31860 bytes
+		string comprimida: 23898 bytes
+		taxa de compressao: 24.9906%
 
-	Media final de compressão: -14.5571%
-	Media de caracteres: 31858
+	Media final de compressão: 24.9678%
+	Media de caracteres: 31857
 
  710 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 32324 bytes
-		string comprimida: 36747 bytes
-		taxa de compressao: -13.6833%
+		string original: 32322 bytes
+		string comprimida: 24195 bytes
+		taxa de compressao: 25.1439%
 
 	2ª execucao
-		string original: 32318 bytes
-		string comprimida: 36996 bytes
-		taxa de compressao: -14.4749%
+		string original: 32300 bytes
+		string comprimida: 24297 bytes
+		taxa de compressao: 24.7771%
 
 	3ª execucao
-		string original: 32312 bytes
-		string comprimida: 36987 bytes
-		taxa de compressao: -14.4683%
+		string original: 32315 bytes
+		string comprimida: 24453 bytes
+		taxa de compressao: 24.3293%
 
-	Media final de compressão: -14.2088%
-	Media de caracteres: 32318
+	Media final de compressão: 24.7501%
+	Media de caracteres: 32312
 
  720 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 32762 bytes
-		string comprimida: 37275 bytes
-		taxa de compressao: -13.7751%
+		string original: 32756 bytes
+		string comprimida: 24531 bytes
+		taxa de compressao: 25.1099%
 
 	2ª execucao
-		string original: 32775 bytes
-		string comprimida: 37320 bytes
-		taxa de compressao: -13.8673%
+		string original: 32760 bytes
+		string comprimida: 24663 bytes
+		taxa de compressao: 24.7161%
 
 	3ª execucao
-		string original: 32746 bytes
-		string comprimida: 37407 bytes
-		taxa de compressao: -14.2338%
+		string original: 32755 bytes
+		string comprimida: 24744 bytes
+		taxa de compressao: 24.4573%
 
-	Media final de compressão: -13.9587%
-	Media de caracteres: 32761
+	Media final de compressão: 24.7611%
+	Media de caracteres: 32757
 
  730 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 33255 bytes
-		string comprimida: 38103 bytes
-		taxa de compressao: -14.5783%
+		string original: 33219 bytes
+		string comprimida: 25014 bytes
+		taxa de compressao: 24.6997%
 
 	2ª execucao
-		string original: 33253 bytes
-		string comprimida: 37794 bytes
-		taxa de compressao: -13.6559%
+		string original: 33228 bytes
+		string comprimida: 24945 bytes
+		taxa de compressao: 24.9278%
 
 	3ª execucao
-		string original: 33206 bytes
-		string comprimida: 37998 bytes
-		taxa de compressao: -14.4311%
+		string original: 33232 bytes
+		string comprimida: 24780 bytes
+		taxa de compressao: 25.4333%
 
-	Media final de compressão: -14.2218%
-	Media de caracteres: 33238
+	Media final de compressão: 25.0203%
+	Media de caracteres: 33226
 
  740 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 33657 bytes
-		string comprimida: 38124 bytes
-		taxa de compressao: -13.2721%
+		string original: 33689 bytes
+		string comprimida: 25287 bytes
+		taxa de compressao: 24.9399%
 
 	2ª execucao
-		string original: 33698 bytes
-		string comprimida: 38412 bytes
-		taxa de compressao: -13.989%
+		string original: 33699 bytes
+		string comprimida: 25290 bytes
+		taxa de compressao: 24.9533%
 
 	3ª execucao
-		string original: 33627 bytes
-		string comprimida: 38667 bytes
-		taxa de compressao: -14.988%
+		string original: 33680 bytes
+		string comprimida: 25167 bytes
+		taxa de compressao: 25.2761%
 
-	Media final de compressão: -14.083%
-	Media de caracteres: 33660
+	Media final de compressão: 25.0564%
+	Media de caracteres: 33689
 
  750 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 34099 bytes
-		string comprimida: 39123 bytes
-		taxa de compressao: -14.7336%
+		string original: 34146 bytes
+		string comprimida: 25563 bytes
+		taxa de compressao: 25.1362%
 
 	2ª execucao
-		string original: 34132 bytes
-		string comprimida: 38847 bytes
-		taxa de compressao: -13.814%
+		string original: 34133 bytes
+		string comprimida: 25545 bytes
+		taxa de compressao: 25.1604%
 
 	3ª execucao
-		string original: 34129 bytes
-		string comprimida: 38745 bytes
-		taxa de compressao: -13.5252%
+		string original: 34150 bytes
+		string comprimida: 25416 bytes
+		taxa de compressao: 25.5754%
 
-	Media final de compressão: -14.0242%
-	Media de caracteres: 34120
+	Media final de compressão: 25.2907%
+	Media de caracteres: 34143
 
  760 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 34593 bytes
-		string comprimida: 39420 bytes
-		taxa de compressao: -13.9537%
+		string original: 34564 bytes
+		string comprimida: 26037 bytes
+		taxa de compressao: 24.6702%
 
 	2ª execucao
-		string original: 34590 bytes
-		string comprimida: 39141 bytes
-		taxa de compressao: -13.157%
+		string original: 34614 bytes
+		string comprimida: 25872 bytes
+		taxa de compressao: 25.2557%
 
 	3ª execucao
-		string original: 34594 bytes
-		string comprimida: 39456 bytes
-		taxa de compressao: -14.0545%
+		string original: 34599 bytes
+		string comprimida: 26007 bytes
+		taxa de compressao: 24.8331%
 
-	Media final de compressão: -13.7217%
+	Media final de compressão: 24.9196%
 	Media de caracteres: 34592
 
  770 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 35074 bytes
-		string comprimida: 39747 bytes
-		taxa de compressao: -13.3233%
+		string original: 35015 bytes
+		string comprimida: 26220 bytes
+		taxa de compressao: 25.1178%
 
 	2ª execucao
-		string original: 35042 bytes
-		string comprimida: 40242 bytes
-		taxa de compressao: -14.8393%
+		string original: 35032 bytes
+		string comprimida: 26277 bytes
+		taxa de compressao: 24.9914%
 
 	3ª execucao
-		string original: 35037 bytes
-		string comprimida: 39528 bytes
-		taxa de compressao: -12.8179%
+		string original: 35020 bytes
+		string comprimida: 26277 bytes
+		taxa de compressao: 24.9657%
 
-	Media final de compressão: -13.6602%
-	Media de caracteres: 35051
+	Media final de compressão: 25.025%
+	Media de caracteres: 35022
 
  780 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 35472 bytes
-		string comprimida: 40362 bytes
-		taxa de compressao: -13.7855%
+		string original: 35477 bytes
+		string comprimida: 26628 bytes
+		taxa de compressao: 24.9429%
 
 	2ª execucao
-		string original: 35497 bytes
-		string comprimida: 40131 bytes
-		taxa de compressao: -13.0546%
+		string original: 35500 bytes
+		string comprimida: 26535 bytes
+		taxa de compressao: 25.2535%
 
 	3ª execucao
-		string original: 35497 bytes
-		string comprimida: 40248 bytes
-		taxa de compressao: -13.3842%
+		string original: 35465 bytes
+		string comprimida: 26478 bytes
+		taxa de compressao: 25.3405%
 
-	Media final de compressão: -13.4081%
-	Media de caracteres: 35488
+	Media final de compressão: 25.179%
+	Media de caracteres: 35480
 
  790 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 35970 bytes
-		string comprimida: 40554 bytes
-		taxa de compressao: -12.744%
+		string original: 35955 bytes
+		string comprimida: 26805 bytes
+		taxa de compressao: 25.4485%
 
 	2ª execucao
-		string original: 35949 bytes
-		string comprimida: 41064 bytes
-		taxa de compressao: -14.2285%
+		string original: 35923 bytes
+		string comprimida: 26922 bytes
+		taxa de compressao: 25.0564%
 
 	3ª execucao
-		string original: 35971 bytes
-		string comprimida: 41085 bytes
-		taxa de compressao: -14.217%
+		string original: 35962 bytes
+		string comprimida: 26907 bytes
+		taxa de compressao: 25.1794%
 
-	Media final de compressão: -13.7298%
-	Media de caracteres: 35963
+	Media final de compressão: 25.2281%
+	Media de caracteres: 35946
 
  800 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 36411 bytes
-		string comprimida: 41298 bytes
-		taxa de compressao: -13.4218%
+		string original: 36386 bytes
+		string comprimida: 27273 bytes
+		taxa de compressao: 25.0453%
 
 	2ª execucao
-		string original: 36387 bytes
-		string comprimida: 41166 bytes
-		taxa de compressao: -13.1338%
+		string original: 36416 bytes
+		string comprimida: 27276 bytes
+		taxa de compressao: 25.0989%
 
 	3ª execucao
-		string original: 36412 bytes
-		string comprimida: 41433 bytes
-		taxa de compressao: -13.7894%
+		string original: 36402 bytes
+		string comprimida: 27192 bytes
+		taxa de compressao: 25.3008%
 
-	Media final de compressão: -13.4483%
-	Media de caracteres: 36403
+	Media final de compressão: 25.1483%
+	Media de caracteres: 36401
 
  810 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 36869 bytes
-		string comprimida: 41892 bytes
-		taxa de compressao: -13.6239%
+		string original: 36850 bytes
+		string comprimida: 27576 bytes
+		taxa de compressao: 25.1669%
 
 	2ª execucao
-		string original: 36862 bytes
-		string comprimida: 41883 bytes
-		taxa de compressao: -13.6211%
+		string original: 36881 bytes
+		string comprimida: 27975 bytes
+		taxa de compressao: 24.1479%
 
 	3ª execucao
-		string original: 36850 bytes
-		string comprimida: 41655 bytes
-		taxa de compressao: -13.0393%
+		string original: 36877 bytes
+		string comprimida: 27498 bytes
+		taxa de compressao: 25.4332%
 
-	Media final de compressão: -13.4281%
-	Media de caracteres: 36860
+	Media final de compressão: 24.916%
+	Media de caracteres: 36869
 
  820 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 37317 bytes
-		string comprimida: 42435 bytes
-		taxa de compressao: -13.7149%
+		string original: 37313 bytes
+		string comprimida: 27858 bytes
+		taxa de compressao: 25.3397%
 
 	2ª execucao
-		string original: 37331 bytes
-		string comprimida: 42354 bytes
-		taxa de compressao: -13.4553%
+		string original: 37287 bytes
+		string comprimida: 27975 bytes
+		taxa de compressao: 24.9739%
 
 	3ª execucao
-		string original: 37310 bytes
-		string comprimida: 42360 bytes
-		taxa de compressao: -13.5352%
+		string original: 37307 bytes
+		string comprimida: 28116 bytes
+		taxa de compressao: 24.6361%
 
-	Media final de compressão: -13.5685%
-	Media de caracteres: 37319
+	Media final de compressão: 24.9832%
+	Media de caracteres: 37302
 
  830 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 37791 bytes
-		string comprimida: 43083 bytes
-		taxa de compressao: -14.0033%
+		string original: 37767 bytes
+		string comprimida: 28335 bytes
+		taxa de compressao: 24.9742%
 
 	2ª execucao
-		string original: 37756 bytes
-		string comprimida: 43140 bytes
-		taxa de compressao: -14.26%
+		string original: 37759 bytes
+		string comprimida: 28302 bytes
+		taxa de compressao: 25.0457%
 
 	3ª execucao
-		string original: 37763 bytes
-		string comprimida: 42870 bytes
-		taxa de compressao: -13.5238%
+		string original: 37770 bytes
+		string comprimida: 28350 bytes
+		taxa de compressao: 24.9404%
 
-	Media final de compressão: -13.929%
-	Media de caracteres: 37770
+	Media final de compressão: 24.9868%
+	Media de caracteres: 37765
 
  840 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 38249 bytes
-		string comprimida: 43347 bytes
-		taxa de compressao: -13.3285%
+		string original: 38221 bytes
+		string comprimida: 28815 bytes
+		taxa de compressao: 24.6095%
 
 	2ª execucao
-		string original: 38236 bytes
-		string comprimida: 43728 bytes
-		taxa de compressao: -14.3634%
+		string original: 38246 bytes
+		string comprimida: 28446 bytes
+		taxa de compressao: 25.6236%
 
 	3ª execucao
-		string original: 38214 bytes
-		string comprimida: 43269 bytes
-		taxa de compressao: -13.2281%
+		string original: 38218 bytes
+		string comprimida: 28752 bytes
+		taxa de compressao: 24.7684%
 
-	Media final de compressão: -13.64%
-	Media de caracteres: 38233
+	Media final de compressão: 25.0005%
+	Media de caracteres: 38228
 
  850 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 38655 bytes
-		string comprimida: 43866 bytes
-		taxa de compressao: -13.4808%
+		string original: 38713 bytes
+		string comprimida: 28848 bytes
+		taxa de compressao: 25.4824%
 
 	2ª execucao
-		string original: 38633 bytes
-		string comprimida: 43803 bytes
-		taxa de compressao: -13.3823%
+		string original: 38667 bytes
+		string comprimida: 29127 bytes
+		taxa de compressao: 24.6722%
 
 	3ª execucao
-		string original: 38675 bytes
-		string comprimida: 44229 bytes
-		taxa de compressao: -14.3607%
+		string original: 38674 bytes
+		string comprimida: 28980 bytes
+		taxa de compressao: 25.0659%
 
-	Media final de compressão: -13.7413%
-	Media de caracteres: 38654
+	Media final de compressão: 25.0735%
+	Media de caracteres: 38684
 
  860 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 39117 bytes
-		string comprimida: 44898 bytes
-		taxa de compressao: -14.7787%
+		string original: 39140 bytes
+		string comprimida: 29355 bytes
+		taxa de compressao: 25%
 
 	2ª execucao
-		string original: 39184 bytes
-		string comprimida: 44925 bytes
-		taxa de compressao: -14.6514%
+		string original: 39162 bytes
+		string comprimida: 29415 bytes
+		taxa de compressao: 24.8889%
 
 	3ª execucao
-		string original: 39115 bytes
-		string comprimida: 44811 bytes
-		taxa de compressao: -14.5622%
+		string original: 39161 bytes
+		string comprimida: 29310 bytes
+		taxa de compressao: 25.1551%
 
-	Media final de compressão: -14.6641%
-	Media de caracteres: 39138
+	Media final de compressão: 25.0147%
+	Media de caracteres: 39154
 
  870 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 39624 bytes
-		string comprimida: 45429 bytes
-		taxa de compressao: -14.6502%
+		string original: 39570 bytes
+		string comprimida: 29574 bytes
+		taxa de compressao: 25.2616%
 
 	2ª execucao
-		string original: 39595 bytes
-		string comprimida: 44868 bytes
-		taxa de compressao: -13.3173%
+		string original: 39622 bytes
+		string comprimida: 29544 bytes
+		taxa de compressao: 25.4354%
 
 	3ª execucao
-		string original: 39601 bytes
-		string comprimida: 45111 bytes
-		taxa de compressao: -13.9138%
+		string original: 39597 bytes
+		string comprimida: 29685 bytes
+		taxa de compressao: 25.0322%
 
-	Media final de compressão: -13.9604%
-	Media de caracteres: 39606
+	Media final de compressão: 25.243%
+	Media de caracteres: 39596
 
  880 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 40054 bytes
-		string comprimida: 45390 bytes
-		taxa de compressao: -13.322%
+		string original: 40037 bytes
+		string comprimida: 29982 bytes
+		taxa de compressao: 25.1143%
 
 	2ª execucao
-		string original: 40069 bytes
-		string comprimida: 45492 bytes
-		taxa de compressao: -13.5342%
+		string original: 40050 bytes
+		string comprimida: 29991 bytes
+		taxa de compressao: 25.1161%
 
 	3ª execucao
-		string original: 40079 bytes
-		string comprimida: 45243 bytes
-		taxa de compressao: -12.8846%
+		string original: 40065 bytes
+		string comprimida: 29973 bytes
+		taxa de compressao: 25.1891%
 
-	Media final de compressão: -13.2469%
-	Media de caracteres: 40067
+	Media final de compressão: 25.1398%
+	Media de caracteres: 40050
 
  890 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 40476 bytes
-		string comprimida: 46197 bytes
-		taxa de compressao: -14.1343%
+		string original: 40518 bytes
+		string comprimida: 30360 bytes
+		taxa de compressao: 25.0703%
 
 	2ª execucao
-		string original: 40496 bytes
-		string comprimida: 45978 bytes
-		taxa de compressao: -13.5371%
+		string original: 40522 bytes
+		string comprimida: 30225 bytes
+		taxa de compressao: 25.4109%
 
 	3ª execucao
-		string original: 40502 bytes
-		string comprimida: 46395 bytes
-		taxa de compressao: -14.5499%
+		string original: 40492 bytes
+		string comprimida: 30396 bytes
+		taxa de compressao: 24.9333%
 
-	Media final de compressão: -14.0738%
-	Media de caracteres: 40491
+	Media final de compressão: 25.1382%
+	Media de caracteres: 40510
 
  900 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 40983 bytes
-		string comprimida: 46671 bytes
-		taxa de compressao: -13.8789%
+		string original: 40941 bytes
+		string comprimida: 30750 bytes
+		taxa de compressao: 24.8919%
 
 	2ª execucao
-		string original: 40986 bytes
-		string comprimida: 46836 bytes
-		taxa de compressao: -14.2732%
+		string original: 40993 bytes
+		string comprimida: 30627 bytes
+		taxa de compressao: 25.2872%
 
 	3ª execucao
-		string original: 40934 bytes
-		string comprimida: 46398 bytes
-		taxa de compressao: -13.3483%
+		string original: 40954 bytes
+		string comprimida: 30762 bytes
+		taxa de compressao: 24.8865%
 
-	Media final de compressão: -13.8335%
-	Media de caracteres: 40967
+	Media final de compressão: 25.0219%
+	Media de caracteres: 40962
 
  910 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 41446 bytes
-		string comprimida: 47415 bytes
-		taxa de compressao: -14.4019%
+		string original: 41440 bytes
+		string comprimida: 31002 bytes
+		taxa de compressao: 25.1882%
 
 	2ª execucao
-		string original: 41430 bytes
-		string comprimida: 47541 bytes
-		taxa de compressao: -14.7502%
+		string original: 41403 bytes
+		string comprimida: 31014 bytes
+		taxa de compressao: 25.0924%
 
 	3ª execucao
-		string original: 41397 bytes
-		string comprimida: 46887 bytes
-		taxa de compressao: -13.2618%
+		string original: 41377 bytes
+		string comprimida: 31254 bytes
+		taxa de compressao: 24.4653%
 
-	Media final de compressão: -14.138%
-	Media de caracteres: 41424
+	Media final de compressão: 24.9153%
+	Media de caracteres: 41406
 
  920 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 41893 bytes
-		string comprimida: 47751 bytes
-		taxa de compressao: -13.9832%
+		string original: 41902 bytes
+		string comprimida: 31209 bytes
+		taxa de compressao: 25.5191%
 
 	2ª execucao
-		string original: 41917 bytes
-		string comprimida: 47130 bytes
-		taxa de compressao: -12.4365%
+		string original: 41883 bytes
+		string comprimida: 31356 bytes
+		taxa de compressao: 25.1343%
 
 	3ª execucao
 		string original: 41866 bytes
-		string comprimida: 47466 bytes
-		taxa de compressao: -13.376%
+		string comprimida: 31341 bytes
+		taxa de compressao: 25.1397%
 
-	Media final de compressão: -13.2652%
-	Media de caracteres: 41892
+	Media final de compressão: 25.2644%
+	Media de caracteres: 41883
 
  930 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 42337 bytes
-		string comprimida: 48144 bytes
-		taxa de compressao: -13.7161%
+		string original: 42335 bytes
+		string comprimida: 31563 bytes
+		taxa de compressao: 25.4447%
 
 	2ª execucao
-		string original: 42320 bytes
-		string comprimida: 49062 bytes
-		taxa de compressao: -15.931%
+		string original: 42299 bytes
+		string comprimida: 31797 bytes
+		taxa de compressao: 24.828%
 
 	3ª execucao
-		string original: 42339 bytes
-		string comprimida: 48246 bytes
-		taxa de compressao: -13.9517%
+		string original: 42335 bytes
+		string comprimida: 31767 bytes
+		taxa de compressao: 24.9628%
 
-	Media final de compressão: -14.5329%
-	Media de caracteres: 42332
+	Media final de compressão: 25.0785%
+	Media de caracteres: 42323
 
  940 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 42785 bytes
-		string comprimida: 48246 bytes
-		taxa de compressao: -12.7638%
+		string original: 42784 bytes
+		string comprimida: 31764 bytes
+		taxa de compressao: 25.7573%
 
 	2ª execucao
-		string original: 42780 bytes
-		string comprimida: 48615 bytes
-		taxa de compressao: -13.6396%
+		string original: 42820 bytes
+		string comprimida: 32112 bytes
+		taxa de compressao: 25.007%
 
 	3ª execucao
-		string original: 42772 bytes
-		string comprimida: 48771 bytes
-		taxa de compressao: -14.0255%
+		string original: 42811 bytes
+		string comprimida: 32097 bytes
+		taxa de compressao: 25.0263%
 
-	Media final de compressão: -13.4763%
-	Media de caracteres: 42779
+	Media final de compressão: 25.2635%
+	Media de caracteres: 42805
 
  950 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 43243 bytes
-		string comprimida: 48813 bytes
-		taxa de compressao: -12.8807%
+		string original: 43276 bytes
+		string comprimida: 32274 bytes
+		taxa de compressao: 25.4229%
 
 	2ª execucao
-		string original: 43254 bytes
-		string comprimida: 49008 bytes
-		taxa de compressao: -13.3028%
+		string original: 43256 bytes
+		string comprimida: 32316 bytes
+		taxa de compressao: 25.2913%
 
 	3ª execucao
-		string original: 43247 bytes
-		string comprimida: 49248 bytes
-		taxa de compressao: -13.8761%
+		string original: 43236 bytes
+		string comprimida: 32307 bytes
+		taxa de compressao: 25.2775%
 
-	Media final de compressão: -13.3532%
-	Media de caracteres: 43248
+	Media final de compressão: 25.3306%
+	Media de caracteres: 43256
 
  960 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 43722 bytes
-		string comprimida: 49218 bytes
-		taxa de compressao: -12.5703%
+		string original: 43694 bytes
+		string comprimida: 32646 bytes
+		taxa de compressao: 25.2849%
 
 	2ª execucao
-		string original: 43712 bytes
-		string comprimida: 49440 bytes
-		taxa de compressao: -13.104%
+		string original: 43713 bytes
+		string comprimida: 32862 bytes
+		taxa de compressao: 24.8233%
 
 	3ª execucao
-		string original: 43677 bytes
-		string comprimida: 49902 bytes
-		taxa de compressao: -14.2524%
+		string original: 43720 bytes
+		string comprimida: 32655 bytes
+		taxa de compressao: 25.3088%
 
-	Media final de compressão: -13.3089%
-	Media de caracteres: 43703
+	Media final de compressão: 25.139%
+	Media de caracteres: 43709
 
  970 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 44174 bytes
-		string comprimida: 50520 bytes
-		taxa de compressao: -14.3659%
+		string original: 44148 bytes
+		string comprimida: 32949 bytes
+		taxa de compressao: 25.3669%
 
 	2ª execucao
-		string original: 44132 bytes
-		string comprimida: 49935 bytes
-		taxa de compressao: -13.1492%
+		string original: 44162 bytes
+		string comprimida: 32865 bytes
+		taxa de compressao: 25.5808%
 
 	3ª execucao
-		string original: 44144 bytes
-		string comprimida: 49806 bytes
-		taxa de compressao: -12.8262%
+		string original: 44160 bytes
+		string comprimida: 33117 bytes
+		taxa de compressao: 25.0068%
 
-	Media final de compressão: -13.4471%
-	Media de caracteres: 44150
+	Media final de compressão: 25.3182%
+	Media de caracteres: 44156
 
  980 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 44597 bytes
-		string comprimida: 50415 bytes
-		taxa de compressao: -13.0457%
+		string original: 44580 bytes
+		string comprimida: 33195 bytes
+		taxa de compressao: 25.5384%
 
 	2ª execucao
-		string original: 44626 bytes
-		string comprimida: 51036 bytes
-		taxa de compressao: -14.3638%
+		string original: 44605 bytes
+		string comprimida: 33294 bytes
+		taxa de compressao: 25.3581%
 
 	3ª execucao
-		string original: 44611 bytes
-		string comprimida: 50733 bytes
-		taxa de compressao: -13.7231%
+		string original: 44595 bytes
+		string comprimida: 33168 bytes
+		taxa de compressao: 25.6239%
 
-	Media final de compressão: -13.7109%
-	Media de caracteres: 44611
+	Media final de compressão: 25.5068%
+	Media de caracteres: 44593
 
  990 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 45110 bytes
-		string comprimida: 51513 bytes
-		taxa de compressao: -14.1942%
+		string original: 45101 bytes
+		string comprimida: 33609 bytes
+		taxa de compressao: 25.4806%
 
 	2ª execucao
-		string original: 45076 bytes
-		string comprimida: 51165 bytes
-		taxa de compressao: -13.5083%
+		string original: 45103 bytes
+		string comprimida: 33705 bytes
+		taxa de compressao: 25.271%
 
 	3ª execucao
-		string original: 45083 bytes
-		string comprimida: 50979 bytes
-		taxa de compressao: -13.0781%
+		string original: 45069 bytes
+		string comprimida: 33486 bytes
+		taxa de compressao: 25.7006%
 
-	Media final de compressão: -13.5935%
-	Media de caracteres: 45089
+	Media final de compressão: 25.4841%
+	Media de caracteres: 45091
 
  1000 imports = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 	1ª execucao
-		string original: 45517 bytes
-		string comprimida: 51957 bytes
-		taxa de compressao: -14.1486%
+		string original: 45515 bytes
+		string comprimida: 34038 bytes
+		taxa de compressao: 25.2159%
 
 	2ª execucao
-		string original: 45561 bytes
-		string comprimida: 51672 bytes
-		taxa de compressao: -13.4128%
+		string original: 45534 bytes
+		string comprimida: 34032 bytes
+		taxa de compressao: 25.2602%
 
 	3ª execucao
-		string original: 45529 bytes
-		string comprimida: 51591 bytes
-		taxa de compressao: -13.3146%
+		string original: 45509 bytes
+		string comprimida: 34200 bytes
+		taxa de compressao: 24.85%
 
-	Media final de compressão: -13.6253%
-	Media de caracteres: 45535
+	Media final de compressão: 25.1087%
+	Media de caracteres: 45519
 

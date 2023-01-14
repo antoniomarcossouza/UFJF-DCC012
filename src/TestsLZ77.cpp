@@ -48,12 +48,12 @@ void gerarResultados() {
 
     string comprimida = CompressaoLZ77::comprime(txt);
     cout << "Comprimida:" << endl;
-    cout << comprimida << endl << endl;
+    cout << comprimida;
+    cout << endl << endl;
 
     string descomprimida = CompressaoLZ77::descomprime(comprimida);
     cout << "Descomprimida:" << endl;
     cout << descomprimida << endl << endl;
-
 
     ofstream outfile("./src/testFiles/lz77_data.txt");
     ofstream taxaMedia("./src/testFiles/taxa_media_de_compressao_lz77.txt");

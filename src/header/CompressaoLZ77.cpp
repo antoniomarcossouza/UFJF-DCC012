@@ -8,52 +8,59 @@
 string CompressaoLZ77::comprime(string str) {
     string strCompactada = "";
     int point = 0;
-    int midPoint = 0;
+    int cursor = 0;
     int dicPtr = 0;
     string buffer = "";
     string dicionario = "";
     buffer = str.substr(0, TBUF);
 
-    while (midPoint < str.length())
+    while (cursor < str.length())
     {   
-        dicPtr = midPoint - TDIC;
-        unsigned char volta = 0;
-        unsigned char qtd = 0;
+        dicPtr = cursor - TDIC;
         if (dicPtr < 0) dicPtr = 0;
-        for (int p = dicPtr; p < midPoint; p++)
+        string maiorPadrao = "";
+        int inicioMaiorPadrao = 0;
+        for (int p = dicPtr; p < cursor; p++)
         {
-            if (str.at(midPoint) == str.at(p)) {
-                volta = midPoint - p;
-                qtd++;
+            if (str.at(cursor) == str.at(p)) {
+                string padrao = "";
+                padrao += str.at(cursor);
                 for (int j = 1; j < TBUF; j++)
                 {
-                    if (midPoint+j < str.length()) {
-                        if (str.at(midPoint+j) != str.at(p+j)) {
-                            qtd = j;
-                            break;
-                        }
+                    if (cursor+j >= str.length())
+                        break;
+
+                    if (str.at(cursor+j) == str.at(p+j)) {
+                        padrao += str.at(cursor+j);
                     } else {
                         break;
                     }
-
                 }
-                break;
-                
-            } else {
+                if (padrao.length() > maiorPadrao.length()) {
+                    maiorPadrao = padrao;
+                    inicioMaiorPadrao = p;
+                }
             }
-
         }
+
+        unsigned char volta = 0;
+        unsigned char qtd = 0;
+        char next;
+        if (!maiorPadrao.empty()) {
+            volta =  cursor - inicioMaiorPadrao;
+            qtd = maiorPadrao.length();
+        }
+
+        if (cursor + qtd < str.length())
+            next = str.at(cursor + qtd);
+        else
+            next = '\0';
 
         strCompactada += volta;
         strCompactada += qtd;
-        try {
-            strCompactada += str.at(midPoint+qtd);
-        }
-        catch(const std::out_of_range& e) {
-            strCompactada += '\0';
-        }
+        strCompactada += next;
         
-        midPoint += qtd+1;
+        cursor += qtd+1;
     }
     return strCompactada;   
 
