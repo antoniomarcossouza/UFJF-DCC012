@@ -14,26 +14,26 @@ struct NoArvoreVP {
     int cor; //1 vermelho e 0 preto
 
 };
-
-class ArvoreVP {
-    public:
-
-        ArvoreVP();
-        ~ArvoreVP();
-
+               
+class ArvoreVP {                       
+    public:                
+                       
+        ArvoreVP();                
+        ~ArvoreVP();               
+                        
         ProductReview* busca(string userId, string productId);
         void insere(ProductReview* review);
-        void print();
-
+        void print();                           
+                         
     private:
 
-    NoArvoreVP* raiz;
-    void rotacaoEsquerda();
-    void rotacaoDireita();
+    NoArvoreVP* raiz;                                 
+    void rotacaoEsquerda(NoArvoreVP* no);
+    void rotacaoDireita(NoArvoreVP* no);
     void verificaCoresArvore(NoArvoreVP* no);
     NoArvoreVP* criaNoArvoreVP(ProductReview* review);
-
-
+                                                                             
+                                                                                         
 };  
 
 #endif
