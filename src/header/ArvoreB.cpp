@@ -28,7 +28,8 @@ ArvoreBNo* ArvoreB::criaNo(bool folha)
     no->folha = folha;
     no->n = 0;
 
-    memset(no->filhos, 0, sizeof(no->filhos));
+    for (int i = 0; i < M - 1; i++)
+            no->filhos[i] = NULL;
 
     return no;
 }
