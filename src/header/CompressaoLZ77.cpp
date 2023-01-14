@@ -2,60 +2,65 @@
 
 #include <iostream>
 
-#define TDIC 6
-#define TBUF 4
+#define TDIC 255
+#define TBUF 255
 
 string CompressaoLZ77::comprime(string str) {
     string strCompactada = "";
     int point = 0;
-    int midPoint = 0;
+    int cursor = 0;
     int dicPtr = 0;
     string buffer = "";
     string dicionario = "";
     buffer = str.substr(0, TBUF);
 
-    while (midPoint < str.length())
+    while (cursor < str.length())
     {   
-        dicPtr = midPoint - TDIC;
-        bool encontrou = false;
-        int volta = 0;
-        int qtd = 0;
+        dicPtr = cursor - TDIC;
         if (dicPtr < 0) dicPtr = 0;
-        for (int p = dicPtr; p < midPoint; p++)
+        string maiorPadrao = "";
+        int inicioMaiorPadrao = 0;
+        for (int p = dicPtr; p < cursor; p++)
         {
-            if (str.at(midPoint) == str.at(p)) {
-                encontrou = true;
-                volta = midPoint - p;
-                qtd++;
+            if (str.at(cursor) == str.at(p)) {
+                string padrao = "";
+                padrao += str.at(cursor);
                 for (int j = 1; j < TBUF; j++)
                 {
-                    if (midPoint+j < str.length()) {
-                        if (str.at(midPoint+j) != str.at(p+j)) {
-                            qtd = j;
-                            break;
-                        }
+                    if (cursor+j >= str.length())
+                        break;
+
+                    if (str.at(cursor+j) == str.at(p+j)) {
+                        padrao += str.at(cursor+j);
                     } else {
                         break;
                     }
-
                 }
-                break;
-                
-            } else {
+                if (padrao.length() > maiorPadrao.length()) {
+                    maiorPadrao = padrao;
+                    inicioMaiorPadrao = p;
+                }
             }
-
         }
 
-        strCompactada += to_string(volta);
-        strCompactada += to_string(qtd);
-        try {
-            strCompactada += str.at(midPoint+qtd);
+        unsigned char volta = 0;
+        unsigned char qtd = 0;
+        char next;
+        if (!maiorPadrao.empty()) {
+            volta =  cursor - inicioMaiorPadrao;
+            qtd = maiorPadrao.length();
         }
-        catch(const std::out_of_range& e) {
-            strCompactada += '\0';
-        }
+
+        if (cursor + qtd < str.length())
+            next = str.at(cursor + qtd);
+        else
+            next = '\0';
+
+        strCompactada += volta;
+        strCompactada += qtd;
+        strCompactada += next;
         
-        midPoint += qtd+1;
+        cursor += qtd+1;
     }
     return strCompactada;   
 
@@ -68,8 +73,8 @@ string CompressaoLZ77::descomprime(string str) {
     int ptr = 1;
     for (int i = 3; i < str.length()-1; i+=3)
     {
-        int volta = int(str.at(i) - '0');
-        int qtd = int(str.at(i+1) - '0');
+        unsigned char volta = str.at(i);
+        unsigned char qtd = str.at(i+1);
         char next = str.at(i+2);
 
         for (int j = 0; j < qtd; j++)
