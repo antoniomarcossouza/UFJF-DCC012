@@ -17,30 +17,31 @@ ArvoreVP::~ArvoreVP()
 
 
 void ArvoreVP::insere(ProductReview* review){
-                                                                                                                                                                                                                      
-    NoArvoreVP* novoNo = criaNoArvoreVP(review);
-    NoArvoreVP* atual = this->raiz;
-    NoArvoreVP* pai = nullptr;
-
-    while(atual != nullptr){
-
-        pai = atual;
-                                                                                                                             
-        if( novoNo->id < atual->id ){
-            atual = atual->esq;
-        }                                                            
-        else{
-            atual = atual->dir;
-        }
-    }                                       
-
-    novoNo->pai = pai;   
-
-    if(pai == nullptr)
-    {                            
-        raiz = novoNo->pai;
+    //verifica se não existe raiz
+    if(this->raiz == nullptr){
+        this->raiz = criaNoArvoreVP(review);
+        this->raiz->cor = 0; //colore raiz de preto
     }
-    else{
+    else{  
+
+        NoArvoreVP* novoNo = criaNoArvoreVP(review);
+        NoArvoreVP* atual = this->raiz;
+        NoArvoreVP* pai = nullptr;
+        
+        //procura o local de inserção do no na arvore
+        while(atual != nullptr){
+
+            pai = atual;
+                                                                                                                                
+            if( novoNo->id < atual->id ){
+                atual = atual->esq;
+            }                                                            
+            else{
+                atual = atual->dir;
+            }
+        }                                       
+        //
+        novoNo->pai = pai;   
 
         if(novoNo->id < pai->id){
             pai->esq = novoNo;
@@ -48,10 +49,8 @@ void ArvoreVP::insere(ProductReview* review){
         else{
             pai->dir = novoNo;
         }
+        verificaCoresArvore(novoNo);
     }
-
-    verificaCoresArvore(novoNo);
-
 }
 
 //Função para auxiliar a criação de NO
@@ -64,6 +63,7 @@ NoArvoreVP* ArvoreVP::criaNoArvoreVP(ProductReview* review){
     novo->dir = nullptr;
     novo->esq = nullptr;
     novo->pai = nullptr;
+    //todo nó inserido é vermelho
     novo->cor = 1;
 
     return novo;
@@ -71,7 +71,34 @@ NoArvoreVP* ArvoreVP::criaNoArvoreVP(ProductReview* review){
 }
 
 ProductReview*  ArvoreVP::busca(string userId, string productId){
-    return nullptr;
+    //verifica se existe no na arvore
+
+    string id = userId + productId;
+    NoArvoreVP* no = this->raiz;
+
+    while(no!=nullptr && no->id != id){
+        if(id < no->id){
+            no = no->esq;
+        }
+        else{
+            no = no->dir;
+        }
+    }
+    //não encontrou ou não existe no raiz
+    if(no == nullptr){
+        return nullptr;
+    }
+    //retorna uma copia
+    else {
+        ProductReview *review = new ProductReview();
+        review->setUserId(no->productReview->getUserId());
+        review->setProductId(no->productReview->getProductId());
+        review->setRating(no->productReview->getRating());
+        review->setTimestamp(no->productReview->getTimestamp());
+        review->setBinFileLocation(no->productReview->getBinFileLocation()); 
+
+        return review;
+    }
 }
 
 void ArvoreVP::rotacaoEsquerda(){
