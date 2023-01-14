@@ -27,13 +27,13 @@ class ArvoreVP {
                          
     private:
 
-    NoArvoreVP* raiz;                                 
+    NoArvoreVP* raiz;
+    int comparacoesInsercao;
+    int comparacoesBusca;                                 
     void rotacaoEsquerda(NoArvoreVP* no);
     void rotacaoDireita(NoArvoreVP* no);
     void verificaCoresArvore(NoArvoreVP* no);
     NoArvoreVP* criaNoArvoreVP(ProductReview* review);
-                                                                             
-                                                                                         
+    void imprime(NoArvoreVP* no);
 };  
-
 #endif

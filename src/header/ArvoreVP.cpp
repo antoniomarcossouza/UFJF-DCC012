@@ -7,7 +7,9 @@ extern ManipulandoArquivo arq;
 
 ArvoreVP::ArvoreVP() 
 {
-   this->raiz = nullptr;
+    this->raiz = nullptr;
+    comparacoesInsercao = 0;
+    comparacoesBusca = 0;
 }
                                                                                      
 ArvoreVP::~ArvoreVP()
@@ -37,7 +39,8 @@ void ArvoreVP::insere(ProductReview* review){
             }                                                                                     
             else{                  
                 atual = atual->dir;
-            }                        
+            }  
+            comparacoesInsercao++;                      
         }                                                                                         
         //
         novoNo->pai = pai;   
@@ -82,6 +85,7 @@ ProductReview*  ArvoreVP::busca(string userId, string productId){
         else{
             no = no->dir;
         }
+        comparacoesBusca++;
     }
     //não encontrou ou não existe no raiz
     if(no == nullptr){
@@ -208,7 +212,7 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
 void ArvoreVP::print(){
     imprime(this->raiz);
 }
-void imprime(NoArvoreVP* no){
+void ArvoreVP::imprime(NoArvoreVP* no){
     if(no == nullptr) {
         return;
     }
