@@ -6,8 +6,8 @@
 using namespace std;
 
 
-vector<int> CompressaoLZW::comprime(string str) {
-    unordered_map<string, int> dicionario;
+vector<unsigned short> CompressaoLZW::comprime(string str) {
+    unordered_map<string, unsigned short> dicionario;
 
     // iniciar dicionario com a tabela hash
     for (int i = 0; i < 128; i++)
@@ -19,14 +19,14 @@ vector<int> CompressaoLZW::comprime(string str) {
 
     string padrao = str.substr(0, 1); // primeiro simbolo da entrada
     int code = 128;
-    vector<int> saida;
+    vector<unsigned short> saida;
     for (int i = 0; i < str.length()-1; i++) 
     {
         char c = str.at(i+1);
         
         if (dicionario.find(padrao + c) != dicionario.end()) {
             padrao += c;
-        } else { // insere a combinacao nova combinacao "string + c" no dicionario
+        } else { // insere a combinacao nova combinacao "padrao + c" no dicionario
             saida.push_back(dicionario[padrao]);
             dicionario[padrao + c] = code;
             code++;
@@ -38,7 +38,7 @@ vector<int> CompressaoLZW::comprime(string str) {
     return saida;
 }
 
-string CompressaoLZW::descomprime(vector<int> codes) {
+string CompressaoLZW::descomprime(vector<unsigned short> codes) {
     string saida;
     vector<string> dicionario;
     for (int i = 0; i < 128; i++)
@@ -69,7 +69,7 @@ string CompressaoLZW::descomprime(vector<int> codes) {
 }
 
 string CompressaoLZW::descomprime(string str) {
-    vector<int> code;
+    vector<unsigned short> code;
 
     string currentCode;
     for (int i = 0; i < str.length(); i++)

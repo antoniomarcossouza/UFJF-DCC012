@@ -1,5 +1,5 @@
-#ifndef COMPRESSAO_H
-#define COMPRESSAO_H
+#ifndef COMPRESSAOLZ77_H
+#define COMPRESSAOLZ77_H
 
 #include <string>
 using namespace std;

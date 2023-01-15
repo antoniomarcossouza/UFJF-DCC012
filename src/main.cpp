@@ -1,21 +1,22 @@
 #include <bits/stdc++.h>
 #include <stdlib.h>
 
+#include <algorithm>
+#include <chrono>
 #include <fstream>
 #include <iostream>
 #include <random>
-#include <chrono>
 #include <vector>
-#include <algorithm>
 
 #include "./header/AlgoritmosOrdenacao.h"
+#include "./header/ArvoreB.h"
+#include "./header/ArvoreB200.h"
+#include "./header/CompressaoHuffman.h"
+#include "./header/CompressaoLZ77.h"
+#include "./header/CompressaoLZW.h"
 #include "./header/HashTable.h"
 #include "./header/ManipulandoArquivo.h"
 #include "./header/ProductReview.h"
-#include "./header/ArvoreB.h"
-#include "./header/ArvoreB200.h"
-#include "./header/CompressaoLZ77.h"
-#include "./header/CompressaoLZW.h"
 
 using namespace std;
 using namespace std;
@@ -58,7 +59,7 @@ ProductReview* import(int n) {
     mt19937 gen(rd());
     uniform_int_distribution<> dis(1, 7000000);
 
-    generate(numbers.begin(), numbers.end(), [&]{ return dis(gen);});
+    generate(numbers.begin(), numbers.end(), [&] { return dis(gen); });
     sort(numbers.begin(), numbers.end());
 
     numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
@@ -148,7 +149,7 @@ void etapaHash() {
     }
     hTable.print();
 
-    delete [] pr;
+    delete[] pr;
 }
 
 RegistroHash* createTable(int n) {
@@ -159,12 +160,12 @@ RegistroHash* createTable(int n) {
     for (int i = 0; i < n; i++) {
         hTable.insere(pr[i]);
     }
-    delete [] pr;
-    
+    delete[] pr;
+
     return hTable.getTable();
 }
 
-template<typename T>
+template <typename T>
 void testeArvore(T* arv, string algoritmo) {
     int N = 1000000;
     int B = 100;
@@ -205,8 +206,8 @@ void testeArvore(T* arv, string algoritmo) {
         comparacoesResultsSearch[j] = arv->getComparacoesBusca();
 
         delete arv;
-        delete [] prodsToImport;
-        delete [] prodsToSearch;
+        delete[] prodsToImport;
+        delete[] prodsToSearch;
     }
 
     arq.gerarResultadoEB(timeResultsInsersion, timeResultsSearch, comparacoesResultsInsersion, comparacoesResultsSearch, algoritmo);
@@ -223,28 +224,31 @@ void testeArvoreB() {
 void etapaEstruturasBalanceadas() {
     arq.clearOutputFile();
     // ARVORE VERMELHO E PRETO
-    
+    // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
 
     // ARVORE B
     testeArvoreB();
 }
 
+// VARIÁVEIS GLOBAIS - COLOCAR ONDE?
+unordered_map<char, string> huffmanCode;
+priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare> filaPrioridade;
+
 string comprime(string str, int metodo) {
     if (metodo == 0) {
         //  Huffman
-        // retorna a string comprimida
-    }
-    else if (metodo == 1) {
+        CompressaoHuffman::buildHuffmanTree(str, huffmanCode, filaPrioridade);
+        return CompressaoHuffman::comprimir(str, huffmanCode);
+    } else if (metodo == 1) {
         // LZ77
         return CompressaoLZ77::comprime(str);
-    }
-    else if (metodo == 2) {
+    } else if (metodo == 2) {
         // LZW
-        vector<int> codes = CompressaoLZW::comprime(str);
+        vector<unsigned short> codes = CompressaoLZW::comprime(str);
         string comprimida;
         for (int i = 0; i < codes.size(); i++)
             comprimida.append(to_string(codes.at(i)) + " ");
-        
+
         return comprimida;
     }
     return "";
@@ -253,13 +257,11 @@ string comprime(string str, int metodo) {
 string descomprime(string str, int metodo) {
     if (metodo == 0) {
         //  Huffman
-        // retorna a string descomprimida
-    }
-    else if (metodo == 1) {
+        return CompressaoHuffman::descomprimir(str, filaPrioridade.top());
+    } else if (metodo == 1) {
         // LZ77
         return CompressaoLZ77::descomprime(str);
-    }
-    else if (metodo == 2) {
+    } else if (metodo == 2) {
         // LZW
         return CompressaoLZW::descomprime(str);
     }
@@ -268,10 +270,10 @@ string descomprime(string str, int metodo) {
 
 void comprime(int metodo) {
     /*
-        comprime o conteúdo de um arquivo texto nomeado reviewsOrig.txt, utilizando o método especificado 
+        comprime o conteúdo de um arquivo texto nomeado reviewsOrig.txt, utilizando o método especificado
         no segundo parâmetro (0 = Huffman, 1 = LZ77, 2 = LZW). A função deve salvar o resultado da compressão
-        em um arquivo binário reviewsComp.bin. Ambos os arquivos deverão estar localizados no caminho fornecido 
-        pelo usuário via linha de comando (vide Seção 5). 
+        em um arquivo binário reviewsComp.bin. Ambos os arquivos deverão estar localizados no caminho fornecido
+        pelo usuário via linha de comando (vide Seção 5).
     */
 
     string original = arq.getReviews();
@@ -279,21 +281,17 @@ void comprime(int metodo) {
     if (metodo == 0) {
         //  Huffman
         // string comprimida = CompressaoHUF::comprime(original);
-    }
-    else if (metodo == 1) {
+    } else if (metodo == 1) {
         // LZ77
         string comprimida = CompressaoLZ77::comprime(original);
         arq.writeBin("reviewsComp.bin", comprimida);
-    }
-    else if (metodo == 2) {
+    } else if (metodo == 2) {
         // LZW
-        vector<int> comprimida = CompressaoLZW::comprime(original);
+        vector<unsigned short> comprimida = CompressaoLZW::comprime(original);
         arq.writeBin("reviewsComp.bin", comprimida);
         // string comprimida = CompressaoLZW::comprime(original);
     }
-    
 }
-
 
 void descomprime(int metodo) {
     /*
@@ -305,14 +303,12 @@ void descomprime(int metodo) {
     if (metodo == 0) {
         //  Huffman
         // string comprimida = CompressaoHUF::comprime(original);
-    }
-    else if (metodo == 1) {
+    } else if (metodo == 1) {
         // LZ77
         string comprimida = arq.readBin("reviewsComp.bin", 1);
         string descomprimida = CompressaoLZ77::descomprime(comprimida);
         arq.writeTxt("reviewsDesc.txt", descomprimida);
-    } 
-    else if (metodo == 2) {
+    } else if (metodo == 2) {
         // LZW
         string comprimida = arq.readBin("reviewsComp.bin", 2);
         string descomprimida = CompressaoLZW::descomprime(comprimida);
@@ -320,69 +316,95 @@ void descomprime(int metodo) {
     }
 }
 
-void compressTest(int method)
-{
-    switch(method)
-    {
-        case 0: cout << "=== Teste Huffman ===" << endl << endl; break;
-        case 1: cout << "=== Teste LZ77 ===" << endl << endl; break;
-        case 2: cout << "=== Teste LZW ===" << endl << endl; break;
-        default: cout << "Metodo de compressao nao suportado" << endl << endl; break;
+void compressTest(int method) {
+    switch (method) {
+        case 0:
+            cout << "=== Teste Huffman ===" << endl
+                 << endl;
+            break;
+        case 1:
+            cout << "=== Teste LZ77 ===" << endl
+                 << endl;
+            break;
+        case 2:
+            cout << "=== Teste LZW ===" << endl
+                 << endl;
+            break;
+        default:
+            cout << "Metodo de compressao nao suportado" << endl
+                 << endl;
+            break;
     }
-    
+
     cout << "Testando strings..." << endl;
 
     string str = "string qualquer";
     string comp = comprime(str, method);
-    string orig = descomprime(comp, method);
-
     cout << "String comprimida: " << comp << endl;
+
+    string orig = descomprime(comp, method);
     cout << "String descomprimida: " << orig << endl << endl;
 
     cout << "Testando arquivos..." << endl;
 
-    comprime(method); // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
-    descomprime(method); // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
+    comprime(method);     // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
+    descomprime(method);  // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
+    
 }
 
 void etapaCompressao() {
-    const int qtdImports = 3;
-
     int option;
     cout << "Escolha qual compressão: " << endl
-             << "0. Huffman" << endl
-             << "1. LZ77" << endl
-             << "2. LZW" << endl
-             << "> " << flush;
-        cin >> option;
+         << "0. Huffman" << endl
+         << "1. LZ77" << endl
+         << "2. LZW" << endl
+         << "> " << flush;
+    cin >> option;
 
+    string strOption;
+    switch (option) {
+        case 0: strOption = "Huffman"; break;
+        case 1: strOption = "LZ77"; break;
+        case 2: strOption = "LZW"; break;
+        default: break;
+    }
+
+    int qtdImports = 1000;
     int tamOrig[3];
     int tamCompress[3];
 
-    for (int i = 0; i < 3; i++)
-    {
+    for (int i = 0; i < 3; i++) {
         string str;
         ProductReview* pr = import(qtdImports);
-        for (int i = 0; i < qtdImports; i++)
-        {
+        for (int i = 0; i < qtdImports; i++) {
             str.append(pr[i].toString());
         }
 
-        string compress = comprime(str, option);
-        
-        tamOrig[i] = str.length();
-        compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
-        tamCompress[i] = compress.length();
+        if (option == 0) {
+            
+        }
+        else if (option == 1) {
+            string compress = comprime(str, option);
+            tamOrig[i] = str.length();
+            compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
+            tamCompress[i] = compress.length();
+        }
+        else if (option == 2) {
+            vector<unsigned short> compress = CompressaoLZW::comprime(str);
+            tamOrig[i] = str.length();
+            tamCompress[i] = compress.size() * sizeof(short);
+        }
+
     }
 
     arq.gerarResultadoCmprs(option, tamOrig, tamCompress);
 }
 
-
 void interface() {
     int option;
     do {
-        cout << endl << "Escolha qual etapa sera executada: " << endl
+        cout << endl
+             << "Escolha qual etapa sera executada: " << endl
              << "1. Ordenacao" << endl
              << "2. Hash" << endl
              << "3. Estruturas Balanceadas" << endl
@@ -404,7 +426,6 @@ void interface() {
     } while (option != 0);
 }
 
-
 int main(int argc, char* arg[]) {
     string PATH;
 
@@ -416,4 +437,4 @@ int main(int argc, char* arg[]) {
     interface();
 
     return 0;
-} 
+}
