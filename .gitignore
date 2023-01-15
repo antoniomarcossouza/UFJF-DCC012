@@ -7,3 +7,5 @@ src/main
 src/files/temp.bin
 src/files/reviewsComp.bin
 src/files/reviewsDesc.txt
+src/DadosCompressao/Huff_data.txt
+src/DadosCompressao/taxa_media_de_compressao_Huff.txt
