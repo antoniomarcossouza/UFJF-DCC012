@@ -40,21 +40,6 @@ ProductReview* import(int n) {
 }
 
 void gerarResultados() {
-
-    string txt = arq.getReviews();
-    
-    cout << "Original:" << endl;
-    cout << txt << endl << endl;
-
-    string comprimida = CompressaoLZ77::comprime(txt);
-    cout << "Comprimida:" << endl;
-    cout << comprimida;
-    cout << endl << endl;
-
-    string descomprimida = CompressaoLZ77::descomprime(comprimida);
-    cout << "Descomprimida:" << endl;
-    cout << descomprimida << endl << endl;
-
     ofstream outfile("./src/testFiles/lz77_data.txt");
     ofstream taxaMedia("./src/testFiles/taxa_media_de_compressao_lz77.txt");
     if (!outfile) {
@@ -96,20 +81,45 @@ void gerarResultados() {
 }
 
 int main(int argc, char* arg[]) {
-    string PATH; if (argc == 2) PATH = arg[1]; arq.setPath(PATH); arq.preProcessamento(PATH);
 
-    gerarResultados();
+
 /*
-    string str = "avNvacer";
+    string PATH; if (argc == 2) PATH = arg[1]; arq.setPath(PATH); arq.preProcessamento(PATH);
+    string txt = "string qualquer"; //arq.getReviews();
+    
+    cout << "Original:" << endl;
+    cout << txt << endl << endl;
 
-    int n = 78;
-    cout << n << endl;
-    char c = (char)n;
-    cout << c << endl;
-    str += n;
-    cout << str << endl;
+    string comprimida = CompressaoLZ77::comprime(txt);
+    cout << "Comprimida:" << endl;
+    cout << comprimida;
+    cout << endl << endl;
 
-    int n2 = str.at(8);
-    cout << n2 << endl;*/
+    string legivel = "";
+    for (int i = 0; i+2 < comprimida.size(); i += 3)
+        {
+            legivel += "(";
+            legivel += to_string(comprimida.at(i));
+            legivel += ",";
+            legivel += to_string(comprimida.at(i+1));
+            legivel += ",";
+            
+            if (comprimida.at(i+2) == '\0')
+                legivel += "NULL";
+            else if (comprimida.at(i+2) == '\n')
+                legivel += "/n";
+            else
+                legivel += comprimida.at(i+2);
+            legivel += ")";
+            
+        }
+    cout << "Legivel:" << endl;
+    cout << legivel;
+    cout << endl << endl;
 
+    string descomprimida = CompressaoLZ77::descomprime(comprimida);
+    cout << "Descomprimida:" << endl;
+    cout << descomprimida << endl << endl; */
+
+    //gerarResultados();
 }

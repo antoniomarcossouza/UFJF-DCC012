@@ -244,7 +244,7 @@ string comprime(string str, int metodo) {
         return CompressaoLZ77::comprime(str);
     } else if (metodo == 2) {
         // LZW
-        vector<short> codes = CompressaoLZW::comprime(str);
+        vector<unsigned short> codes = CompressaoLZW::comprime(str);
         string comprimida;
         for (int i = 0; i < codes.size(); i++)
             comprimida.append(to_string(codes.at(i)) + " ");
@@ -287,7 +287,7 @@ void comprime(int metodo) {
         arq.writeBin("reviewsComp.bin", comprimida);
     } else if (metodo == 2) {
         // LZW
-        vector<short> comprimida = CompressaoLZW::comprime(original);
+        vector<unsigned short> comprimida = CompressaoLZW::comprime(original);
         arq.writeBin("reviewsComp.bin", comprimida);
         // string comprimida = CompressaoLZW::comprime(original);
     }
@@ -340,16 +340,16 @@ void compressTest(int method) {
 
     string str = "string qualquer";
     string comp = comprime(str, method);
-    string orig = descomprime(comp, method);
-
     cout << "String comprimida: " << comp << endl;
-    cout << "String descomprimida: " << orig << endl
-         << endl;
+
+    string orig = descomprime(comp, method);
+    cout << "String descomprimida: " << orig << endl << endl;
 
     cout << "Testando arquivos..." << endl;
 
     comprime(method);     // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
     descomprime(method);  // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
+    
 }
 
 void etapaCompressao() {
@@ -390,7 +390,7 @@ void etapaCompressao() {
             tamCompress[i] = compress.length();
         }
         else if (option == 2) {
-            vector<short> compress = CompressaoLZW::comprime(str);
+            vector<unsigned short> compress = CompressaoLZW::comprime(str);
             tamOrig[i] = str.length();
             tamCompress[i] = compress.size() * sizeof(short);
         }

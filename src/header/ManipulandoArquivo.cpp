@@ -273,6 +273,8 @@ void ManipulandoArquivo::preProcessamento(string path) {
     string binName = "";
     string datName = "";
 
+    this->setPath(path);
+
     for (const auto& entry : fs::directory_iterator(path))
         // Analisa se existe arquivo .CSV no diretorio
         while ((index = getFileName(entry.path()).back().find(".csv", position)) != string::npos) {
@@ -363,7 +365,7 @@ void ManipulandoArquivo::gerarResultadoEB(double* timeInsert, double* timeSearch
     retorna o texto contido em PATH/reviewsOrig.txt
 */
 string ManipulandoArquivo::getReviews() {
-    string reviewsOrigPath = path + "reviewsOrig.txt";
+    string reviewsOrigPath = this->path + "reviewsOrig.txt";
     string reviews;
     ifstream inFile(reviewsOrigPath, ios::ate);
     if (!inFile) {
@@ -383,7 +385,7 @@ string ManipulandoArquivo::getReviews() {
     le arquivo binario nomeArq que contem
     options:
     1 -> string
-    2 -> inteiros
+    2 -> vector<short int>
 */
 string ManipulandoArquivo::readBin(string nomeArq, int option) {
     ifstream inFile(path + nomeArq, ios::in | ios::binary);
@@ -438,7 +440,7 @@ void ManipulandoArquivo::writeBin(string nomeArq, string str) {
 /*
     Escreve um vetor de inteiros no arquivo binario de nome nomeArq
 */
-void ManipulandoArquivo::writeBin(string nomeArq, vector<short> code) {
+void ManipulandoArquivo::writeBin(string nomeArq, vector<unsigned short> code) {
     ofstream outFile(path + nomeArq, ios::out | ios::binary);
 
     if (!outFile) {
