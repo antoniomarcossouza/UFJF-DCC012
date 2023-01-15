@@ -81,7 +81,8 @@ string CompressaoLZ77::descomprime(string str) {
         {
             descomprimida += descomprimida.at(ptr-volta+j);
         }
-        descomprimida += next;
+        if (next != '\0')
+            descomprimida += next;
         
         ptr += qtd+1;
     }
