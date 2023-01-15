@@ -23,7 +23,9 @@ class ArvoreVP {
                         
         ProductReview* busca(string userId, string productId);
         void insere(ProductReview* review);
-        void print();                           
+        void print(); 
+        int getComparacoesInsercao();
+        int getComparacoesBusca();               
                          
     private:
 

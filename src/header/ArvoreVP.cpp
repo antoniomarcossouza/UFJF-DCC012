@@ -3,7 +3,7 @@
 
 ArvoreVP::ArvoreVP() 
 {
-    this->raiz = nullptr;
+    this->raiz = NULL;
     comparacoesInsercao = 0;
     comparacoesBusca = 0;
 }
@@ -14,7 +14,7 @@ ArvoreVP::~ArvoreVP()
 }
 void ArvoreVP::deletaArvore(NoArvoreVP* no)
 {
-    if (no == nullptr)
+    if (no == NULL)
     return;
     deletaArvore(no->esq);
     deletaArvore(no->dir);
@@ -25,17 +25,17 @@ void ArvoreVP::deletaArvore(NoArvoreVP* no)
 
 void ArvoreVP::insere(ProductReview* review){
     //verifica se não existe raiz
-    if(this->raiz == nullptr){
+    if(this->raiz == NULL){
         this->raiz = criaNoArvoreVP(review);                                           
     }
     else{  
 
         NoArvoreVP* novoNo = criaNoArvoreVP(review);
         NoArvoreVP* atual = this->raiz;
-        NoArvoreVP* pai = nullptr;
+        NoArvoreVP* pai = NULL;
         
         //procura o local de inserção do no na arvore
-        while(atual != nullptr){
+        while(atual != NULL){
 
             pai = atual;
                                                                                                                                                                  
@@ -57,7 +57,7 @@ void ArvoreVP::insere(ProductReview* review){
             pai->dir = novoNo;
         }
 
-        if(novoNo!=nullptr){
+        if(novoNo!=NULL){
             verificaCoresArvore(novoNo);
         }
 
@@ -71,9 +71,9 @@ NoArvoreVP* ArvoreVP::criaNoArvoreVP(ProductReview* review){
                                                                                                                                                    
     novo->id = review->getUserId() + review->getProductId();
     novo->productReview = review;
-    novo->dir = nullptr;
-    novo->esq = nullptr;
-    novo->pai = nullptr;
+    novo->dir = NULL;
+    novo->esq = NULL;
+    novo->pai = NULL;
     //todo nó inserido é vermelho
     novo->cor = 1;
 
@@ -87,7 +87,7 @@ ProductReview*  ArvoreVP::busca(string userId, string productId){
     string id = userId + productId;
     NoArvoreVP* no = this->raiz;
 
-    while(no!=nullptr && no->id != id){
+    while(no!=NULL && no->id != id){
         if(id < no->id){
             no = no->esq;
         }
@@ -97,8 +97,8 @@ ProductReview*  ArvoreVP::busca(string userId, string productId){
         comparacoesBusca++;
     }
     //não encontrou ou não existe no raiz
-    if(no == nullptr){
-        return nullptr;
+    if(no == NULL){
+        return NULL;
     }
     //retorna uma copia
     else {
@@ -115,12 +115,12 @@ ProductReview*  ArvoreVP::busca(string userId, string productId){
 
 void ArvoreVP::rotacaoEsquerda(NoArvoreVP* no){
 
-    if(no!=nullptr){
+    if(no!=NULL){
         NoArvoreVP* dir = no->dir;
         no->dir = dir->esq;
         dir->esq = no;
         //verifica o pai
-        if(no->pai!=nullptr){
+        if(no->pai!=NULL){
             //verifica se o no é filho direito do pai
             if(no->pai->dir == no){
                 no->pai->dir = dir;
@@ -136,12 +136,12 @@ void ArvoreVP::rotacaoEsquerda(NoArvoreVP* no){
 }
 
 void ArvoreVP::rotacaoDireita(NoArvoreVP* no){
-    if(no!=nullptr){
+    if(no!=NULL){
         NoArvoreVP* esq = no->esq;
         no->esq = esq->dir;
         esq->dir = no;
         //verifica o pai
-        if(no->pai!=nullptr){
+        if(no->pai!=NULL){
             //verifica se o no é filho direito do pai
             if(no->pai->dir == no){
                 no->pai->dir = esq;
@@ -160,15 +160,15 @@ void ArvoreVP::rotacaoDireita(NoArvoreVP* no){
 void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
     
     //se o pai não for nulo e for vermelho
-    while( no!=nullptr && no->pai != nullptr && no->pai->cor == 1){
+    while( no!=NULL && no->pai != NULL && no->pai->cor == 1){
 
         
-        if(no->pai->pai!=nullptr){
+        if(no->pai->pai!=NULL){
             //verifica se o pai é o filho esquerdo do avô
             if(no->pai == no->pai->pai->esq){
                 NoArvoreVP* tio = no->pai->pai->dir;
                 //verifica se a cor do tio é vermelha
-                if(tio !=nullptr && tio->cor == 1){
+                if(tio !=NULL && tio->cor == 1){
                     //colore pai e o tio de preto e o avô de vermelho
                     no->pai->cor = 0;
                     tio->cor = 0;
@@ -184,7 +184,7 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
 
                     no->pai->cor = 0; //pai preto
 
-                    if(no->pai != nullptr && no->pai->pai != nullptr){
+                    if(no->pai != NULL && no->pai->pai != NULL){
                         no->pai->pai->cor =1; //avô vermelho
                         rotacaoDireita(no->pai->pai);
                     }
@@ -196,7 +196,7 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
             else{//o pai é filho direito
                 NoArvoreVP* tio = no->pai->pai->esq;
                 //verifica se a cor do tio é vermelha
-                if(tio !=nullptr && tio->cor == 1){
+                if(tio !=NULL && tio->cor == 1){
                     //colore pai e o tio de preto e o avô de vermelho
                     no->pai->cor = 0;
                     tio->cor = 0;
@@ -212,7 +212,7 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
 
                     no->pai->cor = 0; //pai preto
 
-                    if(no->pai != nullptr && no->pai->pai != nullptr){
+                    if(no->pai != NULL && no->pai->pai != NULL){
                         no->pai->pai->cor =1; //avô vermelho
                         rotacaoEsquerda(no->pai->pai);
                     }
@@ -230,10 +230,16 @@ void ArvoreVP::print(){
     imprime(this->raiz);
 }
 void ArvoreVP::imprime(NoArvoreVP* no){
-    if(no == nullptr) {
+    if(no == NULL) {
         return;
     }
     imprime(no->esq);
     cout << no->id << " ";
     imprime(no->dir);
+}
+int ArvoreVP::getComparacoesInsercao(){
+    return comparacoesInsercao;
+}
+int ArvoreVP::getComparacoesBusca(){
+    return comparacoesBusca;
 }

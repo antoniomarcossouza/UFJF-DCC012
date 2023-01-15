@@ -12,6 +12,7 @@
 
 #include "./header/AlgoritmosOrdenacao.h"
 #include "./header/ArvoreB.h"
+#include "./header/ArvoreVP.h"
 #include "./header/ArvoreB200.h"
 #include "./header/CompressaoHuffman.h"
 #include "./header/CompressaoLZ77.h"
@@ -222,10 +223,18 @@ void testeArvoreB() {
     testeArvore(arv_20, "ArvoreB m = 20");
     testeArvore(arv_200, "ArvoreB m = 200");
 }
+void testeArvoreVP()
+{
+    ArvoreVP* arv_vp;
+    testeArvore(arv_vp,"Arvore Vermelha-Preta");
 
+}
 void etapaEstruturasBalanceadas() {
     arq.clearOutputFile();
+    
     // ARVORE VERMELHO E PRETO
+    testeArvoreVP();
+
     // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
 
     // ARVORE B

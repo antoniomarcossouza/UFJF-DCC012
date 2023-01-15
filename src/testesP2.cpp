@@ -14,7 +14,7 @@
 
 #include "ProductReview.h"
 #include "ArvoreB.h"
-#include "ArvoreVP.h"
+#include "./header/ArvoreVP.h"
 #include "ManipulandoArquivo.h"
 #include "./header/CompressaoHuffman.h"
 #include "./header/CompressaoLZ77.h"
