@@ -14,6 +14,7 @@
 
 #include "ProductReview.h"
 #include "ArvoreB.h"
+#include "ArvoreVP.h"
 #include "ManipulandoArquivo.h"
 #include "./header/CompressaoHuffman.h"
 #include "./header/CompressaoLZ77.h"
@@ -165,17 +166,17 @@ void printPrompt(ProductReview *vet, int n)
     }
 }
 
-void printPrompt(ArvoreVP *arv, int n)
-{
+  void printPrompt(ArvoreVP *arv, int n)
+ {
      char imp;
      cout << "Imprimir (s/n): ";
-    cin >> imp;
+     cin >> imp;
 
      if(arv == NULL)
          cout << "ALERTA: ponteiro nulo, nada a imprimir!" << endl;
      else if(imp == 's')
          arv->print();
-}
+ } 
 
 void printPrompt(ArvoreB *arv, int n)
 {
