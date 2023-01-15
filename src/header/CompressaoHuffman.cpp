@@ -3,6 +3,16 @@
 #include <iostream>
 #include <queue>
 
+/*
+Parâmetros: 
+
+
+Variáveis:
+
+
+Código:
+
+*/
 void CompressaoHuffman::buildCodes(Node *raiz, string str, unordered_map<char, string> &huffmanCode) {
     if (raiz == nullptr) {
         return;
@@ -14,6 +24,16 @@ void CompressaoHuffman::buildCodes(Node *raiz, string str, unordered_map<char, s
     buildCodes(raiz->right, str + "1", huffmanCode);
 }
 
+/*
+Parâmetros: 
+
+
+Variáveis:
+
+
+Código:
+
+*/
 void CompressaoHuffman::buildHuffmanTree(string texto, unordered_map<char, string> &huffmanCode, priority_queue<Node *, vector<Node *>, Compare> &filaPrioridade) {
     // Build frequency table
     unordered_map<char, int> freqTable;
@@ -40,6 +60,21 @@ void CompressaoHuffman::buildHuffmanTree(string texto, unordered_map<char, strin
     buildCodes(filaPrioridade.top(), "", huffmanCode);
 }
 
+/*
+Parâmetros: 
+texto: texto a ser comprimido
+huffmanCode: mapa que contém os códigos Huffman para cada caractere
+
+Variáveis:
+textoCodificado: será preenchida com o texto comprimido
+
+Código:
+Loop que percorre cada caractere do texto. 
+Para cada caractere, o código adiciona o código Huffman correspondente,
+que é recuperado do huffmanCode, ao textoCodificado.
+
+Ao fim do loop, a função retorna o texto comprimido.
+*/
 string CompressaoHuffman::comprimir(string texto, unordered_map<char, string> &huffmanCode) {
     string textoCodificado = "";
     for (char c : texto) {
@@ -48,6 +83,25 @@ string CompressaoHuffman::comprimir(string texto, unordered_map<char, string> &h
     return textoCodificado;
 }
 
+/*
+Parâmetros: 
+textoCodificado: texto a ser descomprimido
+raiz: ponto inicial da árvore de Huffman usada para a codificação
+
+Variáveis:
+textoDecodificado: será preenchida com o texto descomprimido
+current: aponta para o nó atual, inicialmente para a raiz da árvore de Huffman
+
+Código:
+Loop que percorre os caracteres do texto codificado. 
+Para cada caractere, o código verifica se é igual a '0' ou '1', 
+e move o ponteiro current para o filho esquerdo ou direito da árvore, respectivamente.
+
+Se o nó atual tem um caractere diferente de '\0', que indica que é uma folha, ele é adicionado 
+ao textoDecodificado e o ponteiro current é apontado para a raiz novamente.
+
+Ao fim do loop, a função retorna o texto descomprimido.
+*/
 string CompressaoHuffman::descomprimir(string textoCodificado, Node *raiz) {
     string textoDecodificado = "";
     Node *current = raiz;

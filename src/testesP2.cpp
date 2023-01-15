@@ -55,12 +55,15 @@ ProductReview* import(int n) {
     return produtos;
 }
 
+// VARIÁVEIS GLOBAIS - COLOCAR ONDE?
 unordered_map<char, string> huffmanCode;
 priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare> filaPrioridade;
 
 string comprime(string str, int metodo) {
     if (metodo == 0) {
         //  Huffman
+        huffmanCode.clear();
+        filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
         CompressaoHuffman::buildHuffmanTree(str, huffmanCode, filaPrioridade);
         return CompressaoHuffman::comprimir(str, huffmanCode);
     } else if (metodo == 1) {
@@ -104,7 +107,11 @@ void comprime(int metodo) {
 
     if (metodo == 0) {
         //  Huffman
-        // string comprimida = CompressaoHUF::comprime(original);
+        huffmanCode.clear();
+        filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
+        CompressaoHuffman::buildHuffmanTree(original, huffmanCode, filaPrioridade);
+        string comprimida = CompressaoHuffman::comprimir(original, huffmanCode);
+        arq.writeBin("reviewsComp.bin", comprimida);
     } else if (metodo == 1) {
         // LZ77
         string comprimida = CompressaoLZ77::comprime(original);
@@ -126,7 +133,9 @@ void descomprime(int metodo) {
 
     if (metodo == 0) {
         //  Huffman
-        // string comprimida = CompressaoHUF::comprime(original);
+        string comprimida = arq.readBin("reviewsComp.bin", 0);
+        string descomprimida = CompressaoHuffman::descomprimir(comprimida, filaPrioridade.top());
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
     } else if (metodo == 1) {
         // LZ77
         string comprimida = arq.readBin("reviewsComp.bin", 1);
@@ -139,7 +148,6 @@ void descomprime(int metodo) {
         arq.writeTxt("reviewsDesc.txt", descomprimida);
     }
 }
-
 
 
 void printPrompt(ProductReview *vet, int n)
