@@ -1,5 +1,5 @@
 /*
-g++ ./src/TestsLZ77.cpp ./src/header/*.cpp -I ./src/header -o ./src/TestsLZ77 && ./src/TestsLZ77 ./src/files/
+g++ ./src/DadosLzW.cpp ./src/header/*.cpp -I ./src/header -o ./src/DadosLzW && ./src/DadosLzW ./src/files/
 */
 #include <bits/stdc++.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@ g++ ./src/TestsLZ77.cpp ./src/header/*.cpp -I ./src/header -o ./src/TestsLZ77 &&
 #include <vector>
 
 #include "header/ProductReview.h"
-#include "header/CompressaoLZ77.h"
+#include "header/CompressaoLZW.h"
 #include "header/ManipulandoArquivo.h"
 
 using namespace std;
@@ -40,10 +40,14 @@ ProductReview* import(int n) {
 }
 
 void gerarResultados() {
-    ofstream outfile("./src/testFiles/lz77_data.txt");
-    ofstream taxaMedia("./src/testFiles/taxa_media_de_compressao_lz77.txt");
+    ofstream outfile("./src/DadosCompressao/lzw_data.txt");
+    ofstream taxaMedia("./src/DadosCompressao/taxa_media_de_compressao_lzw.txt");
     if (!outfile) {
-        cout << "ERRO ao abrir ./testFiles/lzw_data.txt" << endl;
+        cout << "ERRO ao abrir ./src/DadosCompressao/lzw_data.txt" << endl;
+        exit(1);
+    }
+    if (!taxaMedia) {
+        cout << "ERRO ao abrir ./src/DadosCompressao/taxa_media_de_compressao_lzw.txt" << endl;
         exit(1);
     }
 
@@ -61,8 +65,8 @@ void gerarResultados() {
             }
 
             int tamOrig = str.length() * sizeof(char);
-            string compress = CompressaoLZ77::comprime(str);
-            int tamCompress = compress.length() * sizeof(char);
+            vector<unsigned short> compress = CompressaoLZW::comprime(str);
+            int tamCompress = compress.size() * sizeof(unsigned short);
             double taxa = ((double)tamOrig - (double)tamCompress) / (double)tamOrig;
             mediaCompressão += taxa;
             mediaChars += tamOrig;
@@ -81,10 +85,9 @@ void gerarResultados() {
 }
 
 int main(int argc, char* arg[]) {
-
+    string PATH; if (argc == 2) PATH = arg[1]; arq.setPath(PATH); arq.preProcessamento(PATH);
 
 /*
-    string PATH; if (argc == 2) PATH = arg[1]; arq.setPath(PATH); arq.preProcessamento(PATH);
     string txt = "string qualquer"; //arq.getReviews();
     
     cout << "Original:" << endl;
@@ -121,5 +124,5 @@ int main(int argc, char* arg[]) {
     cout << "Descomprimida:" << endl;
     cout << descomprimida << endl << endl; */
 
-    //gerarResultados();
+    gerarResultados();
 }
