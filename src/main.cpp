@@ -363,7 +363,7 @@ void etapaCompressao() {
 
     string strOption;
     switch (option) {
-        case 0: strOption = "Huffman"; break;
+        case 0: strOption = "HUFFMAN"; break;
         case 1: strOption = "LZ77"; break;
         case 2: strOption = "LZW"; break;
         default: break;
@@ -397,7 +397,7 @@ void etapaCompressao() {
 
     }
 
-    arq.gerarResultadoCmprs(option, tamOrig, tamCompress);
+    arq.gerarResultadoCmprs(strOption, tamOrig, tamCompress);
 }
 
 void interface() {
