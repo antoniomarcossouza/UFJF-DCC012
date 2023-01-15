@@ -1,3 +1,5 @@
+// g++ ./src/main.cpp ./src/header/*.cpp -I ./src/header -o ./src/main && ./src/main ./src/files
+
 #include <bits/stdc++.h>
 #include <stdlib.h>
 
@@ -280,7 +282,9 @@ void comprime(int metodo) {
 
     if (metodo == 0) {
         //  Huffman
-        // string comprimida = CompressaoHUF::comprime(original);
+        CompressaoHuffman::buildHuffmanTree(original, huffmanCode, filaPrioridade);
+        string comprimida = CompressaoHuffman::comprimir(original, huffmanCode);
+        arq.writeBin("reviewsComp.bin", comprimida);
     } else if (metodo == 1) {
         // LZ77
         string comprimida = CompressaoLZ77::comprime(original);
@@ -302,7 +306,9 @@ void descomprime(int metodo) {
 
     if (metodo == 0) {
         //  Huffman
-        // string comprimida = CompressaoHUF::comprime(original);
+        string comprimida = arq.readBin("reviewsComp.bin", 0);
+        string descomprimida = CompressaoHuffman::descomprimir(comprimida, filaPrioridade.top());
+        arq.writeTxt("reviewsDesc.txt", descomprimida);
     } else if (metodo == 1) {
         // LZ77
         string comprimida = arq.readBin("reviewsComp.bin", 1);
@@ -343,13 +349,13 @@ void compressTest(int method) {
     cout << "String comprimida: " << comp << endl;
 
     string orig = descomprime(comp, method);
-    cout << "String descomprimida: " << orig << endl << endl;
+    cout << "String descomprimida: " << orig << endl
+         << endl;
 
     cout << "Testando arquivos..." << endl;
 
     comprime(method);     // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
     descomprime(method);  // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
-    
 }
 
 void etapaCompressao() {
@@ -363,10 +369,17 @@ void etapaCompressao() {
 
     string strOption;
     switch (option) {
-        case 0: strOption = "Huffman"; break;
-        case 1: strOption = "LZ77"; break;
-        case 2: strOption = "LZW"; break;
-        default: break;
+        case 0:
+            strOption = "Huffman";
+            break;
+        case 1:
+            strOption = "LZ77";
+            break;
+        case 2:
+            strOption = "LZW";
+            break;
+        default:
+            break;
     }
 
     int qtdImports = 1000;
@@ -381,20 +394,21 @@ void etapaCompressao() {
         }
 
         if (option == 0) {
-            
-        }
-        else if (option == 1) {
+            huffmanCode.clear();
+            filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
+            string compress = comprime(str, option);
+            tamOrig[i] = str.length();
+            tamCompress[i] = compress.length() / 8;
+        } else if (option == 1) {
             string compress = comprime(str, option);
             tamOrig[i] = str.length();
             compress.erase(remove_if(compress.begin(), compress.end(), ::isspace), compress.end());
             tamCompress[i] = compress.length();
-        }
-        else if (option == 2) {
+        } else if (option == 2) {
             vector<unsigned short> compress = CompressaoLZW::comprime(str);
             tamOrig[i] = str.length();
             tamCompress[i] = compress.size() * sizeof(short);
         }
-
     }
 
     arq.gerarResultadoCmprs(option, tamOrig, tamCompress);
