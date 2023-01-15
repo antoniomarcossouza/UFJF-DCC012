@@ -239,6 +239,8 @@ priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, Compr
 string comprime(string str, int metodo) {
     if (metodo == 0) {
         //  Huffman
+        huffmanCode.clear();
+        filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
         CompressaoHuffman::buildHuffmanTree(str, huffmanCode, filaPrioridade);
         return CompressaoHuffman::comprimir(str, huffmanCode);
     } else if (metodo == 1) {
@@ -282,6 +284,8 @@ void comprime(int metodo) {
 
     if (metodo == 0) {
         //  Huffman
+        huffmanCode.clear();
+        filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
         CompressaoHuffman::buildHuffmanTree(original, huffmanCode, filaPrioridade);
         string comprimida = CompressaoHuffman::comprimir(original, huffmanCode);
         arq.writeBin("reviewsComp.bin", comprimida);
@@ -394,8 +398,6 @@ void etapaCompressao() {
         }
 
         if (option == 0) {
-            huffmanCode.clear();
-            filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
             string compress = comprime(str, option);
             tamOrig[i] = str.length();
             tamCompress[i] = compress.length() / 8;
