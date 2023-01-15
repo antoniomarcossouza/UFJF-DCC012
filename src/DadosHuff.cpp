@@ -1,5 +1,5 @@
 /*
-g++ ./src/TestsLZ77.cpp ./src/header/*.cpp -I ./src/header -o ./src/TestsLZ77 && ./src/TestsLZ77 ./src/files/
+g++ ./src/DadosHuff.cpp ./src/header/*.cpp -I ./src/header -o ./src/DadosHuff && ./src/DadosHuff ./src/files/
 */
 #include <bits/stdc++.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@ g++ ./src/TestsLZ77.cpp ./src/header/*.cpp -I ./src/header -o ./src/TestsLZ77 &&
 #include <vector>
 
 #include "header/ProductReview.h"
-#include "header/CompressaoLZ77.h"
+#include "header/CompressaoHuffman.h"
 #include "header/ManipulandoArquivo.h"
 
 using namespace std;
@@ -39,13 +39,28 @@ ProductReview* import(int n) {
     return produtos;
 }
 
+unordered_map<char, string> huffmanCode;
+priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare> filaPrioridade;
+
+string comprime(string str, int metodo) {
+    huffmanCode.clear();
+    filaPrioridade = priority_queue<CompressaoHuffman::Node*, vector<CompressaoHuffman::Node*>, CompressaoHuffman::Compare>();
+    CompressaoHuffman::buildHuffmanTree(str, huffmanCode, filaPrioridade);
+    return CompressaoHuffman::comprimir(str, huffmanCode);
+}
+
 void gerarResultados() {
-    ofstream outfile("./src/testFiles/lz77_data.txt");
-    ofstream taxaMedia("./src/testFiles/taxa_media_de_compressao_lz77.txt");
+    ofstream outfile("./src/DadosCompressao/Huff_data.txt");
+    ofstream taxaMedia("./src/DadosCompressao/taxa_media_de_compressao_Huff.txt");
     if (!outfile) {
-        cout << "ERRO ao abrir ./testFiles/lzw_data.txt" << endl;
+        cout << "ERRO ao abrir ./src/DadosCompressao/Huff_data.txt" << endl;
         exit(1);
     }
+    if (!taxaMedia) {
+        cout << "ERRO ao abrir ./src/DadosCompressao/taxa_media_de_compressao_Huff.txt" << endl;
+        exit(1);
+    }
+
 
     for (int k = 10; k <= 1000; k += 10)
     {
@@ -60,9 +75,9 @@ void gerarResultados() {
                 str.append(pr[i].toString());
             }
 
-            int tamOrig = str.length() * sizeof(char);
-            string compress = CompressaoLZ77::comprime(str);
-            int tamCompress = compress.length() * sizeof(char);
+            int tamOrig = str.length();
+            string compress = comprime(str, 0);
+            int tamCompress = compress.length() / 8;
             double taxa = ((double)tamOrig - (double)tamCompress) / (double)tamOrig;
             mediaCompressão += taxa;
             mediaChars += tamOrig;
@@ -81,11 +96,8 @@ void gerarResultados() {
 }
 
 int main(int argc, char* arg[]) {
-
-
-/*
     string PATH; if (argc == 2) PATH = arg[1]; arq.setPath(PATH); arq.preProcessamento(PATH);
-    string txt = "string qualquer"; //arq.getReviews();
+/*     string txt = "string qualquer"; //arq.getReviews();
     
     cout << "Original:" << endl;
     cout << txt << endl << endl;
@@ -119,7 +131,7 @@ int main(int argc, char* arg[]) {
 
     string descomprimida = CompressaoLZ77::descomprime(comprimida);
     cout << "Descomprimida:" << endl;
-    cout << descomprimida << endl << endl; */
+    cout << descomprimida << endl << endl;  */
 
-    //gerarResultados();
+    gerarResultados();
 }
