@@ -1,9 +1,5 @@
 #include "ArvoreVP.h"
 #include "ProductReview.h"
-#include "ManipulandoArquivo.h"
-
-
-extern ManipulandoArquivo arq;
 
 ArvoreVP::ArvoreVP() 
 {
@@ -14,7 +10,16 @@ ArvoreVP::ArvoreVP()
                                                                                      
 ArvoreVP::~ArvoreVP()
 {
-    delete this->raiz;
+   deletaArvore(raiz);
+}
+void ArvoreVP::deletaArvore(NoArvoreVP* no)
+{
+    if (no == nullptr)
+    return;
+    deletaArvore(no->esq);
+    deletaArvore(no->dir);
+
+    delete no;
 }
 
 
@@ -51,7 +56,11 @@ void ArvoreVP::insere(ProductReview* review){
         else{
             pai->dir = novoNo;
         }
-        verificaCoresArvore(novoNo);
+
+        if(novoNo!=nullptr){
+            verificaCoresArvore(novoNo);
+        }
+
     }
 }
 
@@ -106,40 +115,46 @@ ProductReview*  ArvoreVP::busca(string userId, string productId){
 
 void ArvoreVP::rotacaoEsquerda(NoArvoreVP* no){
 
-    NoArvoreVP* dir = no->dir;
-    no->dir = dir->esq;
-    dir->esq = no;
-    //verifica o pai
-    if(no->pai!=nullptr){
-        //verifica se o no é filho direito do pai
-        if(no->pai->dir == no){
-            no->pai->dir = dir;
+    if(no!=nullptr){
+        NoArvoreVP* dir = no->dir;
+        no->dir = dir->esq;
+        dir->esq = no;
+        //verifica o pai
+        if(no->pai!=nullptr){
+            //verifica se o no é filho direito do pai
+            if(no->pai->dir == no){
+                no->pai->dir = dir;
+            }
+            else{
+                no->pai->esq = dir;
+            }
         }
-        else{
-            no->pai->esq = dir;
-        }
+        dir->pai = no->pai;
+        no->pai = dir;
+
     }
-    dir->pai = no->pai;
-    no->pai = dir;
 }
 
 void ArvoreVP::rotacaoDireita(NoArvoreVP* no){
+    if(no!=nullptr){
+        NoArvoreVP* esq = no->esq;
+        no->esq = esq->dir;
+        esq->dir = no;
+        //verifica o pai
+        if(no->pai!=nullptr){
+            //verifica se o no é filho direito do pai
+            if(no->pai->dir == no){
+                no->pai->dir = esq;
+            }
+            else{
+                no->pai->esq = esq;
+            }
+        }
+        esq->pai = no->pai;
+        no->pai = esq;
 
-    NoArvoreVP* esq = no->esq;
-    no->esq = esq->dir;
-    esq->dir = no;
-    //verifica o pai
-    if(no->pai!=nullptr){
-        //verifica se o no é filho direito do pai
-        if(no->pai->dir == no){
-            no->pai->dir = esq;
-        }
-        else{
-            no->pai->esq = esq;
-        }
+
     }
-    esq->pai = no->pai;
-    no->pai = esq;
 }
 
 void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
@@ -174,7 +189,9 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
                         rotacaoDireita(no->pai->pai);
                     }
 
-                }   
+                } 
+
+
             }
             else{//o pai é filho direito
                 NoArvoreVP* tio = no->pai->pai->esq;
@@ -201,12 +218,12 @@ void ArvoreVP::verificaCoresArvore(NoArvoreVP* no){
                     }
 
                 }
+                
             }
         }
         else break;
     }
     this->raiz->cor = 0;//raiz é sempre preto
-
 }
 
 void ArvoreVP::print(){

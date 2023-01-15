@@ -35,5 +35,6 @@ class ArvoreVP {
     void verificaCoresArvore(NoArvoreVP* no);
     NoArvoreVP* criaNoArvoreVP(ProductReview* review);
     void imprime(NoArvoreVP* no);
+    void deletaArvore(NoArvoreVP* no);
 };  
 #endif
