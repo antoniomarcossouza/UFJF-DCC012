@@ -233,7 +233,7 @@ void etapaEstruturasBalanceadas() {
     arq.clearOutputFile();
     
     // ARVORE VERMELHO E PRETO
-    testeArvoreVP();
+    // testeArvoreVP();
 
     // ESPAÇO PARA FAZER O PROCESSO DE ANALISE
 
