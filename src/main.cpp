@@ -422,7 +422,7 @@ void interface() {
              << "> " << flush;
         cin >> option;
 
-        else if (option == 1)
+        if (option == 1)
             etapaEstruturasBalanceadas();
         else if (option == 2) {
             etapaCompressao();
