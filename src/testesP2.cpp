@@ -14,6 +14,7 @@
 
 #include "ProductReview.h"
 #include "ArvoreB.h"
+#include "./header/ArvoreVP.h"
 #include "ManipulandoArquivo.h"
 #include "./header/CompressaoHuffman.h"
 #include "./header/CompressaoLZ77.h"
@@ -165,17 +166,17 @@ void printPrompt(ProductReview *vet, int n)
     }
 }
 
-// void printPrompt(ArvoreVP *arv, int n)
-// {
-//     char imp;
-//     cout << "Imprimir (s/n): ";
-//     cin >> imp;
+void printPrompt(ArvoreVP *arv, int n)
+{
+    char imp;
+    cout << "Imprimir (s/n): ";
+    cin >> imp;
 
-//     if(arv == NULL)
-//         cout << "ALERTA: ponteiro nulo, nada a imprimir!" << endl;
-//     else if(imp == 's')
-//         arv->print();
-// }
+    if(arv == NULL)
+        cout << "ALERTA: ponteiro nulo, nada a imprimir!" << endl;
+    else if(imp == 's')
+        arv->print();
+}
 
 void printPrompt(ArvoreB *arv, int n)
 {
@@ -197,7 +198,7 @@ ProductReview* randomTest(int n)
     {
         string u("STR");
         u += 'a'+rand()%('z'-'a');
-        // vet[i].userId = u; // ou essa linha ou a de baixo pode ser usada, dependendo de como foi implementado (a de baixo é preferencial)
+        //vet[i].userId = u; // ou essa linha ou a de baixo pode ser usada, dependendo de como foi implementado (a de baixo é preferencial)
         vet[i].setUserId(u);
     }
 
@@ -236,19 +237,21 @@ void compressTest(int method)
         case 2: cout << "=== Teste LZW ===" << endl << endl; break;
         default: cout << "Metodo de compressao nao suportado" << endl << endl; break;
     }
- 
+    
     cout << "Testando strings..." << endl;
+
     string str = "string qualquer";
     string comp = comprime(str, method);
     string orig = descomprime(comp, method);
+
     cout << "String comprimida: " << comp << endl;
     cout << "String descomprimida: " << orig << endl << endl;
+
     cout << "Testando arquivos..." << endl;
+
     comprime(method); // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
     descomprime(method); // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
 }
-
-
 
 int main(int argc, char *argv[])
 {
@@ -270,7 +273,7 @@ int main(int argc, char *argv[])
         }
 
         ProductReview *vet = 0;
-        // ArvoreVP *arv_vp = 0;
+        ArvoreVP *arv_vp = 0;
         ArvoreB *arv_b = 0;
         int option, n;
         do
@@ -302,23 +305,23 @@ int main(int argc, char *argv[])
                     printPrompt(vet, n);
                     break;
                 case 3:
-                    // delete arv_vp;
-                    // arv_vp = new ArvoreVP();
-                    // treeTest(arv_vp, vet, n);
-                    // break;
+                    delete arv_vp;
+                    arv_vp = new ArvoreVP();
+                    treeTest(arv_vp, vet, n);
+                    break;
                 case 4:
                     delete arv_b;
                     arv_b = new ArvoreB();
                     treeTest(arv_b, vet, n);
                     break;
                 case 5:
-                     compressTest(0);
+                    compressTest(0);
                     break;
                 case 6:
-                     compressTest(1);
+                    compressTest(1);
                     break;
                 case 7:
-                     compressTest(2);
+                    compressTest(2);
                     break;
                 default:
                     break;
@@ -326,7 +329,7 @@ int main(int argc, char *argv[])
         } while(option != 0);
 
         delete [] vet;
-        // delete arv_vp;
+        delete arv_vp;
         delete arv_b;
     }
 

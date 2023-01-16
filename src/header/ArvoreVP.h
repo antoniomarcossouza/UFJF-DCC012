@@ -14,26 +14,29 @@ struct NoArvoreVP {
     int cor; //1 vermelho e 0 preto
 
 };
-
-class ArvoreVP {
-    public:
-
-        ArvoreVP();
-        ~ArvoreVP();
-
+               
+class ArvoreVP {                       
+    public:                
+                       
+        ArvoreVP();                
+        ~ArvoreVP();               
+                        
         ProductReview* busca(string userId, string productId);
         void insere(ProductReview* review);
-        void print();
-
+        void print(); 
+        int getComparacoesInsercao();
+        int getComparacoesBusca();               
+                         
     private:
 
     NoArvoreVP* raiz;
-    void rotacaoEsquerda();
-    void rotacaoDireita();
+    int comparacoesInsercao;
+    int comparacoesBusca;                                 
+    void rotacaoEsquerda(NoArvoreVP* no);
+    void rotacaoDireita(NoArvoreVP* no);
     void verificaCoresArvore(NoArvoreVP* no);
     NoArvoreVP* criaNoArvoreVP(ProductReview* review);
-
-
+    void imprime(NoArvoreVP* no);
+    void deletaArvore(NoArvoreVP* no);
 };  
-
 #endif
