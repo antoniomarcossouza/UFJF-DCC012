@@ -335,41 +335,6 @@ void descomprime(int metodo) {
     }
 }
 
-void compressTest(int method) {
-    switch (method) {
-        case 0:
-            cout << "=== Teste Huffman ===" << endl
-                 << endl;
-            break;
-        case 1:
-            cout << "=== Teste LZ77 ===" << endl
-                 << endl;
-            break;
-        case 2:
-            cout << "=== Teste LZW ===" << endl
-                 << endl;
-            break;
-        default:
-            cout << "Metodo de compressao nao suportado" << endl
-                 << endl;
-            break;
-    }
-
-    cout << "Testando strings..." << endl;
-
-    string str = "string qualquer";
-    string comp = comprime(str, method);
-    cout << "String comprimida: " << comp << endl;
-
-    string orig = descomprime(comp, method);
-    cout << "String descomprimida: " << orig << endl
-         << endl;
-
-    cout << "Testando arquivos..." << endl;
-
-    comprime(method);     // essa função deve comprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsOrig.txt'
-    descomprime(method);  // essa função deve descomprimir um texto qualquer armazenado em '/diretorio/contendo/arquivos/reviewsComp.bin'
-}
 
 void etapaCompressao() {
     int option;
