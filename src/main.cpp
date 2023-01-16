@@ -414,10 +414,8 @@ void interface() {
     do {
         cout << endl
              << "Escolha qual etapa sera executada: " << endl
-             << "1. Ordenacao" << endl
-             << "2. Hash" << endl
-             << "3. Estruturas Balanceadas" << endl
-             << "4. Compressao" << endl
+             << "1. Estruturas Balanceadas" << endl
+             << "2. Compressao" << endl
              << "0. Sair" << endl
              << "> " << flush;
         cin >> option;
